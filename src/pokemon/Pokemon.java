@@ -7,7 +7,7 @@ package pokemon;
 
 /**
  *
- * @author Johann Carta
+ * @author Johann Carta //comment
  */
 public class Pokemon {
 //try lang kung nakakacommit ako 
