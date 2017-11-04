@@ -1,0 +1,365 @@
+PP Range:
+10-20 > 35
+21-30 > 15
+31-50 > 10
+>50   > 5
+
+Pokedex Number: 1
+Name: Bulbasaur
+Type: Grass
+HP: 120
+Moves: 
+1. Vine Whip (Damage: 10) 
+2. Razor Leaf (Damege: 15)
+3. Leaf Storm (Damage: 25)
+4. Frenzy Plant (Damage: 50)
+
+Pokedex Number: 4
+Name: Charmander
+Type: Fire
+HP: 110
+Moves: 
+1. Ember (Damage: 20)
+2. Flamethrower (Damege: 35)
+3. Fire Blast (Damage: 40)
+4. Blast Burn (Damage: 60)
+
+Pokedex Number: 7
+Name: Squirtle
+Type: Water
+HP: 130
+Moves: 
+1. Bubblebeam (Damage: 15)
+2. Water Spout (Damege: 20)
+3. Hydro Cannon (Damage: 40)
+4. Ice Beam (Damage: 40) [ICE]
+
+Pokedex Number: 25
+Name: Pikachu
+Type: Electric
+HP: 100
+Moves: 
+1. Thunderbolt (Damage: 10)
+2. Volt Tackle (Damege: 40)
+3. Electro Ball (Damage: 40)
+4. Iron Tail (Damage: 20) [STEEL]
+
+Pokedex Number: 144
+Name: Articuno
+Type: Ice
+HP: 210
+Moves: 
+1. Ice Beam (Damage: 40)
+2. Freeze Dry (Damege: 35)
+3. Hurricane (Damage: 35) [FLYING]
+4. Blizzard (Damage: 60)
+
+Pokedex Number: 145
+Name: Zapdos
+Type: Electric
+HP: 220
+Moves: 
+1. Electro Ball (Damage: 40)
+2. Thunder (Damege: 25)
+3. Zap Cannon (Damage: 65)
+4. Magnetic Flux (Damage: 50)
+
+Pokedex Number: 146
+Name: Moltres
+Type: Fire
+HP: 200
+Moves: 
+1. Ancient Power (Damage: 10) [ROCK]
+2. Fire Blast (Damege: 40)
+3. Flamethrower (Damage: 40)
+4. Solar Beam (Damage: 60) [GRASS]
+
+Pokedex Number: 152
+Name: Chikorita
+Type: Grass
+HP: 120
+Moves: 
+1. Vine Whip (Damage: 10)
+2. Razor Leaf (Damege: 15)
+3. Leaf Storm (Damage: 25)
+4. Frenzy Plant (Damage: 50)
+
+Pokedex Number: 155
+Name: Cyndaquil
+Type: Fire
+HP: 110
+Moves: 
+1. Ember (Damage: 20)
+2. Flamethrower (Damege: 35)
+3. Fire Blast (Damage: 40)
+4. Blast Burn (Damage: 60)
+
+Pokedex Number: 158
+Name: Totodile
+Type: Water
+HP: 130
+Moves: 
+1. Bubblebeam (Damage: 15)
+2. Water Spout (Damege: 20)
+3. Hydro Cannon (Damage: 40)
+4. Ice Beam (Damage: 40) [ICE]
+
+Pokedex Number: 172
+Name: Pichu
+Type: Electric
+HP: 70
+Moves: 
+1. Thunderbolt (Damage: 10)
+2. Volt Tackle (Damege: 20)
+3. Electro Ball (Damage: 30)
+4. Iron Tail (Damage: 15) [STEEL]
+
+Pokedex Number: 173
+Name: Clefa
+Type: Normal
+HP: 85
+Moves: 
+1. Sucker Punch (Damage: 10)
+2. Uproar (Damege: 15)
+3. Double Slap (Damage: 25)
+4. Psybeam (Damage: 30) [PSYCHIC]
+
+Pokedex Number: 174
+Name: Igglybuff
+Type: Normal
+HP: 85
+Moves: 
+1. Sucker Punch (Damage: 10)
+2. Uproar (Damege: 15)
+3. Double Slap (Damage: 25)
+4. Psybeam (Damage: 30) [PSYCHIC]
+
+Pokedex Number: 175
+Name: Togepi
+Type: Normal
+HP: 85
+Moves: 
+1. Sucker Punch (Damage: 10)
+2. Uproar (Damege: 15)
+3. Double Slap (Damage: 25)
+4. Psybeam (Damage: 30) [PSYCHIC]
+
+Pokedex Number: 216
+Name: Teddiursa
+Type: Normal
+HP: 100
+Moves: 
+1. Sucker Punch (Damage: 20)
+2. Uproar (Damege: 25)
+3. Double Slap (Damage: 30)
+4. Dizzy Punch (Damage: 30) [PSYCHIC]
+
+Pokedex Number: 238
+Name: Smoochum
+Type: Psychic
+HP: 85
+Moves: 
+1. Sucker Punch (Damage: 10) [NORMAL]
+2. Uproar (Damege: 15) [NORMAL]
+3. Psychic (Damage: 45)
+4. Psybeam (Damage: 30)
+
+Pokedex Number: 239
+Name: Elekid
+Type: Electric
+HP: 100
+Moves: 
+1. Thunderbolt (Damage: 10)
+2. Thunder Punch (Damege: 25)
+3. Shockwave (Damage: 25) 
+4. Electro Ball (Damage: 40)
+
+Pokedex Number: 240
+Name: Magby
+Type: Fire
+HP: 90
+Moves: 
+1. Fire Spin (Damage: 10)
+2. Leaf Burn (Damege: 15)
+3. Will-o-wisp (Damage: 25)
+4. Dark Plot (Damage: 50) [DARK]
+
+Pokedex Number: 243
+Name: Raikou
+Type: Electric
+HP: 220
+Moves: 
+1. Electro Ball (Damage: 40)
+2. Thunder (Damege: 25)
+3. Zap Cannon (Damage: 65)
+4. Magnetic Flux (Damage: 50)
+
+Pokedex Number: 244
+Name: Entei
+Type: Fire
+HP: 200
+Moves: 
+1. Ancient Power (Damage: 10) [ROCK]
+2. Fire Blast (Damege: 40)
+3. Flamethrower (Damage: 40)
+4. Solar Beam (Damage: 60) [GRASS]
+
+Pokedex Number: 245
+Name: Suicune
+Type: Water
+HP: 230
+Moves: 
+1. Hydro Cannon (Damage: 60)
+2. Aurora Beam (Damege: 30) [ICE]
+3. Ice Fang (Damage: 65) [ICE]
+4. Extrasensory (Damage: 40) [PSYCHIC]
+
+Pokedex Number: 246
+Name: Larvitar
+Type: Ground
+HP: 100
+Moves: 
+1. Dig (Damage: 10)
+2. Sandstorm (Damege: 15)
+3. Stone Edge (Damage: 35) [ROCK]
+4. Earthquake (Damage: 50)
+
+Pokedex Number: 249
+Name: Lugia
+Type: Psychic
+HP: 300
+Moves: 
+1. Solar Power (Damage: 80) [GRASS]
+2. Hydro Pump (Damege: 40) [WATER]
+3. Punishment (Damage: 40) [DARK]
+4. Dragon Fang (Damage: 80) [DRAGON]
+
+Pokedex Number: 250
+Name: Ho-oh
+Type: Fire
+HP: 280
+Moves: 
+1. Solar Power (Damage: 80) [GRASS]
+2. Fire Fang (Damege: 80) 
+3. Extrasensory (Damage: 45) [PSYCHIC]
+4. Fire Blitz (Damage: 50)
+
+Pokedex Number: 251
+Name: Celebi
+Type: Grass
+HP: 210
+Moves: 
+1. Wish (Damage: 20) [NORMAL]
+2. Fury Cutter (Damege: 35)
+3. Leaf Storm (Damage: 45)
+4. Time-reversal (Damage: 60) [NORMAL] 
+
+Pokedex Number: 252
+Name: Treeko
+Type: Grass
+HP: 120
+Moves: 
+1. Vine Whip (Damage: 10)
+2. Razor Leaf (Damege: 15)
+3. Leaf Storm (Damage: 25)
+4. Frenzy Plant (Damage: 50)
+
+Pokedex Number: 255
+Name: Torchic
+Type: Fire
+HP: 110
+Moves: 
+1. Ember (Damage: 20)
+2. Flamethrower (Damege: 35)
+3. Fire Blast (Damage: 40)
+4. Blast Burn (Damage: 60)
+
+Pokedex Number: 258
+Name: Mudkip
+Type: Water
+HP: 130
+Moves: 
+1. Bubblebeam (Damage: 15)
+2. Water Spout (Damege: 20)
+3. Hydro Cannon (Damage: 40)
+4. Ice Beam (Damage: 40) [ICE]
+
+Pokedex Number: 380
+Name: Latias
+Type: Dragon
+HP: 230
+Moves: 
+1. Extrasensory (Damage: 35) [PSYCHIC]
+2. Dragon Rage (Damege: 40)
+3. Dragon Breath (Damage: 40)
+4. Psycho Shift (Damage: 40) [PSYCHIC]
+
+Pokedex Number: 381
+Name: Latios
+Type: Dragon
+HP: 240
+Moves: 
+1. Extrasensory (Damage: 35) [PSYCHIC]
+2. Dragon Rage (Damege: 40)
+3. Dragon Breath (Damage: 40)
+4. Momento (Damage: 1 hit KO) [ALSO KILLS LATIOS]
+
+Pokedex Number: 387
+Name: Turtwig
+Type: Grass
+HP: 120
+Moves: 
+1. Vine Whip (Damage: 10)
+2. Razor Leaf (Damege: 15)
+3. Leaf Storm (Damage: 25)
+4. Frenzy Plant (Damage: 50)
+
+Pokedex Number: 390
+Name: Chimchar
+Type: Fire
+HP: 110
+Moves: 
+1. Ember (Damage: 20)
+2. Flamethrower (Damege: 35)
+3. Fire Blast (Damage: 40)
+4. Blast Burn (Damage: 60)
+
+Pokedex Number: 393
+Name: Piplup
+Type: Water
+HP: 130
+Moves: 
+1. Bubblebeam (Damage: 15)
+2. Water Spout (Damege: 20)
+3. Hydro Cannon (Damage: 40)
+4. Ice Beam (Damage: 40) [ICE]
+
+Pokedex Number: 495
+Name: Snivy
+Type: Grass
+HP: 120
+Moves: 
+1. Vine Whip (Damage: 10)
+2. Razor Leaf (Damege: 15)
+3. Leaf Storm (Damage: 25)
+4. Frenzy Plant (Damage: 50)
+
+Pokedex Number: 498
+Name: Tepig
+Type: Fire
+HP: 110
+Moves: 
+1. Ember (Damage: 20)
+2. Flamethrower (Damege: 35)
+3. Fire Blast (Damage: 40)
+4. Blast Burn (Damage: 60)
+
+Pokedex Number: 501
+Name: Oshawott
+Type: Water
+HP: 130
+Moves: 
+1. Bubblebeam (Damage: 15)
+2. Water Spout (Damege: 20)
+3. Hydro Cannon (Damage: 40)
+4. Ice Beam (Damage: 40) [ICE]

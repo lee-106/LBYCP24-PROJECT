@@ -10,6 +10,13 @@ package pokemon;
  * @author Johann Carta 
  */
 public class Pokemon {
+    /*
+    Update as of: November 5, 3:16 AM - ginawa ko na yung lalagay niyo sa database.
+    Dito ilalagay kung ano mga inupdate niyo sa file
+    Jobs remain the same. For the week (November 6 to 12):
+    Expected output for Paulo and Maverick: [Database]
+    Expected output for Inicca: [Completion of the Battle Frontier Stage Scenarios]
+    */
     /**
      * @param args the command line arguments
      */
