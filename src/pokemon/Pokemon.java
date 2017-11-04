@@ -7,7 +7,7 @@ package pokemon;
 
 /**
  *
- * @author Johann Carta 
+ * @author Johann Carta  
  */
 public class Pokemon {
     /*
