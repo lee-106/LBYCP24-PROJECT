@@ -136,7 +136,8 @@ PreparedStatement pst = conn.prepareStatement("INSERT INTO login (username,passw
    catch(Exception e){
        e.printStackTrace();
        JOptionPane.showMessageDialog(null, "cannot connect db");
-           
+         PokemonIntro s = new PokemonIntro();
+         s.setVisible(true);
 } 
     }//GEN-LAST:event_jButton1ActionPerformed
 
