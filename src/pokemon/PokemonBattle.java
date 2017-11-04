@@ -23,6 +23,7 @@ public class PokemonBattle extends javax.swing.JFrame {
      */
     public PokemonBattle() {
         initComponents();
+        lifeBarProgressBar.setValue(100);
     }
 
     /*
@@ -54,6 +55,8 @@ public class PokemonBattle extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         User_Pokemon = new javax.swing.JLabel();
         Enemy = new javax.swing.JLabel();
+        lifeBarProgressBar = new javax.swing.JProgressBar();
+        lifeBarLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,6 +129,14 @@ public class PokemonBattle extends javax.swing.JFrame {
 
         Enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/alder.png"))); // NOI18N
 
+        lifeBarProgressBar.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                lifeBarProgressBarStateChanged(evt);
+            }
+        });
+
+        lifeBarLabel.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,8 +149,15 @@ public class PokemonBattle extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(User_Pokemon)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(User_Pokemon))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(lifeBarProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lifeBarLabel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -150,7 +168,12 @@ public class PokemonBattle extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(User_Pokemon, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lifeBarProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lifeBarLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(User_Pokemon)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -171,6 +194,11 @@ public class PokemonBattle extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         jButton1.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void lifeBarProgressBarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_lifeBarProgressBarStateChanged
+        // TODO add your handling code here:
+        lifeBarLabel.setText(lifeBarProgressBar.getValue()+"");
+    }//GEN-LAST:event_lifeBarProgressBarStateChanged
 
     /**
      * @param args the command line arguments
@@ -219,5 +247,7 @@ public class PokemonBattle extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lifeBarLabel;
+    private javax.swing.JProgressBar lifeBarProgressBar;
     // End of variables declaration//GEN-END:variables
 }
