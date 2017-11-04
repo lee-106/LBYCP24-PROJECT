@@ -7,10 +7,9 @@ package pokemon;
 
 /**
  *
- * @author Johann Carta //comment // comment2
+ * @author Johann Carta 
  */
 public class Pokemon {
-//try lang kung nakakacommit ako 
     /**
      * @param args the command line arguments
      */
