@@ -29,90 +29,90 @@
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton34" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Turtwig" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton37" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Chimchar" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton35" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Piplup" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton38" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Snivy" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton33" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Tepig" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton39" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Oshawott" min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton28" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Celebi" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton30" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Treeko" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton29" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Torchic" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton31" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Mudkip" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton27" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Latias" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton32" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Latios" min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButton36" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Raiku" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton41" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Entei" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton40" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Suicune" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton42" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Larvitar" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton25" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Lugia" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton43" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Hooh" min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" alignment="1" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton19" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Igglybuff" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton22" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Togepi" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton21" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Teddyursa" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton23" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Smoochum" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton18" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Elekid" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton24" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Magby" min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton12" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Moltres" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton14" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Chikorita" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton13" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Cyndaquil" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton15" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Totodile" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton10" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Pichu" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton17" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Clefable" min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButton3" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Bulbasaur" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton6" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Charmander" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton4" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Squirtle" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton7" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Pikachu" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton9" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Articuno" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton8" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="Zapdos" min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Component id="jLabel1" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="182" max="32767" attributes="0"/>
+              <EmptySpace pref="143" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -123,57 +123,57 @@
               <Component id="jLabel1" pref="26" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton8" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton9" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton7" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton4" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton6" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton3" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Zapdos" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Articuno" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Pikachu" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Squirtle" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Charmander" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Bulbasaur" min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton17" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton10" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton15" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton13" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton14" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton12" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Clefable" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Pichu" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Totodile" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Cyndaquil" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Chikorita" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Moltres" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton24" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton18" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton23" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton21" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton22" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton19" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Magby" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Elekid" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Smoochum" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Teddyursa" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Togepi" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Igglybuff" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton43" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton25" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton42" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton40" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton41" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton36" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Hooh" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Lugia" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Larvitar" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Suicune" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Entei" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Raiku" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton32" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton27" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton31" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton29" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton30" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton28" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Latios" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Latias" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Mudkip" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Torchic" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Treeko" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Celebi" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton39" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton33" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton38" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton35" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton37" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="jButton34" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Oshawott" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Tepig" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Snivy" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Piplup" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Chimchar" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="Turtwig" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
@@ -181,364 +181,364 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="Bulbasaur">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/1.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BulbasaurActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="Squirtle">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/7.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SquirtleActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
+    <Component class="javax.swing.JButton" name="Charmander">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/4.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CharmanderActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton7">
+    <Component class="javax.swing.JButton" name="Pikachu">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/25.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PikachuActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton8">
+    <Component class="javax.swing.JButton" name="Zapdos">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/145.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZapdosActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton9">
+    <Component class="javax.swing.JButton" name="Articuno">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/144.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ArticunoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton10">
+    <Component class="javax.swing.JButton" name="Pichu">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/172.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton10ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PichuActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton12">
+    <Component class="javax.swing.JButton" name="Moltres">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/146.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton12ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MoltresActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton13">
+    <Component class="javax.swing.JButton" name="Cyndaquil">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/155.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton13ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CyndaquilActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton14">
+    <Component class="javax.swing.JButton" name="Chikorita">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/152.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton14ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChikoritaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton15">
+    <Component class="javax.swing.JButton" name="Totodile">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/158.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton15ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TotodileActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton17">
+    <Component class="javax.swing.JButton" name="Clefable">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/173.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton17ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClefableActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton18">
+    <Component class="javax.swing.JButton" name="Elekid">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/239.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton18ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ElekidActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton19">
+    <Component class="javax.swing.JButton" name="Igglybuff">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/174.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton19ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IgglybuffActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton21">
+    <Component class="javax.swing.JButton" name="Teddyursa">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/216.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton21ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TeddyursaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton22">
+    <Component class="javax.swing.JButton" name="Togepi">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/175.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton22ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TogepiActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton23">
+    <Component class="javax.swing.JButton" name="Smoochum">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/238.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton23ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SmoochumActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton24">
+    <Component class="javax.swing.JButton" name="Magby">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/240.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton24ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MagbyActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton25">
+    <Component class="javax.swing.JButton" name="Lugia">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/249.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton25ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LugiaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton27">
+    <Component class="javax.swing.JButton" name="Latias">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/380.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton27ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LatiasActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton28">
+    <Component class="javax.swing.JButton" name="Celebi">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/251.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton28ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CelebiActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton29">
+    <Component class="javax.swing.JButton" name="Torchic">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/255.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton29ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TorchicActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton30">
+    <Component class="javax.swing.JButton" name="Treeko">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/252.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton30ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TreekoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton31">
+    <Component class="javax.swing.JButton" name="Mudkip">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/258.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton31ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MudkipActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton32">
+    <Component class="javax.swing.JButton" name="Latios">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/381.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton32ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LatiosActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton33">
+    <Component class="javax.swing.JButton" name="Tepig">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/498.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton33ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TepigActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton34">
+    <Component class="javax.swing.JButton" name="Turtwig">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/387.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton34ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TurtwigActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton35">
+    <Component class="javax.swing.JButton" name="Piplup">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/393.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton35ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PiplupActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton36">
+    <Component class="javax.swing.JButton" name="Raiku">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/243.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton36ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RaikuActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton37">
+    <Component class="javax.swing.JButton" name="Chimchar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/390.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton37ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChimcharActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton38">
+    <Component class="javax.swing.JButton" name="Snivy">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/495.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton38ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SnivyActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton39">
+    <Component class="javax.swing.JButton" name="Oshawott">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/501.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton39ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OshawottActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton40">
+    <Component class="javax.swing.JButton" name="Suicune">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/245.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton40ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SuicuneActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton41">
+    <Component class="javax.swing.JButton" name="Entei">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/244.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton41ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EnteiActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton42">
+    <Component class="javax.swing.JButton" name="Larvitar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/246.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton42ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LarvitarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton43">
+    <Component class="javax.swing.JButton" name="Hooh">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/250.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton43ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HoohActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
