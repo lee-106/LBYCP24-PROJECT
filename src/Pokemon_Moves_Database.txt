@@ -56,4 +56,61 @@ values
 insert into moves 
 (pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
 values 
-(152, "Chikorita", "Grass", 120, "Vine Whip", 10, "Grass", "Razor Leaf", 15, "Grass", "Leaf Storm", 25, "Grass", "Frenzy Plant", 50,  "Grass")
+(173, "Clefa", "Normal", 85, "Sucker Punch", 10, "Normal", "Uproar", 15, "Normal", "Double Slap", 25, "Normal", "Psybeam", 30,  "Psychic")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(174, "Igglybuff", "Normal", 85, "Sucker Punch", 10, "Normal", "Uproar", 15, "Normal", "Double Slap", 25, "Normal", "Psybeam", 30,  "Psychic")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(175, "Togepi", "Normal", 85, "Sucker Punch", 10, "Normal", "Uproar", 15, "Normal", "Double Slap", 25, "Normal", "Psybeam", 30,  "Psychic")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(216, "Teddiursa", "Normal", 100, "Sucker Punch", 20, "Normal", "Uproar", 25, "Normal", "Double Slap", 30, "Normal", "Dizzy Punch", 30,  "Psychic")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(238, "Smoochum", "Psychic", 85, "Sucker Punch", 10, "Normal", "Uproar", 15, "Normal", "Psychic", 45, "Psychic", "Psybeam", 30,  "Psychic")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(239, "Elekid", "Electric", 100, "Thunderbolt", 10, "Electric", "Thunder Punch", 25, "Electric", "Shockwave", 25, "Electric", "Electro Ball", 40,  "Electric")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(240, "Magby", "Fire", 90, "Fire Spin", 10, "Fire", "Leaf Burn", 15, "Fire", "Will-o-wisp", 25, "Fire", "Dark Plot", 40,  "Dark")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(243, "Raikou", "Electric", 220, "Electro Ball", 40, "Electric", "Thunder", 25, "Electric", "Zap Cannon", 65, "Electric", "Magnetic Flux", 50,  "Electric")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(244, "Entei", "Fire", 200, "Ancient Power", 10, "Rock", "Fire Blast", 40, "Fire", "Flamethrower", 40, "Fire", "Solar Beam", 60,  "Grass")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(245, "Suicune", "Water", 230, "Hydro Cannon", 60, "Water", "Aurora Beam", 30, "Ice", "Ice Fang", 65, "Ice", "Extrasensory", 50,  "Psychic")
+
+
+
+
+
+
+
+
+
+
+
+
