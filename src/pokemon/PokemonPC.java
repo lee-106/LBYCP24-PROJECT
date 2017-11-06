@@ -28,6 +28,7 @@ public class PokemonPC extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel17 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -64,258 +65,141 @@ public class PokemonPC extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
 
         jLabel17.setText("jLabel17");
+
+        jLabel38.setText("jLabel38");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pokemon PC");
         setBackground(new java.awt.Color(0, 255, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/pikachu.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/bulbasaur.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/charmander.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/squirtle.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/articuno.png"))); // NOI18N
         jLabel5.setToolTipText("");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/zapdos.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/moltres.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/chikorita.png"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/cyndaquil.png"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/totodile.png"))); // NOI18N
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/pichu.png"))); // NOI18N
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/cleffa.png"))); // NOI18N
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/igglybuff.png"))); // NOI18N
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/togepi.png"))); // NOI18N
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/magby.png"))); // NOI18N
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/smoochum.png"))); // NOI18N
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/elekid.png"))); // NOI18N
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, -1));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/raikou.png"))); // NOI18N
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/entei.png"))); // NOI18N
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/suicune.png"))); // NOI18N
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/larvitar.png"))); // NOI18N
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/lugia.png"))); // NOI18N
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, -1, -1));
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/ho-oh.png"))); // NOI18N
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/celebi.png"))); // NOI18N
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/treecko.png"))); // NOI18N
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/torchic.png"))); // NOI18N
+        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
 
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/mudkip.png"))); // NOI18N
+        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
 
         jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/latias.png"))); // NOI18N
+        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, -1, -1));
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/latios.png"))); // NOI18N
+        getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, -1, -1));
 
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/turtwig.png"))); // NOI18N
+        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/teddiursa.png"))); // NOI18N
+        getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
 
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/chimchar.png"))); // NOI18N
+        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/piplup.png"))); // NOI18N
+        getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
 
         jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/snivy.png"))); // NOI18N
+        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
 
         jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/tepig.png"))); // NOI18N
+        getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, -1));
 
         jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/oshawott.png"))); // NOI18N
-
-        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/finallogo.png"))); // NOI18N
-
-        jLabel39.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
-        jLabel39.setText("The Mini Game");
+        getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
 
         jButton2.setText("Summary");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         jButton3.setText("Move");
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 60, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel38))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel31)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel33)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel34)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel35)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel36)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel37))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLabel13)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel14)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel32)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel15)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel16)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel18))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel25)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel26)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel27)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel28)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel29)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel30))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel19)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel20)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel21)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel22)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel23)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel24)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel6)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(63, 63, 63)
-                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel39)
-                .addGap(91, 91, 91))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel38)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel39)
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel32))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel23)
-                    .addComponent(jLabel24)
-                    .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabel27)
-                    .addComponent(jLabel28)
-                    .addComponent(jLabel29)
-                    .addComponent(jLabel30)
-                    .addComponent(jLabel25))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel31)
-                    .addComponent(jLabel33)
-                    .addComponent(jLabel34)
-                    .addComponent(jLabel35)
-                    .addComponent(jLabel36)
-                    .addComponent(jLabel37))
-                .addContainerGap())
-        );
+        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
+        getContentPane().add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, -1));
+
+        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
+        getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -393,6 +277,7 @@ public class PokemonPC extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

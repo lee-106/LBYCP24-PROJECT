@@ -1,0 +1,59 @@
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(1, "Bulbasaur", "Grass", 120, "Vine Whip", 10, "Grass", "Razor Leaf", 15, "Grass", "Leaf Storm", 25, "Grass", "Frenzy Plant", 50,  "Grass")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(4, "Charmander", "Fire", 110, "Ember", 20, "Fire", "Flamethrower", 35, "Fire", "Fire Blast", 40, "Fire", "Blast Burn", 60,  "Fire")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(7, "Squirtle", "Water", 130, "Bubblebeam", 15, "Water", "Water Spout", 20, "Water", "Hydro Cannon", 40, "Water", "Ice Beam", 40,  "Ice")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(25, "Pikachu","Electric", 100, "Thunderbolt", 10, "Electric", "Volt Tackle", 40, "Electric", "Electro Ball", 40, "Electric", "Iron Tail", 20, "Steel")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(144, "Articuno", "Ice", 210, "Ice Beam", 40, "Ice", "Freeze Dry", 35, "Ice", "Hurricane", 35, "Flying", "Blizzard", 60,  "Ice")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(145, "Zapdos", "Electric", 220, "Electro Ball", 40, "Electric", "Thunder", 25, "Electric", "Zap Cannon", 65, "Electric", "Magnetic Flux", 50,  "Electric")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(146, "Moltres", "Fire", 200, "Ancient Power", 10, "Rock", "Fire Blast", 40, "Fire", "Flamethrower", 40, "Fire", "Solar Beam", 60,  "Grass")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(152, "Chikorita", "Grass", 120, "Vine Whip", 10, "Grass", "Razor Leaf", 15, "Grass", "Leaf Storm", 25, "Grass", "Frenzy Plant", 50,  "Grass")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(155, "Cyndaquil", "Fire", 110, "Ember", 20, "Fire", "Flamethrower", 35, "Fire", "Fire Blast", 40, "Fire", "Blast Burn", 60,  "Fire")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(158, "Totodile", "Water", 130, "Bubblebeam", 15, "Water", "Water Spout", 20, "Water", "Hydro Cannon", 40, "Water", "Ice Beam", 40,  "Ice")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(172, "Pichu","Electric", 70, "Thunderbolt", 10, "Electric", "Volt Tackle", 20, "Electric", "Electro Ball", 30, "Electric", "Iron Tail", 15, "Steel")
+
+insert into moves 
+(pokemon_number, name, type, hp, attack1, damage1, type1, attack2, damage2, type2, attack3, damage3, type3, attack4, damage4, type4) 
+values 
+(152, "Chikorita", "Grass", 120, "Vine Whip", 10, "Grass", "Razor Leaf", 15, "Grass", "Leaf Storm", 25, "Grass", "Frenzy Plant", 50,  "Grass")
