@@ -9,6 +9,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +26,7 @@ public class PokemonLogIn extends javax.swing.JFrame {
      */
     public PokemonLogIn() {
         initComponents();
+        update_database();
     }
     
     /**
@@ -182,7 +187,7 @@ private boolean validate_login(String username,String password) {
    try
    {           
         Class.forName("com.mysql.jdbc.Driver"); 
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javademo?" + "user=root&password=");   
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "user=root&password=");   
     
    
         PreparedStatement pst = conn.prepareStatement("Select * from login where username=? and password=?");
@@ -199,7 +204,60 @@ private boolean validate_login(String username,String password) {
        return false;
    }
 }
-    
+
+private void update_database() {
+
+   try
+   {           
+        Class.forName("com.mysql.jdbc.Driver"); 
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?" + "user=root&password=");
+        Statement info=conn.createStatement();
+        info.execute("create database pokemon_stats;\n");
+        info.execute("use pokemon_stats");
+        info.addBatch("create table Pokemon (`No.` int,`Name` varchar(20),`Type` varchar(20),HP int,attack1 varchar(20),damage1 int,attack2 varchar(20),damage2 int,attack3 varchar(20),damage3 int,attack4 varchar(20),damage4 int);\n");
+        info.addBatch("insert into Pokemon values('1','Bulbasaur','Grass','120','Vine Whip','10','Razor Leaf','15','Leaf Storm','25','Frenzy Plant','50');\n");
+        info.addBatch("insert into Pokemon values('4','Charmander','Fire','110','Ember','20','Flamethrower','35','Fire Blast','40','Blast Burn','60');\n");
+        info.addBatch("insert into Pokemon values('7','Squirtle','Water','130','Bubblebeam','15','Water Sprout','20','Hydro Cannon','40','Ice Beam','40');\n");
+        info.addBatch("insert into Pokemon values('25','Pikachu','Electric','100','Thunderbolt','10','Volt Tackle','40','Electro Ball','40','Iron Tail','20');\n");
+        info.addBatch("insert into Pokemon values('144','Articuno','Ice','210','Ice Beam','40','Freeze Dry','35','Hurricane','35','Blizzard','60');\n");
+        info.addBatch("insert into Pokemon values('145','Zapdos','Electric','220','Electro Ball','40','Thunder','25','Zap Cannon','65','Magneric Flux','50');\n");
+        info.addBatch("insert into Pokemon values('146','Moltres','Fire','200','Ancient Power','10','Fire Blast','40','Flamethrower','40','Solar Beam','60');\n");
+        info.addBatch("insert into Pokemon values('152','Chikorita','Grass','120','Vine Whip','10','Razor Leaf','15','Leaf Storm','25','Frenzy Plant','50');\n");
+        info.addBatch("insert into Pokemon values('155','Cyndaquil','Fire','110','Ember','20','Flamethrower','35','Fire Blast','40','Blast Burn','60');\n");
+        info.addBatch("insert into Pokemon values('158','Totodile','Water','130','Bubblebeam','15','Water Sprout','20','Hydro Cannon','40','Ice Beam','40');\n");
+        info.addBatch("insert into Pokemon values('172','Pichu','Electric','70','Thunderbolt','10','Volt Tackle','20','Electro Ball','30','Iron Tail','15');\n");
+        info.addBatch("insert into Pokemon values('173','Clefa','Normal','85','Sucker Punch','10','Uproar','15','Double Slap','25','Psybeam','30');\n");
+        info.addBatch("insert into Pokemon values('174','Igglybuff','Normal','85','Sucker Punch','10','Uproar','15','Double Slap','25','Psybeam','30');\n");
+        info.addBatch("insert into Pokemon values('175','Togepi','Normal','85','Sucker Punch','10','Uproar','15','Double Slap','25','Psybeam','30');\n");
+        info.addBatch("insert into Pokemon values('216','Teddiursa','Normal','100','Sucker Punch','20','Uproar','25','Double Slap','30','Dizzy Beam','30');\n");
+        info.addBatch("insert into Pokemon values('238','Smoochum','Psychic','85','Sucker Punch','10','Uproar','15','Psychic','45','Psybeam','30');\n");
+        info.addBatch("insert into Pokemon values('239','Elekid','Electric','100','Thunderbolt','10','Thunder Punch','25','Shockwave','25','Electro Ball','40');\n");
+        info.addBatch("insert into Pokemon values('240','Magby','Fire','90','Fire Spin','10','Leaf Burn','15','Will-o-wisp','25','Dark Plot','50');\n");
+        info.addBatch("insert into Pokemon values('243','Raikou','Electric','220','Electro Ball','40','Thunder','25','Zap Cannon','65','Magnetic Flux','50');\n");
+        info.addBatch("insert into Pokemon values('244','Entei','Fire','200','Ancient Power','10','Fire Blast','40','Flamethrower','40','Solar Beam','60');\n");
+        info.addBatch("insert into Pokemon values('245','Suicine','Water','230','Hydro Cannon','60','Aurora Beam','30','Ice Fang','65','Extrasensory','40');\n");
+        info.addBatch("insert into Pokemon values('246','Larvitar','Ground','100','Dig','10','Sandstorm','15','Stone Edge','35','Earthquake','50');\n");
+        info.addBatch("insert into Pokemon values('249','Lugia','Psychic','300','Solar Power','80','Hydro Pump','40','Punishment','40','Draghon Fang','80');\n");
+        info.addBatch("insert into Pokemon values('250','Ho-oh','Fire','280','Solar Power','80','Fire Fang','80','Extrasensory','45','Fire Blitz','50');\n");
+        info.addBatch("insert into Pokemon values('251','Celebi','Grass','210','Wish','20','Fury Cutter','35','Leaf Storm','45','Time-reversal','60');\n");
+        info.addBatch("insert into Pokemon values('252','Treeko','Grass','120','Vine Whip','10','Razor Leaf','15','Leaf Storm','25','Frenzy Plant','50');\n");
+        info.addBatch("insert into Pokemon values('255','Torchic','Fire','110','Ember','20','Flamethrower','35','Fire Blast','40','Blast Burn','60');\n");
+        info.addBatch("insert into Pokemon values('258','Mudkip','Water','130','Bubblebeam','15','Water Sprout','20','Hydro Cannon','40','Ice Beam','40');\n");
+        info.addBatch("insert into Pokemon values('380','Latias','Dragon','230','Extrasensory','35','Dragon Rage','40','Dragon Breath','40','Psycho Shift','40');\n");
+        info.addBatch("insert into Pokemon values('381','Latios','Dragon','240','Extrasensory','35','Dragon Rage','40','Dragon Breath','40','Memento','500');\n");
+        info.addBatch("insert into Pokemon values('387','Turtwig','Grass','120','Vine Whip','10','Razor Leaf','15','Leaf Storm','25','Frenzy Plant','50');\n");
+        info.addBatch("insert into Pokemon values('390','Chimchar','Fire','110','Ember','20','Flamethrower','35','Fire Blast','40','Blast Burn','60');\n");
+        info.addBatch("insert into Pokemon values('393','Piplup','Water','130','Bubblebeam','15','Water Sprout','20','Hydro Cannon','40','Ice Beam','40');\n");
+        info.addBatch("insert into Pokemon values('495','Snivy','Grass','120','Vine Whip','10','Razor Leaf','15','Leaf Storm','25','Frenzy Plant','50');\n");
+        info.addBatch("insert into Pokemon values('498','Tepig','Fire','110','Ember','20','Flamethrower','35','Fire Blast','40','Blast Burn','60');\n");
+        info.addBatch("insert into Pokemon values('501','Oshawott','Water','130','Bubblebeam','15','Water Sprout','20','Hydro Cannon','40','Ice Beam','40');" );
+   info.executeBatch();
+   }
+   catch(Exception e){
+       e.printStackTrace();
+   }
+}
+ 
     /**
      * @param args the command line arguments
      */
