@@ -27,6 +27,7 @@ public class PokemonSelection extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         Bulbasaur = new javax.swing.JButton();
         Squirtle = new javax.swing.JButton();
         Charmander = new javax.swing.JButton();
@@ -64,404 +65,385 @@ public class PokemonSelection extends javax.swing.JFrame {
         Larvitar = new javax.swing.JButton();
         Hooh = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        Zapdos1 = new javax.swing.JButton();
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        Bulbasaur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/1.png"))); // NOI18N
+        Bulbasaur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/bulbasaur.png"))); // NOI18N
         Bulbasaur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BulbasaurActionPerformed(evt);
             }
         });
+        getContentPane().add(Bulbasaur);
+        Bulbasaur.setBounds(20, 66, 40, 40);
 
-        Squirtle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/7.png"))); // NOI18N
+        Squirtle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/squirtle.png"))); // NOI18N
         Squirtle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SquirtleActionPerformed(evt);
             }
         });
+        getContentPane().add(Squirtle);
+        Squirtle.setBounds(136, 66, 40, 40);
 
-        Charmander.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/4.png"))); // NOI18N
+        Charmander.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/charmander.png"))); // NOI18N
         Charmander.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CharmanderActionPerformed(evt);
             }
         });
+        getContentPane().add(Charmander);
+        Charmander.setBounds(78, 66, 40, 40);
 
-        Pikachu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/25.png"))); // NOI18N
+        Pikachu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/pikachu.png"))); // NOI18N
         Pikachu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PikachuActionPerformed(evt);
             }
         });
+        getContentPane().add(Pikachu);
+        Pikachu.setBounds(194, 66, 40, 40);
 
-        Zapdos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/145.png"))); // NOI18N
+        Zapdos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/zapdos.png"))); // NOI18N
         Zapdos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ZapdosActionPerformed(evt);
             }
         });
+        getContentPane().add(Zapdos);
+        Zapdos.setBounds(310, 66, 40, 40);
 
-        Articuno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/144.png"))); // NOI18N
+        Articuno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/articuno.png"))); // NOI18N
         Articuno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ArticunoActionPerformed(evt);
             }
         });
+        getContentPane().add(Articuno);
+        Articuno.setBounds(252, 66, 40, 40);
 
-        Pichu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/172.png"))); // NOI18N
+        Pichu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/pichu.png"))); // NOI18N
         Pichu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PichuActionPerformed(evt);
             }
         });
+        getContentPane().add(Pichu);
+        Pichu.setBounds(252, 112, 40, 40);
 
-        Moltres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/146.png"))); // NOI18N
+        Moltres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/moltres.png"))); // NOI18N
         Moltres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MoltresActionPerformed(evt);
             }
         });
+        getContentPane().add(Moltres);
+        Moltres.setBounds(20, 112, 40, 40);
 
-        Cyndaquil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/155.png"))); // NOI18N
+        Cyndaquil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/cyndaquil.png"))); // NOI18N
         Cyndaquil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CyndaquilActionPerformed(evt);
             }
         });
+        getContentPane().add(Cyndaquil);
+        Cyndaquil.setBounds(136, 112, 40, 40);
 
-        Chikorita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/152.png"))); // NOI18N
+        Chikorita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/chikorita.png"))); // NOI18N
         Chikorita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ChikoritaActionPerformed(evt);
             }
         });
+        getContentPane().add(Chikorita);
+        Chikorita.setBounds(78, 112, 40, 40);
 
-        Totodile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/158.png"))); // NOI18N
+        Totodile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/totodile.png"))); // NOI18N
         Totodile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TotodileActionPerformed(evt);
             }
         });
+        getContentPane().add(Totodile);
+        Totodile.setBounds(194, 112, 40, 40);
 
-        Clefable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/173.png"))); // NOI18N
+        Clefable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/cleffa.png"))); // NOI18N
         Clefable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ClefableActionPerformed(evt);
             }
         });
+        getContentPane().add(Clefable);
+        Clefable.setBounds(310, 112, 40, 40);
 
-        Elekid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/239.png"))); // NOI18N
+        Elekid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/elekid.png"))); // NOI18N
         Elekid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ElekidActionPerformed(evt);
             }
         });
+        getContentPane().add(Elekid);
+        Elekid.setBounds(252, 158, 40, 40);
 
-        Igglybuff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/174.png"))); // NOI18N
+        Igglybuff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/igglybuff.png"))); // NOI18N
         Igglybuff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IgglybuffActionPerformed(evt);
             }
         });
+        getContentPane().add(Igglybuff);
+        Igglybuff.setBounds(20, 158, 40, 40);
 
-        Teddyursa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/216.png"))); // NOI18N
+        Teddyursa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/teddiursa.png"))); // NOI18N
         Teddyursa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TeddyursaActionPerformed(evt);
             }
         });
+        getContentPane().add(Teddyursa);
+        Teddyursa.setBounds(136, 158, 40, 40);
 
-        Togepi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/175.png"))); // NOI18N
+        Togepi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/togepi.png"))); // NOI18N
         Togepi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TogepiActionPerformed(evt);
             }
         });
+        getContentPane().add(Togepi);
+        Togepi.setBounds(78, 158, 40, 40);
 
-        Smoochum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/238.png"))); // NOI18N
+        Smoochum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/smoochum.png"))); // NOI18N
         Smoochum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SmoochumActionPerformed(evt);
             }
         });
+        getContentPane().add(Smoochum);
+        Smoochum.setBounds(194, 158, 40, 40);
 
-        Magby.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/240.png"))); // NOI18N
+        Magby.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/magby.png"))); // NOI18N
         Magby.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MagbyActionPerformed(evt);
             }
         });
+        getContentPane().add(Magby);
+        Magby.setBounds(310, 158, 40, 40);
 
-        Lugia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/249.png"))); // NOI18N
+        Lugia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/lugia.png"))); // NOI18N
         Lugia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LugiaActionPerformed(evt);
             }
         });
+        getContentPane().add(Lugia);
+        Lugia.setBounds(252, 204, 40, 40);
 
-        Latias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/380.png"))); // NOI18N
+        Latias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/latias.png"))); // NOI18N
         Latias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LatiasActionPerformed(evt);
             }
         });
+        getContentPane().add(Latias);
+        Latias.setBounds(252, 250, 40, 40);
 
-        Celebi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/251.png"))); // NOI18N
+        Celebi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/celebi.png"))); // NOI18N
         Celebi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CelebiActionPerformed(evt);
             }
         });
+        getContentPane().add(Celebi);
+        Celebi.setBounds(20, 250, 40, 40);
 
-        Torchic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/255.png"))); // NOI18N
+        Torchic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/torchic.png"))); // NOI18N
         Torchic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TorchicActionPerformed(evt);
             }
         });
+        getContentPane().add(Torchic);
+        Torchic.setBounds(136, 250, 40, 40);
 
-        Treeko.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/252.png"))); // NOI18N
+        Treeko.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/treecko.png"))); // NOI18N
         Treeko.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TreekoActionPerformed(evt);
             }
         });
+        getContentPane().add(Treeko);
+        Treeko.setBounds(78, 250, 40, 40);
 
-        Mudkip.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/258.png"))); // NOI18N
+        Mudkip.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/mudkip.png"))); // NOI18N
         Mudkip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MudkipActionPerformed(evt);
             }
         });
+        getContentPane().add(Mudkip);
+        Mudkip.setBounds(194, 250, 40, 40);
 
-        Latios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/381.png"))); // NOI18N
+        Latios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/latios.png"))); // NOI18N
         Latios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LatiosActionPerformed(evt);
             }
         });
+        getContentPane().add(Latios);
+        Latios.setBounds(310, 250, 40, 40);
 
-        Tepig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/498.png"))); // NOI18N
+        Tepig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/tepig.png"))); // NOI18N
         Tepig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TepigActionPerformed(evt);
             }
         });
+        getContentPane().add(Tepig);
+        Tepig.setBounds(252, 296, 40, 40);
 
-        Turtwig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/387.png"))); // NOI18N
+        Turtwig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/turtwig.png"))); // NOI18N
         Turtwig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TurtwigActionPerformed(evt);
             }
         });
+        getContentPane().add(Turtwig);
+        Turtwig.setBounds(20, 296, 40, 40);
 
-        Piplup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/393.png"))); // NOI18N
+        Piplup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/piplup.png"))); // NOI18N
         Piplup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PiplupActionPerformed(evt);
             }
         });
+        getContentPane().add(Piplup);
+        Piplup.setBounds(136, 296, 40, 40);
 
-        Raiku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/243.png"))); // NOI18N
+        Raiku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/raikou.png"))); // NOI18N
         Raiku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RaikuActionPerformed(evt);
             }
         });
+        getContentPane().add(Raiku);
+        Raiku.setBounds(20, 204, 40, 40);
 
-        Chimchar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/390.png"))); // NOI18N
+        Chimchar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/chimchar.png"))); // NOI18N
         Chimchar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ChimcharActionPerformed(evt);
             }
         });
+        getContentPane().add(Chimchar);
+        Chimchar.setBounds(78, 296, 40, 40);
 
-        Snivy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/495.png"))); // NOI18N
+        Snivy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/snivy.png"))); // NOI18N
         Snivy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SnivyActionPerformed(evt);
             }
         });
+        getContentPane().add(Snivy);
+        Snivy.setBounds(194, 296, 40, 40);
 
-        Oshawott.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/501.png"))); // NOI18N
+        Oshawott.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/oshawott.png"))); // NOI18N
         Oshawott.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OshawottActionPerformed(evt);
             }
         });
+        getContentPane().add(Oshawott);
+        Oshawott.setBounds(310, 296, 40, 40);
 
-        Suicune.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/245.png"))); // NOI18N
+        Suicune.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/suicune.png"))); // NOI18N
         Suicune.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SuicuneActionPerformed(evt);
             }
         });
+        getContentPane().add(Suicune);
+        Suicune.setBounds(136, 204, 40, 40);
 
-        Entei.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/244.png"))); // NOI18N
+        Entei.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/entei.png"))); // NOI18N
         Entei.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EnteiActionPerformed(evt);
             }
         });
+        getContentPane().add(Entei);
+        Entei.setBounds(78, 204, 40, 40);
 
-        Larvitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/246.png"))); // NOI18N
+        Larvitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/larvitar.png"))); // NOI18N
         Larvitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LarvitarActionPerformed(evt);
             }
         });
+        getContentPane().add(Larvitar);
+        Larvitar.setBounds(194, 204, 40, 40);
 
-        Hooh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/250.png"))); // NOI18N
+        Hooh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/ho-oh.png"))); // NOI18N
         Hooh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HoohActionPerformed(evt);
             }
         });
+        getContentPane().add(Hooh);
+        Hooh.setBounds(310, 204, 40, 40);
 
         jLabel1.setFont(new java.awt.Font("Lao UI", 0, 14)); // NOI18N
         jLabel1.setText("Select your team!");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(20, 11, 139, 49);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(Turtwig, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Chimchar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Piplup, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Snivy, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Tepig, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Oshawott, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(Celebi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Treeko, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Torchic, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Mudkip, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Latias, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Latios, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Raiku, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Entei, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Suicune, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Larvitar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Lugia, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Hooh, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(Igglybuff, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Togepi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Teddyursa, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Smoochum, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Elekid, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Magby, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(Moltres, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Chikorita, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Cyndaquil, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Totodile, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Pichu, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Clefable, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Bulbasaur, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Charmander, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Squirtle, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Pikachu, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Articuno, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Zapdos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(143, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Zapdos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Articuno, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Pikachu, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Squirtle, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Charmander, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Bulbasaur, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Clefable, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Pichu, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Totodile, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Cyndaquil, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Chikorita, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Moltres, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Magby, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Elekid, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Smoochum, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Teddyursa, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Togepi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Igglybuff, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Hooh, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Lugia, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Larvitar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Suicune, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Entei, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Raiku, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Latios, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Latias, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Mudkip, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Torchic, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Treeko, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Celebi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Oshawott, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Tepig, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Snivy, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Piplup, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Chimchar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Turtwig, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(250, 190, 256, 180);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(0, 180, 256, 180);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(0, 190, 256, 180);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(0, 0, 256, 180);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(250, 0, 256, 180);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(250, 180, 256, 180);
+
+        jButton1.setText("jButton1");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(360, 70, 73, 23);
+
+        Zapdos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/zapdos.png"))); // NOI18N
+        Zapdos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Zapdos1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Zapdos1);
+        Zapdos1.setBounds(310, 66, 40, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -610,6 +592,10 @@ public class PokemonSelection extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_HoohActionPerformed
 
+    private void Zapdos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Zapdos1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Zapdos1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -682,6 +668,15 @@ public class PokemonSelection extends javax.swing.JFrame {
     private javax.swing.JButton Treeko;
     private javax.swing.JButton Turtwig;
     private javax.swing.JButton Zapdos;
+    private javax.swing.JButton Zapdos1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }
