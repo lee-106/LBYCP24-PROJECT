@@ -1,3 +1,4 @@
+#Pokemon-moves;
 create table moves (`No.` int,`Name` varchar(20),`Type` varchar(20),HP int,attack1 varchar(20),damage1 int,type1 varchar(20),attack2 varchar(20),damage2 int,type2 varchar(20),attack3 varchar(20),damage3 int,type3 varchar(20),attack4 varchar(20),damage4 int,type4 varchar(20));
 insert into moves values('1','Bulbasaur','Grass','120','Vine Whip','10','Grass','Razor Leaf','15','Grass','Leaf Storm','25','Grass','Frenzy Plant','50','Grass');
 insert into moves values('4','Charmander','Fire','110','Ember','20','Fire','Flamethrower','35','Fire','Fire Blast','40','Fire','Blast Burn','60','Fire');
@@ -24,7 +25,7 @@ insert into moves values('246','Larvitar','Ground','100','Dig','10','Ground','Sa
 insert into moves values('249','Lugia','Psychic','300','Solar Power','80','Grass','Hydro Pump','40','Water','Punishment','40','Dark','Dragon Fang','80','Dragon');
 insert into moves values('250','Ho-oh','Fire','280','Solar Power','80','Grass','Fire Fang','80','Fire','Extrasensory','45','Psychic','Fire Blitz','50','Fire');
 insert into moves values('251','Celebi','Grass','210','Wish','20','Normal','Fury Cutter','35','Grass','Leaf Storm','45','Grass','Time-reversal','60','Normal');
-insert into moves values('252','Treeko','Grass','120','Vine Whip','10','Grass','Razor Leaf','15','Grass','Leaf Storm','25','Grass','Frenzy Plant','50','Grass');
+insert into moves values('252','Treecko','Grass','120','Vine Whip','10','Grass','Razor Leaf','15','Grass','Leaf Storm','25','Grass','Frenzy Plant','50','Grass');
 insert into moves values('255','Torchic','Fire','110','Ember','20','Fire','Flamethrower','35','Fire','Fire Blast','40','Fire','Blast Burn','60','Fire');
 insert into moves values('258','Mudkip','Water','130','Bubblebeam','15','Water','Water Sprout','20','Water','Hydro Cannon','40','Water','Ice Beam','40','Ice');
 insert into moves values('380','Latias','Dragon','230','Extrasensory','35','Psychic','Dragon Rage','40','Dragon','Dragon Breath','40','Dragon','Psycho Shift','40','Psychic');
@@ -35,3 +36,11 @@ insert into moves values('393','Piplup','Water','130','Bubblebeam','15','Water',
 insert into moves values('495','Snivy','Grass','120','Vine Whip','10','Grass','Razor Leaf','15','Grass','Leaf Storm','25','Grass','Frenzy Plant','50','Grass');
 insert into moves values('498','Tepig','Fire','110','Ember','20','Fire','Flamethrower','35','Fire','Fire Blast','40','Fire','Blast Burn','60','Fire');
 insert into moves values('501','Oshawott','Water','130','Bubblebeam','15','Water','Water Sprout','20','Water','Hydro Cannon','40','Water','Ice Beam','40','Ice');
+#Pokemon-trainers;
+create table trainers (`Name` varchar(20),`Pokemon1` int,`Pokemon2` int,`Pokemon3` int,`Pokemon4` int,`Pokemon5` int,`Pokemon6` int);
+insert into trainers values('Alder','4','155','240','255','390','146');
+insert into trainers values('Brycen','7','158','258','393','501','245');
+insert into trainers values('Cynthia','25','145','239','243','246','251');
+insert into trainers values('Cilan','1','152','252','387','495','216');
+insert into trainers values('Iris','172','173','174','175','238','25');
+insert into trainers values('Drayden','380','381','249','250','0','0');

@@ -5,6 +5,7 @@
  */
 package pokemon;
 
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,6 +22,8 @@ public class PokemonRegister extends javax.swing.JFrame {
      */
     public PokemonRegister() {
         initComponents();
+        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
     }
 
     /**

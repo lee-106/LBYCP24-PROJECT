@@ -5,6 +5,8 @@
  */
 package pokemon;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -24,6 +26,8 @@ public class PokemonBattle extends javax.swing.JFrame {
     public PokemonBattle() {
         initComponents();
         lifeBarProgressBar.setValue(100);
+        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
     }
 
     /*

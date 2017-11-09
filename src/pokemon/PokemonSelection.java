@@ -434,7 +434,7 @@ public class PokemonSelection extends javax.swing.JFrame {
 
         jButton1.setText("jButton1");
         getContentPane().add(jButton1);
-        jButton1.setBounds(360, 70, 73, 23);
+        jButton1.setBounds(360, 70, 79, 25);
 
         Zapdos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/zapdos.png"))); // NOI18N
         Zapdos1.addActionListener(new java.awt.event.ActionListener() {

@@ -5,6 +5,7 @@
  */
 package pokemon;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
@@ -30,6 +31,8 @@ public class PokemonLogIn extends javax.swing.JFrame {
     public PokemonLogIn() throws FileNotFoundException {
         initComponents();
         update_moves();
+        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
     }
     
     /**
@@ -209,7 +212,7 @@ private boolean validate_login(String username,String password) {
 }
 
 private void update_moves() throws FileNotFoundException {
-   Scanner moves_dtb=new Scanner(new File("src\\Pokemon_Moves_Database.txt"));
+   Scanner dtb=new Scanner(new File("src\\Pokemon_Database.txt"));
    try
    {           
         Class.forName("com.mysql.jdbc.Driver"); 
@@ -218,8 +221,8 @@ private void update_moves() throws FileNotFoundException {
         info.addBatch("drop database if exists pokemon");
         info.addBatch("create database pokemon;");
         info.addBatch("use pokemon");
-        while(moves_dtb.hasNext()){
-            info.addBatch(moves_dtb.nextLine());
+        while(dtb.hasNext()){
+            info.addBatch(dtb.nextLine());
         }
    info.executeBatch();
    }

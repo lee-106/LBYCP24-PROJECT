@@ -5,6 +5,8 @@
  */
 package pokemon;
 
+import java.awt.*;
+
 /**
  *
  * @author Johann Carta
@@ -16,6 +18,8 @@ public class PokemonPC extends javax.swing.JFrame {
      */
     public PokemonPC() {
         initComponents();
+        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
     }
 
     /**
