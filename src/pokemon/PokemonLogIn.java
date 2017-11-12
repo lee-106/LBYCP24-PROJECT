@@ -180,7 +180,12 @@ public class PokemonLogIn extends javax.swing.JFrame {
             if(validate_login(user,pwd))
             {
                 JOptionPane.showMessageDialog(null, "Correct Login Credentials");
-                PokemonBattle PB = new PokemonBattle();
+                PokemonBattle PB = null;
+            try {
+                PB = new PokemonBattle();
+            } catch (SQLException ex) {
+                Logger.getLogger(PokemonLogIn.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 PB.setVisible(true);
             }
        else
@@ -193,7 +198,7 @@ private boolean validate_login(String username,String password) {
    try
    {           
         Class.forName("com.mysql.jdbc.Driver"); 
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "user=root&password=");   
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javademo?" + "user=root&password=");   
     
    
         PreparedStatement pst = conn.prepareStatement("Select * from login where username=? and password=?");

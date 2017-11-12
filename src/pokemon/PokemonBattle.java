@@ -9,6 +9,11 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -23,10 +28,11 @@ public class PokemonBattle extends javax.swing.JFrame {
     /**
      * Creates new form PokemonBattle
      */
-    public PokemonBattle() {
+    public PokemonBattle() throws SQLException {
         initComponents();
         lifeBarProgressBar.setValue(100);
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+        initPokemon();
         this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
     }
 
@@ -52,17 +58,17 @@ public class PokemonBattle extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        attack1 = new javax.swing.JButton();
+        attack2 = new javax.swing.JButton();
+        attack3 = new javax.swing.JButton();
+        attack4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         User_Pokemon = new javax.swing.JLabel();
         Enemy = new javax.swing.JLabel();
         lifeBarProgressBar = new javax.swing.JProgressBar();
         lifeBarLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setText("Switch");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -80,13 +86,13 @@ public class PokemonBattle extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Attack1");
+        attack1.setText("Attack1");
 
-        jButton5.setText("Attack2");
+        attack2.setText("Attack2");
 
-        jButton6.setText("Attack3");
+        attack3.setText("Attack3");
 
-        jButton7.setText("Attack4");
+        attack4.setText("Attack4");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,13 +101,13 @@ public class PokemonBattle extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5)
-                    .addComponent(jButton4))
-                .addGap(106, 106, 106)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                    .addComponent(attack1)
+                    .addComponent(attack2))
+                .addGap(110, 110, 110)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(attack4)
+                    .addComponent(attack3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -118,12 +124,12 @@ public class PokemonBattle extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton7))
+                    .addComponent(attack1)
+                    .addComponent(attack3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(attack2)
+                    .addComponent(attack4))
                 .addContainerGap())
         );
 
@@ -234,7 +240,11 @@ public class PokemonBattle extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PokemonBattle().setVisible(true);
+                try {
+                    new PokemonBattle().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -242,16 +252,41 @@ public class PokemonBattle extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Enemy;
     private javax.swing.JLabel User_Pokemon;
+    private javax.swing.JButton attack1;
+    private javax.swing.JButton attack2;
+    private javax.swing.JButton attack3;
+    private javax.swing.JButton attack4;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lifeBarLabel;
     private javax.swing.JProgressBar lifeBarProgressBar;
     // End of variables declaration//GEN-END:variables
+
+    private void initPokemon() throws SQLException {
+        try {
+            //select from user database to get the pokemon list
+            //select the first pokemon, then display it.
+            int[] samplepokemonlist = {1,2,3,4,5,6};
+            int pokemonNumber =0;
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
+            
+            
+            PreparedStatement pst = conn.prepareStatement("Select * from moves limit ?,1");
+             pst.setInt(1,samplepokemonlist[pokemonNumber]);
+            ResultSet rs = pst.executeQuery();
+            rs.next();
+            attack1.setText(rs.getString("attack1"));
+            attack2.setText(rs.getString("attack2"));
+            attack3.setText(rs.getString("attack3"));
+            attack4.setText(rs.getString("attack4"));
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
 }
