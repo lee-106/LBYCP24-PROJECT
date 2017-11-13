@@ -6,6 +6,7 @@
 package pokemon;
 
 import java.io.FileNotFoundException;
+import java.sql.SQLException;
 
 /**
  *
@@ -26,7 +27,7 @@ public class Pokemon {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, SQLException {
         PokemonLogIn s = new PokemonLogIn();
         s.setVisible(true);// TODO code application logic here
     }
