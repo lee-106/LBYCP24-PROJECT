@@ -281,7 +281,7 @@ private void changeUserPokemonImage(int number){
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             
             
-            PreparedStatement pst = conn.prepareStatement("Select * from moves where No. = ?");
+            PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
              pst.setString(1,samplepokemonlist[pokemonNumber]+"");
             ResultSet rs = pst.executeQuery();
             rs.next();

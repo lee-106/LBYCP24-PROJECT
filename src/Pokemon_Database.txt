@@ -1,5 +1,5 @@
 #Pokemon-moves;
-create table moves (`No.` varchar(20),`Name` varchar(20),`Type` varchar(20),HP int,attack1 varchar(20),damage1 int,type1 varchar(20),attack2 varchar(20),damage2 int,type2 varchar(20),attack3 varchar(20),damage3 int,type3 varchar(20),attack4 varchar(20),damage4 int,type4 varchar(20));
+create table moves (`Number` varchar(20),`Name` varchar(20),`Type` varchar(20),HP int,attack1 varchar(20),damage1 int,type1 varchar(20),attack2 varchar(20),damage2 int,type2 varchar(20),attack3 varchar(20),damage3 int,type3 varchar(20),attack4 varchar(20),damage4 int,type4 varchar(20));
 insert into moves values('1','Bulbasaur','Grass','120','Vine Whip','10','Grass','Razor Leaf','15','Grass','Leaf Storm','25','Grass','Frenzy Plant','50','Grass');
 insert into moves values('4','Charmander','Fire','110','Ember','20','Fire','Flamethrower','35','Fire','Fire Blast','40','Fire','Blast Burn','60','Fire');
 insert into moves values('7','Squirtle','Water','130','Bubblebeam','15','Water','Water Sprout','20','Water','Hydro Cannon','40','Water','Ice Beam','40','Ice');
