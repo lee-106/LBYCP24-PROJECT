@@ -78,7 +78,7 @@ public class PokemonPC extends javax.swing.JFrame {
 
         jLabel38.setText("jLabel38");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pokemon PC");
         setBackground(new java.awt.Color(0, 255, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));

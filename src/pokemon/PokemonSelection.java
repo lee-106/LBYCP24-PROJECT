@@ -687,7 +687,8 @@ public class PokemonSelection extends javax.swing.JFrame {
             for(int i=0;i<pokemon_number.size();i++){
                 pokemons[i]=pokemon_number.get(i);
             }
-            PokemonSwitch s = new PokemonSwitch(pokemons, livesPercentage);
+            PokemonBattle s = new PokemonBattle(user);
+            
             s.setVisible(true);
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon_user?" + "user=root&password=");
             Statement data=conn.createStatement();
