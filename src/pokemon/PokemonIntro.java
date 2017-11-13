@@ -29,7 +29,7 @@ public class PokemonIntro extends javax.swing.JFrame {
     /**
      * Creates new form PokemonIntro
      */
-    public PokemonIntro(String user,int progress) throws SQLException {
+    public PokemonIntro(String user,int progress,int gender) throws SQLException {
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?" + "user=root&password=");
         initComponents();
         jButton2.setVisible(false);
@@ -45,6 +45,7 @@ public class PokemonIntro extends javax.swing.JFrame {
         jLabel13.setVisible(false);
         this.user=user;
         this.counter=progress;
+        this.gender=gender;
         System.out.println(progress);
         jButton1.doClick();
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
@@ -356,6 +357,7 @@ public class PokemonIntro extends javax.swing.JFrame {
                 
                 jLabel1.setIcon(Bianca);
                 jLabel3.setText("Do you want to hear the mechanics of the game?");
+                jButton1.setVisible(false);
                 jButton5.setVisible(true);
                 jButton6.setVisible(true);
                 break;
@@ -366,7 +368,7 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 9:{   
-                jLabel3.setText("In the start of the game, the player is given the chance to select 6 Pokemon for his team.");
+                jLabel3.setText("The player is given the chance to select 6 Pokemon for his team.");
                 break;
             }
             case 10:{

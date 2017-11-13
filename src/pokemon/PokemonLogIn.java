@@ -159,7 +159,7 @@ public class PokemonLogIn extends javax.swing.JFrame {
                 Statement data=conn.createStatement();
                 ResultSet a=data.executeQuery("Select * from login ");
                 a.next();
-                PokemonIntro intro=new PokemonIntro(user,a.getInt("progress"));
+                PokemonIntro intro=new PokemonIntro(user,a.getInt("progress"),a.getInt("gender"));
                 intro.setVisible(true);
                 setVisible(false);
             } catch (SQLException ex) {
