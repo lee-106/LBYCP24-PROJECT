@@ -5,6 +5,8 @@
  */
 package pokemon;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
 
 /**
@@ -22,8 +24,9 @@ public class PokemonSelection extends javax.swing.JFrame {
 
     int[] pokemons;
     int[] livesPercentage = {100, 100, 100, 100, 100, 100};
-    int counter = 1;
-    int counter2 = 1;
+    ImageIcon[] pokemon_images=new ImageIcon[6];
+    List<Integer> pokemon_number= new ArrayList();
+    int counter = 0;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,7 +48,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         Cyndaquil = new javax.swing.JButton();
         Chikorita = new javax.swing.JButton();
         Totodile = new javax.swing.JButton();
-        Clefable = new javax.swing.JButton();
+        Clefa = new javax.swing.JButton();
         Elekid = new javax.swing.JButton();
         Igglybuff = new javax.swing.JButton();
         Teddyursa = new javax.swing.JButton();
@@ -77,7 +80,6 @@ public class PokemonSelection extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        Zapdos1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         party4 = new javax.swing.JButton();
@@ -182,13 +184,13 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Totodile, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 112, 40, 40));
 
-        Clefable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/cleffa.png"))); // NOI18N
-        Clefable.addActionListener(new java.awt.event.ActionListener() {
+        Clefa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/cleffa.png"))); // NOI18N
+        Clefa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClefableActionPerformed(evt);
+                ClefaActionPerformed(evt);
             }
         });
-        getContentPane().add(Clefable, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 112, 40, 40));
+        getContentPane().add(Clefa, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 112, 40, 40));
 
         Elekid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/elekid.png"))); // NOI18N
         Elekid.addActionListener(new java.awt.event.ActionListener() {
@@ -382,9 +384,9 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Hooh, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 204, 40, 40));
 
-        jLabel1.setFont(new java.awt.Font("Lao UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Sans Unicode", 3, 24)); // NOI18N
         jLabel1.setText("Select your team!");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 11, 139, 49));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 11, 230, 49));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 180));
@@ -404,14 +406,6 @@ public class PokemonSelection extends javax.swing.JFrame {
         jButton1.setText("jButton1");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
 
-        Zapdos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/zapdos.png"))); // NOI18N
-        Zapdos1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Zapdos1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Zapdos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 66, 40, 40));
-
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, -1, 180));
 
@@ -423,22 +417,52 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 520, -1, -1));
 
-        party4.setText("jButton3");
+        party4.setText(" ");
+        party4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                party4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(party4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 80, 70));
 
-        party5.setText("jButton4");
+        party5.setText(" ");
+        party5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                party5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(party5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 80, 70));
 
-        party3.setText("jButton5");
+        party3.setText(" ");
+        party3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                party3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(party3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 80, 70));
 
-        party2.setText("jButton6");
+        party2.setText(" ");
+        party2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                party2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(party2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 80, 70));
 
-        party1.setText("jButton7");
+        party1.setText(" ");
+        party1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                party1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(party1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 80, 70));
 
-        party6.setText("jButton8");
+        party6.setText(" ");
+        party6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                party6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(party6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 80, 70));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
@@ -450,1510 +474,237 @@ public class PokemonSelection extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BulbasaurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BulbasaurActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/1.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                 
-                break;
+    public void update_images(){
+        for(int i=0;i<6;i++){
+            if(i<pokemon_number.size()){
+                if(pokemon_number.get(i)!=0){
+                ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/"+pokemon_number.get(i)+".png"));
+                pokemon_images[i]=bbry;
+                }
             }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                 
-                break;
-            }
+            else pokemon_images[i]=null;
         }
-        counter++;
+            party1.setIcon(pokemon_images[0]);
+            party2.setIcon(pokemon_images[1]);
+            party3.setIcon(pokemon_images[2]);
+            party4.setIcon(pokemon_images[3]);
+            party5.setIcon(pokemon_images[4]);
+            party6.setIcon(pokemon_images[5]);
+    }
+    private void BulbasaurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BulbasaurActionPerformed
+        pokemon_number.add(1);
+        update_images();
     }//GEN-LAST:event_BulbasaurActionPerformed
 
     private void SquirtleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SquirtleActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/7.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(7);
+        update_images();
     }//GEN-LAST:event_SquirtleActionPerformed
 
     private void CharmanderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharmanderActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/4.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(4);
+        update_images();
     }//GEN-LAST:event_CharmanderActionPerformed
 
     private void PikachuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PikachuActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/25.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(25);
+        update_images();
     }//GEN-LAST:event_PikachuActionPerformed
 
     private void ZapdosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZapdosActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/145.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(145);
+        update_images();
     }//GEN-LAST:event_ZapdosActionPerformed
 
     private void ArticunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArticunoActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/144.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(144);
+        update_images();
     }//GEN-LAST:event_ArticunoActionPerformed
 
     private void PichuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PichuActionPerformed
-       ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/172.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(172);
+        update_images();
     }//GEN-LAST:event_PichuActionPerformed
 
     private void MoltresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoltresActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/146.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(146);
+        update_images();
     }//GEN-LAST:event_MoltresActionPerformed
 
     private void CyndaquilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CyndaquilActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/155.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(152);
+        update_images();
     }//GEN-LAST:event_CyndaquilActionPerformed
 
     private void ChikoritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChikoritaActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/152.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(155);
+        update_images();
     }//GEN-LAST:event_ChikoritaActionPerformed
 
     private void TotodileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotodileActionPerformed
-       ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/158.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(158);
+        update_images();
     }//GEN-LAST:event_TotodileActionPerformed
 
-    private void ClefableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClefableActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/173.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
-    }//GEN-LAST:event_ClefableActionPerformed
+    private void ClefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClefaActionPerformed
+        pokemon_number.add(173);
+        update_images();
+    }//GEN-LAST:event_ClefaActionPerformed
 
     private void ElekidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElekidActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/239.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(239);
+        update_images();
     }//GEN-LAST:event_ElekidActionPerformed
 
     private void IgglybuffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IgglybuffActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/174.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(174);
+        update_images();
     }//GEN-LAST:event_IgglybuffActionPerformed
 
     private void TeddyursaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeddyursaActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/216.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;  
+        pokemon_number.add(216);
+        update_images();
     }//GEN-LAST:event_TeddyursaActionPerformed
 
     private void TogepiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TogepiActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/175.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(175);
+        update_images();
     }//GEN-LAST:event_TogepiActionPerformed
 
     private void SmoochumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SmoochumActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/238.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(238);
+        update_images();
     }//GEN-LAST:event_SmoochumActionPerformed
 
     private void MagbyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MagbyActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/240.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(240);
+        update_images();
     }//GEN-LAST:event_MagbyActionPerformed
 
     private void LugiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LugiaActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/249.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(249);
+        update_images();
     }//GEN-LAST:event_LugiaActionPerformed
 
     private void LatiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LatiasActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/380.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(380);
+        update_images();
     }//GEN-LAST:event_LatiasActionPerformed
 
     private void CelebiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CelebiActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/251.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(251);
+        update_images();
     }//GEN-LAST:event_CelebiActionPerformed
 
     private void TorchicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TorchicActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/255.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(255);
+        update_images();
     }//GEN-LAST:event_TorchicActionPerformed
 
     private void TreekoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TreekoActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/252.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(252);
+        update_images();
     }//GEN-LAST:event_TreekoActionPerformed
 
     private void MudkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MudkipActionPerformed
-         ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/258.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(258);
+        update_images();
     }//GEN-LAST:event_MudkipActionPerformed
 
     private void LatiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LatiosActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/381.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(381);
+        update_images();
     }//GEN-LAST:event_LatiosActionPerformed
 
     private void TepigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TepigActionPerformed
-       ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/498.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(498);
+        update_images();
     }//GEN-LAST:event_TepigActionPerformed
 
     private void TurtwigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TurtwigActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/387.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(387);
+        update_images();
     }//GEN-LAST:event_TurtwigActionPerformed
 
     private void PiplupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PiplupActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/393.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(393);
+        update_images();
     }//GEN-LAST:event_PiplupActionPerformed
 
     private void RaikuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaikuActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/243.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(243);
+        update_images();
     }//GEN-LAST:event_RaikuActionPerformed
 
     private void ChimcharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChimcharActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/390.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(390);
+        update_images();
     }//GEN-LAST:event_ChimcharActionPerformed
 
     private void SnivyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnivyActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/495.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(495);
+        update_images();
     }//GEN-LAST:event_SnivyActionPerformed
 
     private void OshawottActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OshawottActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/501.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(501);
+        update_images();
     }//GEN-LAST:event_OshawottActionPerformed
 
     private void SuicuneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuicuneActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/245.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(245);
+        update_images();
     }//GEN-LAST:event_SuicuneActionPerformed
 
     private void EnteiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnteiActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/244.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(244);
+        update_images();
     }//GEN-LAST:event_EnteiActionPerformed
 
     private void LarvitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LarvitarActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/246.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(246);
+        update_images();
     }//GEN-LAST:event_LarvitarActionPerformed
 
     private void HoohActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HoohActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/250.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                break;
-            }
-        }
-        counter++;
+        pokemon_number.add(250);
+        update_images();
     }//GEN-LAST:event_HoohActionPerformed
-
-    private void Zapdos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Zapdos1ActionPerformed
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/145.png"));
-        switch(counter)
-        {
-            case 1:
-            {
-                party1.setIcon(bbry);
-                pokemons[(counter - 1)] = 145;
-                break;
-            }
-            case 2:
-            {
-                party2.setIcon(bbry);
-                pokemons[(counter - 1)] = 145;
-                break;
-            }case 3:
-            {
-                party3.setIcon(bbry);
-                pokemons[(counter - 1)] = 145;
-                break;
-            }case 4:
-            {
-                party4.setIcon(bbry);
-                pokemons[(counter - 1)] = 145;
-                break;
-            }case 5:
-            {
-                party5.setIcon(bbry);
-                pokemons[(counter - 1)] = 145;
-                break;
-            }case 6:
-            {
-                party6.setIcon(bbry);
-                pokemons[(counter - 1)] = 145;
-                
-                break;
-            }
-            default:
-            {
-                counter = 1;
-                party1.setIcon(bbry);
-                pokemons[(counter - 1)] = 145;
-                break;
-            }
-        }
-        counter++;
-    }//GEN-LAST:event_Zapdos1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         PokemonSwitch s = new PokemonSwitch(pokemons, livesPercentage);
         s.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void party1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_party1ActionPerformed
+        pokemon_number.remove(0);
+        update_images();
+    }//GEN-LAST:event_party1ActionPerformed
+
+    private void party2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_party2ActionPerformed
+        pokemon_number.remove(1);
+        update_images();
+    }//GEN-LAST:event_party2ActionPerformed
+
+    private void party3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_party3ActionPerformed
+        pokemon_number.remove(2);
+        update_images();        
+    }//GEN-LAST:event_party3ActionPerformed
+
+    private void party4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_party4ActionPerformed
+        pokemon_number.remove(3);
+        update_images();        
+    }//GEN-LAST:event_party4ActionPerformed
+
+    private void party5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_party5ActionPerformed
+        pokemon_number.remove(4);
+        update_images();        
+    }//GEN-LAST:event_party5ActionPerformed
+
+    private void party6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_party6ActionPerformed
+        pokemon_number.remove(5);
+        update_images();        
+    }//GEN-LAST:event_party6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1997,7 +748,7 @@ public class PokemonSelection extends javax.swing.JFrame {
     private javax.swing.JButton Charmander;
     private javax.swing.JButton Chikorita;
     private javax.swing.JButton Chimchar;
-    private javax.swing.JButton Clefable;
+    private javax.swing.JButton Clefa;
     private javax.swing.JButton Cyndaquil;
     private javax.swing.JButton Elekid;
     private javax.swing.JButton Entei;
@@ -2027,7 +778,6 @@ public class PokemonSelection extends javax.swing.JFrame {
     private javax.swing.JButton Treeko;
     private javax.swing.JButton Turtwig;
     private javax.swing.JButton Zapdos;
-    private javax.swing.JButton Zapdos1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

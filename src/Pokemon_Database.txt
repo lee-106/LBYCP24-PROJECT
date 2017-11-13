@@ -1,3 +1,7 @@
+#Create database;
+drop database if exists pokemon;
+create database pokemon;
+use pokemon;
 #Pokemon-moves;
 create table moves (`Number` varchar(20),`Name` varchar(20),`Type` varchar(20),HP int,attack1 varchar(20),damage1 int,type1 varchar(20),attack2 varchar(20),damage2 int,type2 varchar(20),attack3 varchar(20),damage3 int,type3 varchar(20),attack4 varchar(20),damage4 int,type4 varchar(20));
 insert into moves values('1','Bulbasaur','Grass','120','Vine Whip','10','Grass','Razor Leaf','15','Grass','Leaf Storm','25','Grass','Frenzy Plant','50','Grass');
@@ -44,3 +48,8 @@ insert into trainers values('Cynthia','25','145','239','243','246','251');
 insert into trainers values('Cilan','1','152','252','387','495','216');
 insert into trainers values('Iris','172','173','174','175','238','25');
 insert into trainers values('Drayden','380','381','249','250','0','0');
+#Pokemon-Login
+create database if not exists pokemon_user;
+use pokemon_user;
+create table if not exists login (`username` varchar(20),`password` varchar(20),`gender` int,`Pokemon1` int,`Pokemon2` int,`Pokemon3` int,`Pokemon4` int,`Pokemon5` int,`Pokemon6` int,`Progress` int);
+

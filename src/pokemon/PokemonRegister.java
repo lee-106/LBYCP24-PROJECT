@@ -9,18 +9,25 @@ import java.awt.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Administrator
+ * @author AdministratorZ
  */
 public class PokemonRegister extends javax.swing.JFrame {
-
+     Connection conn;
+     Statement data;
     /**
      * Creates new form REGISTER
      */
-    public PokemonRegister() {
+    public PokemonRegister() throws SQLException {
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?" + "user=root&password=");
+        data=conn.createStatement();
         initComponents();
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
@@ -122,20 +129,16 @@ public class PokemonRegister extends javax.swing.JFrame {
    else{
        String user1 = txtfield_username.getText();   
        String pwd1= txtfield_password.getText();
+        Class.forName("com.mysql.jdbc.Driver");  
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon_user?" + "user=root&password=");
+        PreparedStatement pst = conn.prepareStatement("insert into login (username,password) values (?,?)");
 
+        pst.setString(1, user1); 
+        pst.setString(2, pwd1);
 
-
-
-Class.forName("com.mysql.jdbc.Driver");  
-Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javademo?" + "user=root&password="); 
-PreparedStatement pst = conn.prepareStatement("INSERT INTO login (username,password) values (?,?)");
-       
-      pst.setString(1, user1); 
-      pst.setString(2, pwd1);
-       
-      pst.executeUpdate();                        
+        pst.executeUpdate();                        
         }        
-      PokemonIntro s = new PokemonIntro();
+         PokemonIntro s = new PokemonIntro(txtfield_username.getText());
          s.setVisible(true);
    }
    catch(Exception e){
@@ -194,7 +197,11 @@ PreparedStatement pst = conn.prepareStatement("INSERT INTO login (username,passw
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PokemonRegister().setVisible(true);
+                try {
+                    new PokemonRegister().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(PokemonRegister.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

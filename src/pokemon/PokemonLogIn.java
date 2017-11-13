@@ -28,9 +28,9 @@ public class PokemonLogIn extends javax.swing.JFrame {
     /**
      * Creates new form LogIn
      */
-    public PokemonLogIn() throws FileNotFoundException {
+    public PokemonLogIn() throws FileNotFoundException, SQLException {
         initComponents();
-        update_moves();
+        update_database();
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
     }
@@ -44,22 +44,20 @@ public class PokemonLogIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPasswordField2 = new javax.swing.JPasswordField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setText("password");
+        jLabel2.setText("password:");
 
         jButton2.setText("REGISTER");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -80,53 +78,37 @@ public class PokemonLogIn extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
         jLabel3.setText("The Mini Game");
 
-        jButton4.setText("Load: Game File 1");
+        jLabel8.setText("username:");
+
+        jButton4.setText("LOG IN");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("(Game File Saved)");
-
-        jButton5.setText("Load: Game File 2");
-
-        jButton6.setText("Load: Game File 3");
-
-        jLabel6.setText("(empty)");
-
-        jLabel7.setText("(empty)");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5)))
-                    .addComponent(jLabel2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(83, 83, 83))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField1)
+                    .addComponent(jLabel8)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField1))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,34 +117,33 @@ public class PokemonLogIn extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jLabel5))
+                .addGap(2, 2, 2)
+                .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jLabel7))
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(5, 5, 5)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        PokemonRegister s = new PokemonRegister();
+        PokemonRegister s = null;
+        try {
+            s = new PokemonRegister();
+        } catch (SQLException ex) {
+            Logger.getLogger(PokemonLogIn.class.getName()).log(Level.SEVERE, null, ex);
+        }
         s.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -171,36 +152,21 @@ public class PokemonLogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        String user = "boks";   // Collecting the input
-            char[] pass = jPasswordField1.getPassword(); 
-
-       // converting from array to string
-            String pwd = String.copyValueOf(pass);  
-
-            if(validate_login(user,pwd))
-            {
-                JOptionPane.showMessageDialog(null, "Correct Login Credentials");
-                PokemonBattle PB = null;
-            try {
-                PB = new PokemonBattle();
-            } catch (SQLException ex) {
-                Logger.getLogger(PokemonLogIn.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                PB.setVisible(true);
-            }
-       else
-            {
-                JOptionPane.showMessageDialog(null, "Incorrect Login Credentials");  
-            }                                    
+        if(validate_login(jTextField1.getText(),jPasswordField1.getText())){
+            JOptionPane.showMessageDialog(null, "Correct Credentials");
+            PokemonIntro intro=new PokemonIntro(jTextField1.getText());
+            intro.setVisible(true);
+            setVisible(false);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Incorrect Credentials");
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 private boolean validate_login(String username,String password) {
-
    try
    {           
         Class.forName("com.mysql.jdbc.Driver"); 
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javademo?" + "user=root&password=");   
-    
-   
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon_user?" + "user=root&password="); 
         PreparedStatement pst = conn.prepareStatement("Select * from login where username=? and password=?");
         pst.setString(1, username); 
         pst.setString(2, password);
@@ -216,20 +182,16 @@ private boolean validate_login(String username,String password) {
    }
 }
 
-private void update_moves() throws FileNotFoundException {
+private void update_database() throws FileNotFoundException {
    Scanner dtb=new Scanner(new File("src\\Pokemon_Database.txt"));
    try
    {           
-        Class.forName("com.mysql.jdbc.Driver"); 
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?" + "user=root&password=");
-        Statement info=conn.createStatement();
-        info.addBatch("drop database if exists pokemon");
-        info.addBatch("create database pokemon;");
-        info.addBatch("use pokemon");
+        Statement data=conn.createStatement();
         while(dtb.hasNext()){
-            info.addBatch(dtb.nextLine());
+            data.addBatch(dtb.nextLine());
         }
-   info.executeBatch();
+   data.executeBatch();
    }
    catch(Exception e){
        e.printStackTrace();
@@ -285,6 +247,8 @@ private void update_moves() throws FileNotFoundException {
                     new PokemonLogIn().setVisible(true);
                 } catch (FileNotFoundException ex) {
                     Logger.getLogger(PokemonLogIn.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(PokemonLogIn.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -294,14 +258,13 @@ private void update_moves() throws FileNotFoundException {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField2;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -17,11 +17,12 @@ import javax.swing.ImageIcon;
 public class PokemonIntro extends javax.swing.JFrame {
     int counter = 0;
     int gender = 0;
+    String user;
     //Gender Male if 1, Female if 0
     /**
      * Creates new form PokemonIntro
      */
-    public PokemonIntro() {
+    public PokemonIntro(String user) {
         initComponents();
         jButton2.setVisible(false);
         jButton3.setVisible(false);
@@ -35,6 +36,7 @@ public class PokemonIntro extends javax.swing.JFrame {
         jLabel11.setVisible(false);
         jLabel12.setVisible(false);
         jLabel13.setVisible(false);
+        this.user=user;
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
         
@@ -314,7 +316,7 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 6:{
-                jLabel3.setText("Are you sure?"); //lagay mechanics dito battle frontier. sorry antok na me
+                jLabel3.setText("Are you sure?");
                 if(gender == 1)
                 {
                     jLabel1.setIcon(null);
@@ -333,6 +335,7 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 7:{
+                
                 jLabel1.setIcon(Bianca);
                 jLabel3.setText("Do you want to hear the mechanics of the game?");
                 jButton5.setVisible(true);
@@ -345,7 +348,7 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 9:{   
-                jLabel3.setText("Before the start of the Frontier, the player is given the chance to select 6 Pokemon for his team.");
+                jLabel3.setText("In the start of the game, the player is given the chance to select 6 Pokemon for his team.");
                 break;
             }
             case 10:{
@@ -401,7 +404,6 @@ public class PokemonIntro extends javax.swing.JFrame {
                     jLabel8.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Hugh-OW.png")));
                 }
                 jLabel9.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Alder-OW.png")));
-                //jLabel10.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/VS.png")));
                 jLabel5.setVisible(true);
                 jLabel5.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Alder-Full.png")));
                 jLabel1.setVisible(false);
@@ -522,12 +524,6 @@ public class PokemonIntro extends javax.swing.JFrame {
         //</editor-fold>
         
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PokemonIntro().setVisible(true);
-                
-            }
-        });
         
     }
 
