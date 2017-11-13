@@ -518,7 +518,7 @@ public class PokemonIntro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        PokemonSelection s = new PokemonSelection();
+        PokemonSelection s = new PokemonSelection(user);
         s.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
     

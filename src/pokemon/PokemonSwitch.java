@@ -24,6 +24,7 @@ public class PokemonSwitch extends javax.swing.JFrame {
         JProgressBar[] lives = {life1,life2,life3,life4,life5,life6};
         for(int i=0;i<6;i++)
         {
+            System.out.println(pokemons[i]);
             pokemonLogos[i].setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/"+pokemons[i]+".png" )));
             lives[i].setValue(livesPercentage[i]);
         }

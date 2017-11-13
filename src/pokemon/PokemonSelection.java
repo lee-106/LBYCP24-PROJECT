@@ -5,8 +5,15 @@
  */
 package pokemon;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -18,12 +25,14 @@ public class PokemonSelection extends javax.swing.JFrame {
     /**
      * Creates new form PokemonSelection
      */
-    public PokemonSelection() {
+    public PokemonSelection(String user) {
         initComponents();
+        this.user=user;
     }
 
     int[] pokemons;
     int[] livesPercentage = {100, 100, 100, 100, 100, 100};
+    String user;
     ImageIcon[] pokemon_images=new ImageIcon[6];
     List<Integer> pokemon_number= new ArrayList();
     int counter = 0;
@@ -673,8 +682,30 @@ public class PokemonSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_HoohActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        PokemonSwitch s = new PokemonSwitch(pokemons, livesPercentage);
-        s.setVisible(true);
+        try {
+            int[] pokemons=new int[6];
+            for(int i=0;i<pokemon_number.size();i++){
+                pokemons[i]=pokemon_number.get(i);
+            }
+            PokemonSwitch s = new PokemonSwitch(pokemons, livesPercentage);
+            s.setVisible(true);
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon_user?" + "user=root&password=");
+            Statement data=conn.createStatement();
+            data.execute("use pokemon_user;");
+            data.execute("update login set pokemon1='"+pokemon_number.get(0)+"' where username='"+user+"';");
+            data.execute("update login set pokemon2='"+pokemon_number.get(1)+"' where username='"+user+"';");
+            data.execute("update login set pokemon3='"+pokemon_number.get(2)+"' where username='"+user+"';");
+            data.execute("update login set pokemon4='"+pokemon_number.get(3)+"' where username='"+user+"';");
+            data.execute("update login set pokemon5='"+pokemon_number.get(4)+"' where username='"+user+"';");
+            data.execute("update login set pokemon6='"+pokemon_number.get(5)+"' where username='"+user+"';");
+        } catch (SQLException ex) {
+            Logger.getLogger(PokemonSelection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void party1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_party1ActionPerformed
@@ -711,35 +742,6 @@ public class PokemonSelection extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PokemonSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PokemonSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PokemonSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PokemonSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PokemonSelection().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
