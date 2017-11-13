@@ -8,6 +8,12 @@ package pokemon;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -15,6 +21,7 @@ import javax.swing.ImageIcon;
  * @author Johann Carta
  */
 public class PokemonIntro extends javax.swing.JFrame {
+    Connection conn;
     int counter = 0;
     int gender = 0;
     String user;
@@ -22,11 +29,11 @@ public class PokemonIntro extends javax.swing.JFrame {
     /**
      * Creates new form PokemonIntro
      */
-    public PokemonIntro(String user) {
+    public PokemonIntro(String user,int progress) throws SQLException {
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?" + "user=root&password=");
         initComponents();
         jButton2.setVisible(false);
         jButton3.setVisible(false);
-        jButton4.setVisible(false);
         jButton5.setVisible(false);
         jButton6.setVisible(false);
         jButton7.setVisible(false);
@@ -37,6 +44,9 @@ public class PokemonIntro extends javax.swing.JFrame {
         jLabel12.setVisible(false);
         jLabel13.setVisible(false);
         this.user=user;
+        this.counter=progress;
+        System.out.println(progress);
+        jButton1.doClick();
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
         
@@ -129,6 +139,8 @@ public class PokemonIntro extends javax.swing.JFrame {
         jLabel13.setBounds(360, 20, 290, 430);
 
         jButton5.setText("Yes");
+        jButton5.setBorderPainted(false);
+        jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -136,6 +148,8 @@ public class PokemonIntro extends javax.swing.JFrame {
         });
 
         jButton6.setText("No");
+        jButton6.setHideActionText(true);
+        jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -143,20 +157,22 @@ public class PokemonIntro extends javax.swing.JFrame {
         });
 
         jButton1.setText("Next");
+        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Girl");
+        jButton3.setText("Female");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Boy");
+        jButton2.setText("Male");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -164,6 +180,7 @@ public class PokemonIntro extends javax.swing.JFrame {
         });
 
         jButton4.setText("Save");
+        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -189,16 +206,17 @@ public class PokemonIntro extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton5)
-                        .addGap(52, 52, 52)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton6)
-                        .addGap(75, 75, 75)
+                        .addGap(109, 109, 109)
                         .addComponent(jButton2)
-                        .addGap(59, 59, 59)
-                        .addComponent(jButton4)
-                        .addGap(54, 54, 54)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                        .addComponent(jButton1))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4)
+                        .addGap(47, 47, 47))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,11 +227,11 @@ public class PokemonIntro extends javax.swing.JFrame {
                     .addComponent(jButton6)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -223,8 +241,8 @@ public class PokemonIntro extends javax.swing.JFrame {
             .addComponent(jLayeredPane6)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -487,7 +505,14 @@ public class PokemonIntro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        try {
+            Statement data=conn.createStatement();
+            data.execute("use pokemon_user;");
+            data.execute("update login set gender='"+gender+"' where username='"+user+"';");
+            data.execute("update login set progress='"+(counter-1)+"' where username='"+user+"';");
+        } catch (SQLException ex) {
+            Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

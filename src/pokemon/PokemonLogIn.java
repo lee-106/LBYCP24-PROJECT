@@ -24,7 +24,6 @@ import javax.swing.JOptionPane;
  * @author Administrator
  */
 public class PokemonLogIn extends javax.swing.JFrame {
-
     /**
      * Creates new form LogIn
      */
@@ -153,10 +152,19 @@ public class PokemonLogIn extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if(validate_login(jTextField1.getText(),jPasswordField1.getText())){
-            JOptionPane.showMessageDialog(null, "Correct Credentials");
-            PokemonIntro intro=new PokemonIntro(jTextField1.getText());
-            intro.setVisible(true);
-            setVisible(false);
+            String user=jTextField1.getText();
+            try {
+                JOptionPane.showMessageDialog(null, "Correct Credentials");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon_user?" + "user=root&password=");
+                Statement data=conn.createStatement();
+                ResultSet a=data.executeQuery("Select * from login ");
+                a.next();
+                PokemonIntro intro=new PokemonIntro(user,a.getInt("progress"));
+                intro.setVisible(true);
+                setVisible(false);
+            } catch (SQLException ex) {
+                Logger.getLogger(PokemonLogIn.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         else{
             JOptionPane.showMessageDialog(null, "Incorrect Credentials");
@@ -165,8 +173,9 @@ public class PokemonLogIn extends javax.swing.JFrame {
 private boolean validate_login(String username,String password) {
    try
    {           
-        Class.forName("com.mysql.jdbc.Driver"); 
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon_user?" + "user=root&password="); 
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?" + "user=root&password=");
+        Statement data=conn.createStatement();
+        data.execute("use pokemon_user");
         PreparedStatement pst = conn.prepareStatement("Select * from login where username=? and password=?");
         pst.setString(1, username); 
         pst.setString(2, password);

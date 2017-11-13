@@ -138,7 +138,7 @@ public class PokemonRegister extends javax.swing.JFrame {
 
         pst.executeUpdate();                        
         }        
-         PokemonIntro s = new PokemonIntro(txtfield_username.getText());
+         PokemonIntro s = new PokemonIntro(txtfield_username.getText(),0);
          s.setVisible(true);
    }
    catch(Exception e){
