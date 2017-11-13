@@ -1,7 +1,3 @@
-#Create database;
-drop database if exists pokemon;
-create database pokemon;
-use pokemon;
 #Pokemon-moves;
 create table moves (`Number` varchar(20),`Name` varchar(20),`Type` varchar(20),HP int,attack1 varchar(20),damage1 int,type1 varchar(20),attack2 varchar(20),damage2 int,type2 varchar(20),attack3 varchar(20),damage3 int,type3 varchar(20),attack4 varchar(20),damage4 int,type4 varchar(20));
 insert into moves values('1','Bulbasaur','Grass','120','Vine Whip','10','Grass','Razor Leaf','15','Grass','Leaf Storm','25','Grass','Frenzy Plant','50','Grass');
@@ -15,9 +11,9 @@ insert into moves values('152','Chikorita','Grass','120','Vine Whip','10','Grass
 insert into moves values('155','Cyndaquil','Fire','110','Ember','20','Fire','Flamethrower','35','Fire','Fire Blast','40','Fire','Blast Burn','60','Fire');
 insert into moves values('158','Totodile','Water','130','Bubblebeam','15','Water','Water Sprout','20','Water','Hydro Cannon','40','Water','Ice Beam','40','Ice');
 insert into moves values('172','Pichu','Electric','70','Thunderbolt','10','Electric','Volt Tackle','20','Electric','Electro Ball','30','Electric','Iron Tail','15','Steel');
-insert into moves values('173','Clefa','Normal','85','Sucker Punch','10','Normal','Uproar','15','Normal','Double Slap','25','Normal','Psybeam','30','Psybeam');
-insert into moves values('174','Igglybuff','Normal','85','Sucker Punch','10','Normal','Uproar','15','Normal','Double Slap','25','Normal','Psybeam','30','Psybeam');
-insert into moves values('175','Togepi','Normal','85','Sucker Punch','10','Normal','Uproar','15','Normal','Double Slap','25','Normal','Psybeam','30','Psybeam');
+insert into moves values('173','Clefa','Normal','85','Sucker Punch','10','Normal','Uproar','15','Normal','Double Slap','25','Normal','Psybeam','30','Psychic');
+insert into moves values('174','Igglybuff','Normal','85','Sucker Punch','10','Normal','Uproar','15','Normal','Double Slap','25','Normal','Psybeam','30','Psychic');
+insert into moves values('175','Togepi','Normal','85','Sucker Punch','10','Normal','Uproar','15','Normal','Double Slap','25','Normal','Psybeam','30','Psychic');
 insert into moves values('216','Teddiursa','Normal','100','Sucker Punch','20','Normal','Uproar','25','Normal','Double Slap','30','Normal','Dizzy Beam','30','Psychic');
 insert into moves values('238','Smoochum','Psychic','85','Sucker Punch','10','Normal','Uproar','15','Normal','Psychic','45','Psychic','Psybeam','30','Psychic');
 insert into moves values('239','Elekid','Electric','100','Thunderbolt','10','Electric','Thunder Punch','25','Electric','Shockwave','25','Electric','Electro Ball','40','Electric');
@@ -40,6 +36,21 @@ insert into moves values('393','Piplup','Water','130','Bubblebeam','15','Water',
 insert into moves values('495','Snivy','Grass','120','Vine Whip','10','Grass','Razor Leaf','15','Grass','Leaf Storm','25','Grass','Frenzy Plant','50','Grass');
 insert into moves values('498','Tepig','Fire','110','Ember','20','Fire','Flamethrower','35','Fire','Fire Blast','40','Fire','Blast Burn','60','Fire');
 insert into moves values('501','Oshawott','Water','130','Bubblebeam','15','Water','Water Sprout','20','Water','Hydro Cannon','40','Water','Ice Beam','40','Ice');
+#Pokemon-weakness;
+create table weakness (`pokemon_type` varchar(20),`strong_against` varchar(20),`weak_against` varchar(20),`noeffect_against` varchar(20));
+insert into weakness values('Normal','None','Rock Steel','None');
+insert into weakness values('Fire','Grass Ice Steel Rock','Fire Water Dragon','None');
+insert into weakness values('Water','Fire Ground Rock','Water Grass Dragon','None');
+insert into weakness values('Electric','Water Flying','Electric Grass Dragon','Ground');
+insert into weakness values('Grass','Water Ground Rock','Fire Grass Dragon Flying Steel','None');
+insert into weakness values('Ice','Grass Ground Dragon Flying','Fire Water Ice Steel','None');
+insert into weakness values('Ground','Fire Electric Steel Rock','Grass','Flying');
+insert into weakness values('Psychic','None','Psychic Steel','Dark');
+insert into weakness values('Dragon','Dragon','Steel','None');
+insert into weakness values('Rock','Fire Ice Flying','Ground Steel','None');
+insert into weakness values('Dark','Psychic','Dark','None');
+insert into weakness values('Flying','Grass','Electric Rock Steel','None');
+insert into weakness values('Steel','Ice Rock','Fire Water Electric Steel','None');
 #Pokemon-trainers;
 create table trainers (`Name` varchar(20),`Pokemon1` int,`Pokemon2` int,`Pokemon3` int,`Pokemon4` int,`Pokemon5` int,`Pokemon6` int);
 insert into trainers values('Alder','4','155','240','255','390','146');
@@ -51,5 +62,4 @@ insert into trainers values('Drayden','380','381','249','250','0','0');
 #Pokemon-Login
 create database if not exists pokemon_user;
 use pokemon_user;
-create table if not exists login (`username` varchar(20),`password` varchar(20),`gender` int,`Pokemon1` int,`Pokemon2` int,`Pokemon3` int,`Pokemon4` int,`Pokemon5` int,`Pokemon6` int,`Progress` int);
-
+create table if not exists login (username varchar(20),`password` varchar(20),`gender` int,`Pokemon1` int,`Pokemon2` int,`Pokemon3` int,`Pokemon4` int,`Pokemon5` int,`Pokemon6` int,`Progress` int);
