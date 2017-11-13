@@ -134,14 +134,15 @@ PreparedStatement pst = conn.prepareStatement("INSERT INTO login (username,passw
       pst.setString(2, pwd1);
        
       pst.executeUpdate();                        
-        }         
+        }        
+      PokemonIntro s = new PokemonIntro();
+         s.setVisible(true);
    }
    catch(Exception e){
        e.printStackTrace();
        JOptionPane.showMessageDialog(null, "cannot connect db");
-         PokemonIntro s = new PokemonIntro();
-         s.setVisible(true);
 } 
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

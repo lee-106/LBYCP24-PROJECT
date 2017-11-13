@@ -5,6 +5,8 @@
  */
 package pokemon;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author PauloSenires
@@ -18,6 +20,10 @@ public class PokemonSelection extends javax.swing.JFrame {
         initComponents();
     }
 
+    int[] pokemons;
+    int[] livesPercentage = {100, 100, 100, 100, 100, 100};
+    int counter = 1;
+    int counter2 = 1;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,19 +71,28 @@ public class PokemonSelection extends javax.swing.JFrame {
         Larvitar = new javax.swing.JButton();
         Hooh = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         Zapdos1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        party4 = new javax.swing.JButton();
+        party5 = new javax.swing.JButton();
+        party3 = new javax.swing.JButton();
+        party2 = new javax.swing.JButton();
+        party1 = new javax.swing.JButton();
+        party6 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Bulbasaur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/bulbasaur.png"))); // NOI18N
         Bulbasaur.addActionListener(new java.awt.event.ActionListener() {
@@ -85,8 +100,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 BulbasaurActionPerformed(evt);
             }
         });
-        getContentPane().add(Bulbasaur);
-        Bulbasaur.setBounds(20, 66, 40, 40);
+        getContentPane().add(Bulbasaur, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 66, 40, 40));
 
         Squirtle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/squirtle.png"))); // NOI18N
         Squirtle.addActionListener(new java.awt.event.ActionListener() {
@@ -94,8 +108,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 SquirtleActionPerformed(evt);
             }
         });
-        getContentPane().add(Squirtle);
-        Squirtle.setBounds(136, 66, 40, 40);
+        getContentPane().add(Squirtle, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 66, 40, 40));
 
         Charmander.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/charmander.png"))); // NOI18N
         Charmander.addActionListener(new java.awt.event.ActionListener() {
@@ -103,8 +116,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 CharmanderActionPerformed(evt);
             }
         });
-        getContentPane().add(Charmander);
-        Charmander.setBounds(78, 66, 40, 40);
+        getContentPane().add(Charmander, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 66, 40, 40));
 
         Pikachu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/pikachu.png"))); // NOI18N
         Pikachu.addActionListener(new java.awt.event.ActionListener() {
@@ -112,8 +124,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 PikachuActionPerformed(evt);
             }
         });
-        getContentPane().add(Pikachu);
-        Pikachu.setBounds(194, 66, 40, 40);
+        getContentPane().add(Pikachu, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 66, 40, 40));
 
         Zapdos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/zapdos.png"))); // NOI18N
         Zapdos.addActionListener(new java.awt.event.ActionListener() {
@@ -121,8 +132,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 ZapdosActionPerformed(evt);
             }
         });
-        getContentPane().add(Zapdos);
-        Zapdos.setBounds(310, 66, 40, 40);
+        getContentPane().add(Zapdos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 66, 40, 40));
 
         Articuno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/articuno.png"))); // NOI18N
         Articuno.addActionListener(new java.awt.event.ActionListener() {
@@ -130,8 +140,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 ArticunoActionPerformed(evt);
             }
         });
-        getContentPane().add(Articuno);
-        Articuno.setBounds(252, 66, 40, 40);
+        getContentPane().add(Articuno, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 66, 40, 40));
 
         Pichu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/pichu.png"))); // NOI18N
         Pichu.addActionListener(new java.awt.event.ActionListener() {
@@ -139,8 +148,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 PichuActionPerformed(evt);
             }
         });
-        getContentPane().add(Pichu);
-        Pichu.setBounds(252, 112, 40, 40);
+        getContentPane().add(Pichu, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 112, 40, 40));
 
         Moltres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/moltres.png"))); // NOI18N
         Moltres.addActionListener(new java.awt.event.ActionListener() {
@@ -148,8 +156,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 MoltresActionPerformed(evt);
             }
         });
-        getContentPane().add(Moltres);
-        Moltres.setBounds(20, 112, 40, 40);
+        getContentPane().add(Moltres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 112, 40, 40));
 
         Cyndaquil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/cyndaquil.png"))); // NOI18N
         Cyndaquil.addActionListener(new java.awt.event.ActionListener() {
@@ -157,8 +164,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 CyndaquilActionPerformed(evt);
             }
         });
-        getContentPane().add(Cyndaquil);
-        Cyndaquil.setBounds(136, 112, 40, 40);
+        getContentPane().add(Cyndaquil, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 112, 40, 40));
 
         Chikorita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/chikorita.png"))); // NOI18N
         Chikorita.addActionListener(new java.awt.event.ActionListener() {
@@ -166,8 +172,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 ChikoritaActionPerformed(evt);
             }
         });
-        getContentPane().add(Chikorita);
-        Chikorita.setBounds(78, 112, 40, 40);
+        getContentPane().add(Chikorita, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 112, 40, 40));
 
         Totodile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/totodile.png"))); // NOI18N
         Totodile.addActionListener(new java.awt.event.ActionListener() {
@@ -175,8 +180,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 TotodileActionPerformed(evt);
             }
         });
-        getContentPane().add(Totodile);
-        Totodile.setBounds(194, 112, 40, 40);
+        getContentPane().add(Totodile, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 112, 40, 40));
 
         Clefable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/cleffa.png"))); // NOI18N
         Clefable.addActionListener(new java.awt.event.ActionListener() {
@@ -184,8 +188,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 ClefableActionPerformed(evt);
             }
         });
-        getContentPane().add(Clefable);
-        Clefable.setBounds(310, 112, 40, 40);
+        getContentPane().add(Clefable, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 112, 40, 40));
 
         Elekid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/elekid.png"))); // NOI18N
         Elekid.addActionListener(new java.awt.event.ActionListener() {
@@ -193,8 +196,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 ElekidActionPerformed(evt);
             }
         });
-        getContentPane().add(Elekid);
-        Elekid.setBounds(252, 158, 40, 40);
+        getContentPane().add(Elekid, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 158, 40, 40));
 
         Igglybuff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/igglybuff.png"))); // NOI18N
         Igglybuff.addActionListener(new java.awt.event.ActionListener() {
@@ -202,8 +204,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 IgglybuffActionPerformed(evt);
             }
         });
-        getContentPane().add(Igglybuff);
-        Igglybuff.setBounds(20, 158, 40, 40);
+        getContentPane().add(Igglybuff, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 158, 40, 40));
 
         Teddyursa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/teddiursa.png"))); // NOI18N
         Teddyursa.addActionListener(new java.awt.event.ActionListener() {
@@ -211,8 +212,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 TeddyursaActionPerformed(evt);
             }
         });
-        getContentPane().add(Teddyursa);
-        Teddyursa.setBounds(136, 158, 40, 40);
+        getContentPane().add(Teddyursa, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 158, 40, 40));
 
         Togepi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/togepi.png"))); // NOI18N
         Togepi.addActionListener(new java.awt.event.ActionListener() {
@@ -220,8 +220,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 TogepiActionPerformed(evt);
             }
         });
-        getContentPane().add(Togepi);
-        Togepi.setBounds(78, 158, 40, 40);
+        getContentPane().add(Togepi, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 158, 40, 40));
 
         Smoochum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/smoochum.png"))); // NOI18N
         Smoochum.addActionListener(new java.awt.event.ActionListener() {
@@ -229,8 +228,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 SmoochumActionPerformed(evt);
             }
         });
-        getContentPane().add(Smoochum);
-        Smoochum.setBounds(194, 158, 40, 40);
+        getContentPane().add(Smoochum, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 158, 40, 40));
 
         Magby.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/magby.png"))); // NOI18N
         Magby.addActionListener(new java.awt.event.ActionListener() {
@@ -238,8 +236,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 MagbyActionPerformed(evt);
             }
         });
-        getContentPane().add(Magby);
-        Magby.setBounds(310, 158, 40, 40);
+        getContentPane().add(Magby, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 158, 40, 40));
 
         Lugia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/lugia.png"))); // NOI18N
         Lugia.addActionListener(new java.awt.event.ActionListener() {
@@ -247,8 +244,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 LugiaActionPerformed(evt);
             }
         });
-        getContentPane().add(Lugia);
-        Lugia.setBounds(252, 204, 40, 40);
+        getContentPane().add(Lugia, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 204, 40, 40));
 
         Latias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/latias.png"))); // NOI18N
         Latias.addActionListener(new java.awt.event.ActionListener() {
@@ -256,8 +252,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 LatiasActionPerformed(evt);
             }
         });
-        getContentPane().add(Latias);
-        Latias.setBounds(252, 250, 40, 40);
+        getContentPane().add(Latias, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 250, 40, 40));
 
         Celebi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/celebi.png"))); // NOI18N
         Celebi.addActionListener(new java.awt.event.ActionListener() {
@@ -265,8 +260,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 CelebiActionPerformed(evt);
             }
         });
-        getContentPane().add(Celebi);
-        Celebi.setBounds(20, 250, 40, 40);
+        getContentPane().add(Celebi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 40, 40));
 
         Torchic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/torchic.png"))); // NOI18N
         Torchic.addActionListener(new java.awt.event.ActionListener() {
@@ -274,8 +268,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 TorchicActionPerformed(evt);
             }
         });
-        getContentPane().add(Torchic);
-        Torchic.setBounds(136, 250, 40, 40);
+        getContentPane().add(Torchic, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 250, 40, 40));
 
         Treeko.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/treecko.png"))); // NOI18N
         Treeko.addActionListener(new java.awt.event.ActionListener() {
@@ -283,8 +276,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 TreekoActionPerformed(evt);
             }
         });
-        getContentPane().add(Treeko);
-        Treeko.setBounds(78, 250, 40, 40);
+        getContentPane().add(Treeko, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 250, 40, 40));
 
         Mudkip.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/mudkip.png"))); // NOI18N
         Mudkip.addActionListener(new java.awt.event.ActionListener() {
@@ -292,8 +284,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 MudkipActionPerformed(evt);
             }
         });
-        getContentPane().add(Mudkip);
-        Mudkip.setBounds(194, 250, 40, 40);
+        getContentPane().add(Mudkip, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 250, 40, 40));
 
         Latios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/latios.png"))); // NOI18N
         Latios.addActionListener(new java.awt.event.ActionListener() {
@@ -301,8 +292,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 LatiosActionPerformed(evt);
             }
         });
-        getContentPane().add(Latios);
-        Latios.setBounds(310, 250, 40, 40);
+        getContentPane().add(Latios, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 40, 40));
 
         Tepig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/tepig.png"))); // NOI18N
         Tepig.addActionListener(new java.awt.event.ActionListener() {
@@ -310,8 +300,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 TepigActionPerformed(evt);
             }
         });
-        getContentPane().add(Tepig);
-        Tepig.setBounds(252, 296, 40, 40);
+        getContentPane().add(Tepig, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 296, 40, 40));
 
         Turtwig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/turtwig.png"))); // NOI18N
         Turtwig.addActionListener(new java.awt.event.ActionListener() {
@@ -319,8 +308,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 TurtwigActionPerformed(evt);
             }
         });
-        getContentPane().add(Turtwig);
-        Turtwig.setBounds(20, 296, 40, 40);
+        getContentPane().add(Turtwig, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 296, 40, 40));
 
         Piplup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/piplup.png"))); // NOI18N
         Piplup.addActionListener(new java.awt.event.ActionListener() {
@@ -328,8 +316,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 PiplupActionPerformed(evt);
             }
         });
-        getContentPane().add(Piplup);
-        Piplup.setBounds(136, 296, 40, 40);
+        getContentPane().add(Piplup, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 296, 40, 40));
 
         Raiku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/raikou.png"))); // NOI18N
         Raiku.addActionListener(new java.awt.event.ActionListener() {
@@ -337,8 +324,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 RaikuActionPerformed(evt);
             }
         });
-        getContentPane().add(Raiku);
-        Raiku.setBounds(20, 204, 40, 40);
+        getContentPane().add(Raiku, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 204, 40, 40));
 
         Chimchar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/chimchar.png"))); // NOI18N
         Chimchar.addActionListener(new java.awt.event.ActionListener() {
@@ -346,8 +332,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 ChimcharActionPerformed(evt);
             }
         });
-        getContentPane().add(Chimchar);
-        Chimchar.setBounds(78, 296, 40, 40);
+        getContentPane().add(Chimchar, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 296, 40, 40));
 
         Snivy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/snivy.png"))); // NOI18N
         Snivy.addActionListener(new java.awt.event.ActionListener() {
@@ -355,8 +340,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 SnivyActionPerformed(evt);
             }
         });
-        getContentPane().add(Snivy);
-        Snivy.setBounds(194, 296, 40, 40);
+        getContentPane().add(Snivy, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 296, 40, 40));
 
         Oshawott.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/oshawott.png"))); // NOI18N
         Oshawott.addActionListener(new java.awt.event.ActionListener() {
@@ -364,8 +348,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 OshawottActionPerformed(evt);
             }
         });
-        getContentPane().add(Oshawott);
-        Oshawott.setBounds(310, 296, 40, 40);
+        getContentPane().add(Oshawott, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 296, 40, 40));
 
         Suicune.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/suicune.png"))); // NOI18N
         Suicune.addActionListener(new java.awt.event.ActionListener() {
@@ -373,8 +356,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 SuicuneActionPerformed(evt);
             }
         });
-        getContentPane().add(Suicune);
-        Suicune.setBounds(136, 204, 40, 40);
+        getContentPane().add(Suicune, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 204, 40, 40));
 
         Entei.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/entei.png"))); // NOI18N
         Entei.addActionListener(new java.awt.event.ActionListener() {
@@ -382,8 +364,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 EnteiActionPerformed(evt);
             }
         });
-        getContentPane().add(Entei);
-        Entei.setBounds(78, 204, 40, 40);
+        getContentPane().add(Entei, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 204, 40, 40));
 
         Larvitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/larvitar.png"))); // NOI18N
         Larvitar.addActionListener(new java.awt.event.ActionListener() {
@@ -391,8 +372,7 @@ public class PokemonSelection extends javax.swing.JFrame {
                 LarvitarActionPerformed(evt);
             }
         });
-        getContentPane().add(Larvitar);
-        Larvitar.setBounds(194, 204, 40, 40);
+        getContentPane().add(Larvitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 204, 40, 40));
 
         Hooh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/ho-oh.png"))); // NOI18N
         Hooh.addActionListener(new java.awt.event.ActionListener() {
@@ -400,41 +380,29 @@ public class PokemonSelection extends javax.swing.JFrame {
                 HoohActionPerformed(evt);
             }
         });
-        getContentPane().add(Hooh);
-        Hooh.setBounds(310, 204, 40, 40);
+        getContentPane().add(Hooh, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 204, 40, 40));
 
         jLabel1.setFont(new java.awt.Font("Lao UI", 0, 14)); // NOI18N
         jLabel1.setText("Select your team!");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 11, 139, 49);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(250, 190, 256, 180);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 180, 256, 180);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 190, 256, 180);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 11, 139, 49));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(0, 0, 256, 180);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 180));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(250, 0, 256, 180);
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, -1, 180));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(250, 180, 256, 180);
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, 180));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, 180));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, -1, 180));
 
         jButton1.setText("jButton1");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(360, 70, 79, 25);
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
 
         Zapdos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/zapdos.png"))); // NOI18N
         Zapdos1.addActionListener(new java.awt.event.ActionListener() {
@@ -442,159 +410,1550 @@ public class PokemonSelection extends javax.swing.JFrame {
                 Zapdos1ActionPerformed(evt);
             }
         });
-        getContentPane().add(Zapdos1);
-        Zapdos1.setBounds(310, 66, 40, 40);
+        getContentPane().add(Zapdos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 66, 40, 40));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, -1, 180));
+
+        jButton2.setText("Next");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 520, -1, -1));
+
+        party4.setText("jButton3");
+        getContentPane().add(party4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 80, 70));
+
+        party5.setText("jButton4");
+        getContentPane().add(party5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 80, 70));
+
+        party3.setText("jButton5");
+        getContentPane().add(party3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 80, 70));
+
+        party2.setText("jButton6");
+        getContentPane().add(party2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 80, 70));
+
+        party1.setText("jButton7");
+        getContentPane().add(party1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 80, 70));
+
+        party6.setText("jButton8");
+        getContentPane().add(party6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 80, 70));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, -1, 180));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, -1, 180));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BulbasaurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BulbasaurActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/1.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                 
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                 
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_BulbasaurActionPerformed
 
     private void SquirtleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SquirtleActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/7.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_SquirtleActionPerformed
 
     private void CharmanderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharmanderActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/4.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_CharmanderActionPerformed
 
     private void PikachuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PikachuActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/25.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_PikachuActionPerformed
 
     private void ZapdosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZapdosActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/145.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_ZapdosActionPerformed
 
     private void ArticunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArticunoActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/144.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_ArticunoActionPerformed
 
     private void PichuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PichuActionPerformed
-        // TODO add your handling code here:
+       ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/172.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_PichuActionPerformed
 
     private void MoltresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoltresActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/146.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_MoltresActionPerformed
 
     private void CyndaquilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CyndaquilActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/155.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_CyndaquilActionPerformed
 
     private void ChikoritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChikoritaActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/152.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_ChikoritaActionPerformed
 
     private void TotodileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotodileActionPerformed
-        // TODO add your handling code here:
+       ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/158.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_TotodileActionPerformed
 
     private void ClefableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClefableActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/173.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_ClefableActionPerformed
 
     private void ElekidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElekidActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/239.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_ElekidActionPerformed
 
     private void IgglybuffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IgglybuffActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/174.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_IgglybuffActionPerformed
 
     private void TeddyursaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeddyursaActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/216.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;  
     }//GEN-LAST:event_TeddyursaActionPerformed
 
     private void TogepiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TogepiActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/175.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_TogepiActionPerformed
 
     private void SmoochumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SmoochumActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/238.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_SmoochumActionPerformed
 
     private void MagbyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MagbyActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/240.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_MagbyActionPerformed
 
     private void LugiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LugiaActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/249.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_LugiaActionPerformed
 
     private void LatiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LatiasActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/380.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_LatiasActionPerformed
 
     private void CelebiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CelebiActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/251.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_CelebiActionPerformed
 
     private void TorchicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TorchicActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/255.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_TorchicActionPerformed
 
     private void TreekoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TreekoActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/252.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_TreekoActionPerformed
 
     private void MudkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MudkipActionPerformed
-        // TODO add your handling code here:
+         ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/258.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_MudkipActionPerformed
 
     private void LatiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LatiosActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/381.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_LatiosActionPerformed
 
     private void TepigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TepigActionPerformed
-        // TODO add your handling code here:
+       ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/498.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_TepigActionPerformed
 
     private void TurtwigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TurtwigActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/387.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_TurtwigActionPerformed
 
     private void PiplupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PiplupActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/393.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_PiplupActionPerformed
 
     private void RaikuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaikuActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/243.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_RaikuActionPerformed
 
     private void ChimcharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChimcharActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/390.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_ChimcharActionPerformed
 
     private void SnivyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnivyActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/495.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_SnivyActionPerformed
 
     private void OshawottActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OshawottActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/501.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_OshawottActionPerformed
 
     private void SuicuneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuicuneActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/245.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_SuicuneActionPerformed
 
     private void EnteiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnteiActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/244.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_EnteiActionPerformed
 
     private void LarvitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LarvitarActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/246.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_LarvitarActionPerformed
 
     private void HoohActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HoohActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/250.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_HoohActionPerformed
 
     private void Zapdos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Zapdos1ActionPerformed
-        // TODO add your handling code here:
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/145.png"));
+        switch(counter)
+        {
+            case 1:
+            {
+                party1.setIcon(bbry);
+                pokemons[(counter - 1)] = 145;
+                break;
+            }
+            case 2:
+            {
+                party2.setIcon(bbry);
+                pokemons[(counter - 1)] = 145;
+                break;
+            }case 3:
+            {
+                party3.setIcon(bbry);
+                pokemons[(counter - 1)] = 145;
+                break;
+            }case 4:
+            {
+                party4.setIcon(bbry);
+                pokemons[(counter - 1)] = 145;
+                break;
+            }case 5:
+            {
+                party5.setIcon(bbry);
+                pokemons[(counter - 1)] = 145;
+                break;
+            }case 6:
+            {
+                party6.setIcon(bbry);
+                pokemons[(counter - 1)] = 145;
+                
+                break;
+            }
+            default:
+            {
+                counter = 1;
+                party1.setIcon(bbry);
+                pokemons[(counter - 1)] = 145;
+                break;
+            }
+        }
+        counter++;
     }//GEN-LAST:event_Zapdos1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        PokemonSwitch s = new PokemonSwitch(pokemons, livesPercentage);
+        s.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -670,7 +2029,9 @@ public class PokemonSelection extends javax.swing.JFrame {
     private javax.swing.JButton Zapdos;
     private javax.swing.JButton Zapdos1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -678,5 +2039,12 @@ public class PokemonSelection extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton party1;
+    private javax.swing.JButton party2;
+    private javax.swing.JButton party3;
+    private javax.swing.JButton party4;
+    private javax.swing.JButton party5;
+    private javax.swing.JButton party6;
     // End of variables declaration//GEN-END:variables
 }
