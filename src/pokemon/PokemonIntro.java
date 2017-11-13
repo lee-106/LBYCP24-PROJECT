@@ -329,7 +329,7 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 9:{   
-                jLabel3.setText("For each round the player is given the chance to select 6 Pokemon for his team.");
+                jLabel3.setText("Before the start of the Frontier, the player is given the chance to select 6 Pokemon for his team.");
                 break;
             }
             case 10:{

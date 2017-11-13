@@ -130,9 +130,9 @@ public class PokemonBattle extends javax.swing.JFrame {
                     .addComponent(attack1)
                     .addComponent(attack3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(attack2)
-                    .addComponent(attack4))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(attack4)
+                    .addComponent(attack2))
                 .addContainerGap())
         );
 
