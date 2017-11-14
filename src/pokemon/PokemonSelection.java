@@ -27,15 +27,16 @@ public class PokemonSelection extends javax.swing.JFrame {
      */
     public PokemonSelection(String user) {
         initComponents();
-        this.user=user;
+        this.user = user;
     }
 
     int[] pokemons;
     int[] livesPercentage = {100, 100, 100, 100, 100, 100};
     String user;
-    ImageIcon[] pokemon_images=new ImageIcon[6];
-    List<Integer> pokemon_number= new ArrayList();
+    ImageIcon[] pokemon_images = new ImageIcon[6];
+    List<Integer> pokemon_number = new ArrayList();
     int counter = 0;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -102,7 +103,7 @@ public class PokemonSelection extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/images.png"))); // NOI18N
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Bulbasaur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/bulbasaur.png"))); // NOI18N
@@ -483,23 +484,26 @@ public class PokemonSelection extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void update_images(){
-        if(pokemon_number.size()>6) pokemon_number.remove(6);
-        for(int i=0;i<6;i++){
-            if(i<pokemon_number.size()){
-                if(pokemon_number.get(i)!=0){
-                ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/"+pokemon_number.get(i)+".png"));
-                pokemon_images[i]=bbry;
-                }
-            }
-            else pokemon_images[i]=null;
+    public void update_images() {
+        if (pokemon_number.size() > 6) {
+            pokemon_number.remove(6);
         }
-            party1.setIcon(pokemon_images[0]);
-            party2.setIcon(pokemon_images[1]);
-            party3.setIcon(pokemon_images[2]);
-            party4.setIcon(pokemon_images[3]);
-            party5.setIcon(pokemon_images[4]);
-            party6.setIcon(pokemon_images[5]);
+        for (int i = 0; i < 6; i++) {
+            if (i < pokemon_number.size()) {
+                if (pokemon_number.get(i) != 0) {
+                    ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/" + pokemon_number.get(i) + ".png"));
+                    pokemon_images[i] = bbry;
+                }
+            } else {
+                pokemon_images[i] = null;
+            }
+        }
+        party1.setIcon(pokemon_images[0]);
+        party2.setIcon(pokemon_images[1]);
+        party3.setIcon(pokemon_images[2]);
+        party4.setIcon(pokemon_images[3]);
+        party5.setIcon(pokemon_images[4]);
+        party6.setIcon(pokemon_images[5]);
     }
     private void BulbasaurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BulbasaurActionPerformed
         pokemon_number.add(1);
@@ -683,60 +687,71 @@ public class PokemonSelection extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            int[] pokemons=new int[6];
-            for(int i=0;i<pokemon_number.size();i++){
-                pokemons[i]=pokemon_number.get(i);
+            int[] pokemons = new int[6];
+            for (int i = 0; i < pokemon_number.size(); i++) {
+                pokemons[i] = pokemon_number.get(i);
             }
-            PokemonBattle s = new PokemonBattle(user);
-            
-            s.setVisible(true);
+
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon_user?" + "user=root&password=");
-            Statement data=conn.createStatement();
+            Statement data = conn.createStatement();
             data.execute("use pokemon_user;");
-            data.execute("update login set pokemon1='"+pokemon_number.get(0)+"' where username='"+user+"';");
-            data.execute("update login set pokemon2='"+pokemon_number.get(1)+"' where username='"+user+"';");
-            data.execute("update login set pokemon3='"+pokemon_number.get(2)+"' where username='"+user+"';");
-            data.execute("update login set pokemon4='"+pokemon_number.get(3)+"' where username='"+user+"';");
-            data.execute("update login set pokemon5='"+pokemon_number.get(4)+"' where username='"+user+"';");
-            data.execute("update login set pokemon6='"+pokemon_number.get(5)+"' where username='"+user+"';");
+            data.execute("update login set pokemon1='" + pokemon_number.get(0) + "' where username='" + user + "';");
+            data.execute("update login set pokemon2='" + pokemon_number.get(1) + "' where username='" + user + "';");
+            data.execute("update login set pokemon3='" + pokemon_number.get(2) + "' where username='" + user + "';");
+            data.execute("update login set pokemon4='" + pokemon_number.get(3) + "' where username='" + user + "';");
+            data.execute("update login set pokemon5='" + pokemon_number.get(4) + "' where username='" + user + "';");
+            data.execute("update login set pokemon6='" + pokemon_number.get(5) + "' where username='" + user + "';");
+
+            PokemonBattle s = new PokemonBattle(user);
+
+            s.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(PokemonSelection.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void party1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_party1ActionPerformed
-        if(pokemon_number.size()>0) pokemon_number.remove(0);
+        if (pokemon_number.size() > 0) {
+            pokemon_number.remove(0);
+        }
         update_images();
     }//GEN-LAST:event_party1ActionPerformed
 
     private void party2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_party2ActionPerformed
-        if(pokemon_number.size()>1) pokemon_number.remove(1);
+        if (pokemon_number.size() > 1) {
+            pokemon_number.remove(1);
+        }
         update_images();
     }//GEN-LAST:event_party2ActionPerformed
 
     private void party3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_party3ActionPerformed
-        if(pokemon_number.size()>2) pokemon_number.remove(2);
-        update_images();        
+        if (pokemon_number.size() > 2) {
+            pokemon_number.remove(2);
+        }
+        update_images();
     }//GEN-LAST:event_party3ActionPerformed
 
     private void party4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_party4ActionPerformed
-        if(pokemon_number.size()>3) pokemon_number.remove(3);
-        update_images();        
+        if (pokemon_number.size() > 3) {
+            pokemon_number.remove(3);
+        }
+        update_images();
     }//GEN-LAST:event_party4ActionPerformed
 
     private void party5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_party5ActionPerformed
-        if(pokemon_number.size()>4) pokemon_number.remove(4);
-        update_images();        
+        if (pokemon_number.size() > 4) {
+            pokemon_number.remove(4);
+        }
+        update_images();
     }//GEN-LAST:event_party5ActionPerformed
 
     private void party6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_party6ActionPerformed
-        if(pokemon_number.size()>5) pokemon_number.remove(5);
-        update_images();        
+        if (pokemon_number.size() > 5) {
+            pokemon_number.remove(5);
+        }
+        update_images();
     }//GEN-LAST:event_party6ActionPerformed
 
     /**

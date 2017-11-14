@@ -31,7 +31,8 @@ public class PokemonBattle extends javax.swing.JFrame {
      */
     int[] pokemonlist = {1,4,7,25,144,145};
     int[] lives = {100,100,100,100,100,100};
-    
+    public int current_pokemon =0;//array index, zero based 0-5 only, first pokemon = 0, second =1 and so on.
+    String user;
     public PokemonBattle() throws SQLException {
         initComponents();
         lifeBarProgressBar.setValue(100);
@@ -40,10 +41,11 @@ public class PokemonBattle extends javax.swing.JFrame {
         this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
     }
     public PokemonBattle(String user) throws SQLException {
+        this.user = user;
         initComponents();
         lifeBarProgressBar.setValue(100);
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
-        initPokemon( user);
+        initPokemon(user,0);
         this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
         
     }
@@ -204,7 +206,7 @@ public class PokemonBattle extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PokemonSwitch switcher = new PokemonSwitch(pokemonlist, lives);
+        PokemonSwitch switcher = new PokemonSwitch(pokemonlist, lives,current_pokemon,this);
         switcher.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
     
@@ -280,7 +282,7 @@ private void changeUserPokemonImage(int number){
     private javax.swing.JLabel pokemonImage;
     // End of variables declaration//GEN-END:variables
 
-    private void initPokemon(String user) throws SQLException {
+    private void initPokemon(String user, int pokemon_order) throws SQLException {
         System.out.println("marker");
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -300,7 +302,7 @@ private void changeUserPokemonImage(int number){
             //select from user database to get the pokemon list
             //select the first pokemon, then display it.
              
-            int pokemonNumber =0;
+            int pokemonNumber =pokemon_order;
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             
@@ -319,6 +321,10 @@ private void changeUserPokemonImage(int number){
         }
         
         
+    }
+
+    void setPokemon(int current_pokemon) throws SQLException {
+        initPokemon(user, current_pokemon);
     }
 
     

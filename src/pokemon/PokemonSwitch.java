@@ -5,6 +5,9 @@
  */
 package pokemon;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
@@ -18,15 +21,25 @@ public class PokemonSwitch extends javax.swing.JFrame {
     /**
      * Creates new form PokemonSwitch
      */
-    public PokemonSwitch(int[] pokemons,int[] livesPercentage) {
+    PokemonBattle battleGUI=null;
+    int current_pokemon;
+    PokemonSwitch(int[] pokemons, int[] livesPercentage, int current_pokemon, PokemonBattle aThis) {
+        
+        this.current_pokemon = current_pokemon;
+        battleGUI=aThis;
         initComponents();
         JLabel[] pokemonLogos = {pokemon1,pokemon2,pokemon3,pokemon4,pokemon5,pokemon6};
         JProgressBar[] lives = {life1,life2,life3,life4,life5,life6};
         for(int i=0;i<6;i++)
-        {
-            System.out.println(pokemons[i]);
-            pokemonLogos[i].setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/"+pokemons[i]+".png" )));
+        {   if(i<6-current_pokemon){
+//            System.out.println(pokemons[i]);
+            pokemonLogos[i].setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/"+pokemons[i+current_pokemon]+".png" )));
             lives[i].setValue(livesPercentage[i]);
+        }else{
+            System.out.println(pokemons[i]);
+            pokemonLogos[i].setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/"+pokemons[i+current_pokemon-6]+".png" )));
+            lives[i].setValue(livesPercentage[i]);
+        }
         }
         
     }
@@ -54,18 +67,53 @@ public class PokemonSwitch extends javax.swing.JFrame {
         life6 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         pokemon1.setText("1");
+        pokemon1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pokemon1MouseClicked(evt);
+            }
+        });
 
         pokemon2.setText("2");
+        pokemon2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pokemon2MouseClicked(evt);
+            }
+        });
 
         pokemon3.setText("3");
+        pokemon3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pokemon3MouseClicked(evt);
+            }
+        });
 
         pokemon4.setText("4");
+        pokemon4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pokemon4MouseClicked(evt);
+            }
+        });
 
         pokemon5.setText("5");
+        pokemon5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pokemon5MouseClicked(evt);
+            }
+        });
 
         pokemon6.setText("6");
+        pokemon6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pokemon6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,59 +121,160 @@ public class PokemonSwitch extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(pokemon6)
-                            .addComponent(pokemon5)
-                            .addComponent(pokemon4)
-                            .addComponent(pokemon2)
-                            .addComponent(pokemon3))
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(life2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(life3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(life4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(life5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(life6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pokemon1)
-                        .addGap(50, 50, 50)
-                        .addComponent(life1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(463, Short.MAX_VALUE))
+                .addComponent(pokemon1)
+                .addGap(50, 50, 50)
+                .addComponent(life1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(pokemon6)
+                    .addComponent(pokemon5)
+                    .addComponent(pokemon4)
+                    .addComponent(pokemon2)
+                    .addComponent(pokemon3))
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(life2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(life3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(life4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(life5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(life6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(293, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pokemon2)
+                            .addComponent(life2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pokemon3)
+                            .addComponent(life3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pokemon4)
+                            .addComponent(life4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pokemon5)
+                            .addComponent(life5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pokemon6)
+                            .addComponent(life6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(pokemon1)
                     .addComponent(life1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pokemon2)
-                    .addComponent(life2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pokemon3)
-                    .addComponent(life3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pokemon4)
-                    .addComponent(life4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pokemon5)
-                    .addComponent(life5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pokemon6)
-                    .addComponent(life6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(420, Short.MAX_VALUE))
+                .addContainerGap(453, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void pokemon1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokemon1MouseClicked
+        try {
+            // TODO add your handling code here:
+            battleGUI.setPokemon(current_pokemon);
+        } catch (SQLException ex) {
+            Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
+        battleGUI.current_pokemon = current_pokemon;
+    }//GEN-LAST:event_pokemon1MouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formMouseClicked
+
+    private void pokemon2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokemon2MouseClicked
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            if(current_pokemon+1<6){
+                battleGUI.setPokemon(current_pokemon+1);
+                battleGUI.current_pokemon = current_pokemon+1;
+            }else{
+                battleGUI.setPokemon(current_pokemon+1-6);
+                battleGUI.current_pokemon = current_pokemon+1-6;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
+    }//GEN-LAST:event_pokemon2MouseClicked
+
+    private void pokemon3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokemon3MouseClicked
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            if(current_pokemon+1<6){
+                battleGUI.setPokemon(current_pokemon+2);
+                
+                battleGUI.current_pokemon = current_pokemon+2;
+            }else{
+                battleGUI.setPokemon(current_pokemon+2-6);
+                
+                battleGUI.current_pokemon = current_pokemon+2-6;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
+    }//GEN-LAST:event_pokemon3MouseClicked
+
+    private void pokemon4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokemon4MouseClicked
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            if(current_pokemon+1<6){
+                battleGUI.setPokemon(current_pokemon+3);
+                battleGUI.current_pokemon = current_pokemon+3;
+            }else{
+                battleGUI.setPokemon(current_pokemon+3-6);
+                battleGUI.current_pokemon = current_pokemon+3-6;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
+    }//GEN-LAST:event_pokemon4MouseClicked
+
+    private void pokemon5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokemon5MouseClicked
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            if(current_pokemon+1<6){
+                battleGUI.setPokemon(current_pokemon+4);
+                battleGUI.current_pokemon = current_pokemon+4;
+            }else{
+                battleGUI.setPokemon(current_pokemon+4-6);
+                battleGUI.current_pokemon = current_pokemon+4-6;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
+    }//GEN-LAST:event_pokemon5MouseClicked
+
+    private void pokemon6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokemon6MouseClicked
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            if(current_pokemon+1<6){
+                battleGUI.setPokemon(current_pokemon+5);
+                battleGUI.current_pokemon = current_pokemon+5;
+            }else{
+                battleGUI.setPokemon(current_pokemon+5-6);
+                battleGUI.current_pokemon = current_pokemon+5-6;
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
+    }//GEN-LAST:event_pokemon6MouseClicked
 
     /**
      * @param args the command line arguments
