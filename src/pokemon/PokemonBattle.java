@@ -322,6 +322,10 @@ public class PokemonBattle extends javax.swing.JFrame {
         enemy.setIcon(bbry);
     }//GEN-LAST:event_jButton2ActionPerformed
     private void attack(String att) throws SQLException {
+        String type = "";
+        String enemytype = "";
+        int damage=0;
+        double bonus=1;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
@@ -330,17 +334,77 @@ public class PokemonBattle extends javax.swing.JFrame {
             pst.setString(1, pokemonlist[0] + "");
             ResultSet rs = pst.executeQuery();
             rs.next();
-            int damage = rs.getInt(att);
-            int life = enemyLifeBar.getValue();
-            enemyLifeBar.setValue(life - damage);
+            type = rs.getString("Type");
+            System.out.println(type+"");
+            
+            damage = rs.getInt(att);
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
+
+            PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
+            pst.setString(1, enemypokemonList[counter_enemy] + "");
+            ResultSet rs = pst.executeQuery();
+            rs.next();
+            enemytype = rs.getString("Type");
+            System.out.println(enemytype+"");
+            
+            damage = rs.getInt(att);
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bonus=findBonus(type,enemytype);
+        int life = enemyLifeBar.getValue();
+        int out = (int) (life - (damage*bonus));
+        System.out.println("damage= "+damage);
+        System.out.println("bonus= "+bonus);
+        System.out.println("enemy life= "+out);
+        enemyLifeBar.setValue(out);
     }
     private void enemyLifeBarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_enemyLifeBarStateChanged
         enemylife.setText(enemyLifeBar.getValue() + "");
     }//GEN-LAST:event_enemyLifeBarStateChanged
+    private double findBonus(String type, String enemy) throws SQLException{
+        double bonus=1;
+         try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
 
+            PreparedStatement pst = conn.prepareStatement("Select * from weakness where pokemon_type = ?");
+            pst.setString(1, type + "");
+            ResultSet rs = pst.executeQuery();
+            rs.next();
+            String strong = rs.getString("strong_against");
+            String[] sArray = strong.split(" ");
+             System.out.println(""+strong);
+            System.out.println(""+sArray[0]);
+            if(Arrays.asList(sArray).contains(enemy)){
+                System.out.println("strong");
+                bonus=2.0;
+            }
+            String weak = rs.getString("weak_against");
+            String[] wArray = weak.split(" ");
+            System.out.println(""+wArray[0]);
+            if(Arrays.asList(wArray).contains(enemy)){
+                bonus=bonus/2;
+            }
+            String noeffect = rs.getString("noeffect_against");
+            String[] nArray = noeffect.split(" ");
+            System.out.println(""+nArray);
+            if(Arrays.asList(nArray).contains(enemy)){
+                bonus=0;
+            }
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return bonus;
+    }
     private void attack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack1ActionPerformed
         try {
             attack("damage1");
