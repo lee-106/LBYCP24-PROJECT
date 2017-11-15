@@ -46,7 +46,6 @@ public class PokemonIntro extends javax.swing.JFrame {
         this.user=user;
         this.counter=progress;
         this.gender=gender;
-        System.out.println(progress);
         jButton1.doClick();
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
@@ -433,7 +432,13 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 19:{
+            try {
+                PokemonBattle a=new PokemonBattle(user);
+                a.setVisible(rootPaneCheckingEnabled);
                 break;
+            } catch (SQLException ex) {
+                Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }
             case 20:{
                 jLabel9.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Brycen-OW.png")));
@@ -518,7 +523,8 @@ public class PokemonIntro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        PokemonSelection s = new PokemonSelection(user);
+        PokemonSelection s = new PokemonSelection(user,gender);
+        this.dispose();
         s.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
     

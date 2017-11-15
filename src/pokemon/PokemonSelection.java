@@ -5,6 +5,8 @@
  */
 package pokemon;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -25,13 +27,17 @@ public class PokemonSelection extends javax.swing.JFrame {
     /**
      * Creates new form PokemonSelection
      */
-    public PokemonSelection(String user) {
+    public PokemonSelection(String user,int gender) {
         initComponents();
         this.user = user;
+        this.gender=gender;
+        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
     }
 
     int[] pokemons;
     int[] livesPercentage = {100, 100, 100, 100, 100, 100};
+    int gender;
     String user;
     ImageIcon[] pokemon_images = new ImageIcon[6];
     List<Integer> pokemon_number = new ArrayList();
@@ -702,7 +708,7 @@ public class PokemonSelection extends javax.swing.JFrame {
             data.execute("update login set pokemon4='" + pokemon_number.get(3) + "' where username='" + user + "';");
             data.execute("update login set pokemon5='" + pokemon_number.get(4) + "' where username='" + user + "';");
             data.execute("update login set pokemon6='" + pokemon_number.get(5) + "' where username='" + user + "';");
-            PokemonBattle s = new PokemonBattle(user);
+            PokemonIntro s= new PokemonIntro(user,17,gender);
             s.setVisible(true);
             this.dispose();
         } 
