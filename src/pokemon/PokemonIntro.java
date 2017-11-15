@@ -46,6 +46,7 @@ public class PokemonIntro extends javax.swing.JFrame {
         this.user=user;
         this.counter=progress;
         this.gender=gender;
+        System.out.println(gender);
         jButton1.doClick();
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
@@ -433,8 +434,8 @@ public class PokemonIntro extends javax.swing.JFrame {
             }
             case 19:{
             try {
-                PokemonBattle a=new PokemonBattle(user);
-                a.setVisible(rootPaneCheckingEnabled);
+                PokemonBattle a=new PokemonBattle(user,gender,0);
+                a.setVisible(true);
                 break;
             } catch (SQLException ex) {
                 Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
@@ -448,13 +449,13 @@ public class PokemonIntro extends javax.swing.JFrame {
                 jLabel3.setText("Round 2: Brycen");
                 break;
             }
-            case 21:{
-                //Round 2 Battle
+            case 21:{//Round 2 Battle
                 break;
             }
             case 22:{
                 jLabel9.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Cynthia-OW.png")));
                 jLabel5.setVisible(true);
+                
                 jLabel5.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Cynthia-Full.png")));
                 jLabel5.setLocation(jLabel5.getLocation().x+10,jLabel5.getLocation().y);
                 jLabel3.setText("Round 3: Cynthia");

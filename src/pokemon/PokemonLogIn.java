@@ -157,11 +157,13 @@ public class PokemonLogIn extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Correct Credentials");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon_user?" + "user=root&password=");
                 Statement data=conn.createStatement();
-                ResultSet a=data.executeQuery("Select * from login ");
+                ResultSet a=data.executeQuery("Select * from login");
                 a.next();
+                while(!a.getString("username").equals(user)) a.next();
                 PokemonIntro intro=new PokemonIntro(user,a.getInt("progress"),a.getInt("gender"));
                 intro.setVisible(true);
                 setVisible(false);
+                System.out.println(a.getInt("gender"));
             } catch (SQLException ex) {
                 Logger.getLogger(PokemonLogIn.class.getName()).log(Level.SEVERE, null, ex);
             }

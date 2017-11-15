@@ -39,12 +39,19 @@ public class PokemonBattle extends javax.swing.JFrame {
     public PokemonBattle() throws SQLException {
         initComponents();
         lifeBarProgressBar.setValue(100);
-        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension size = Toolkit.getDefaultToolkit().getScreenSize(); 
         this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
     }
-    public PokemonBattle(String user) throws SQLException {
-        this.user = user;
+    public PokemonBattle(String user,int gender,int count_enemy) throws SQLException {
         initComponents();
+        this.user = user;
+        counter_enemy=count_enemy;
+        ImageIcon bbry=null;
+        if(gender==0){
+             bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Female.png"));
+        }
+        else bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Male.png"));
+            jLabel1.setIcon(bbry);
         lifeBarProgressBar.setValue(100);
         enemyLifeBar.setValue(100);
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
@@ -162,7 +169,7 @@ public class PokemonBattle extends javax.swing.JFrame {
 
         pokemonImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Back/25.png"))); // NOI18N
 
-        enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/alder.png"))); // NOI18N
+        enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Alder-Sprite.png"))); // NOI18N
 
         lifeBarProgressBar.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -193,8 +200,6 @@ public class PokemonBattle extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pokemon_enemy)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(enemy)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -219,8 +224,11 @@ public class PokemonBattle extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lifeBarLabel)
-                            .addComponent(enemylife))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(enemylife)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(pokemon_enemy)))))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,7 +275,7 @@ public class PokemonBattle extends javax.swing.JFrame {
         pokemonImage.setIcon(bbry);
     }
     private void changeEnemyImage(String Name){
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/"+Name+".png" ));
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/"+Name+"-sprite.png" ));
         enemy.setIcon(bbry);
     }
     private void changeEnemyPokemonImage(int number){
@@ -285,7 +293,7 @@ public class PokemonBattle extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         counter_enemy++;
-        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/"+ trainers[counter_enemy] +".png" ));
+        ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/"+ trainers[counter_enemy] +"-sprite.png" ));
         enemy.setIcon(bbry);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -397,7 +405,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             
             
             PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
-             pst.setString(1,pokemonlist[pokemonNumber]+"");
+            pst.setString(1,pokemonlist[pokemonNumber]+"");
             ResultSet rs = pst.executeQuery();
             rs.next();
             pokemonName.setText(rs.getString("Name"));
