@@ -419,7 +419,6 @@ public class PokemonBattle extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             rs.next();
             enemyPokemonName.setText(rs.getString("Name"));
-            changeUserPokemonImage(pokemonlist[pokemonNum]);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
         }
