@@ -21,8 +21,8 @@ public class PokemonSwitch extends javax.swing.JFrame {
     /**
      * Creates new form PokemonSwitch
      */
-    PokemonBattle battleGUI=null;
-    int current_pokemon;
+    PokemonBattle battleGUI = null;
+    int current_pokemon; 
     PokemonSwitch(int[] pokemons, int[] livesPercentage, int current_pokemon, PokemonBattle aThis) {
         
         this.current_pokemon = current_pokemon;

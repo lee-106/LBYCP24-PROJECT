@@ -433,7 +433,6 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 19:{
-                //Round 1 Battle
                 break;
             }
             case 20:{
