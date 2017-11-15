@@ -192,21 +192,33 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Attack1"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="attack1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="attack2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Attack2"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="attack2ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="attack3">
           <Properties>
             <Property name="text" type="java.lang.String" value="Attack3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="attack3ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="attack4">
           <Properties>
             <Property name="text" type="java.lang.String" value="Attack4"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="attack4ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
