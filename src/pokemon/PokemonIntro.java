@@ -440,6 +440,7 @@ public class PokemonIntro extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
             }
+            this.dispose();
             }
             case 20:{
                 jLabel9.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Brycen-OW.png")));
@@ -449,7 +450,15 @@ public class PokemonIntro extends javax.swing.JFrame {
                 jLabel3.setText("Round 2: Brycen");
                 break;
             }
-            case 21:{//Round 2 Battle
+            case 21:{
+            try {
+                PokemonBattle a=new PokemonBattle(user,gender,1);
+                a.setVisible(true);
+                break;
+            } catch (SQLException ex) {
+                Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.dispose();
                 break;
             }
             case 22:{
@@ -462,7 +471,14 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 23:{
-                //Round 3 Battle
+                try {
+                PokemonBattle a=new PokemonBattle(user,gender,2);
+                a.setVisible(true);
+                break;
+            } catch (SQLException ex) {
+                Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.dispose();
                 break;
             }
             case 24:{
@@ -474,7 +490,14 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 25:{
-                //Round 4 Battle
+                try {
+                PokemonBattle a=new PokemonBattle(user,gender,3);
+                a.setVisible(true);
+                break;
+            } catch (SQLException ex) {
+                Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.dispose();
                 break;
             }
             case 26:{
@@ -486,7 +509,14 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 27:{
-                //Round 5 Battle
+                try {
+                PokemonBattle a=new PokemonBattle(user,gender,4);
+                a.setVisible(true);
+                break;
+            } catch (SQLException ex) {
+                Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.dispose();
                 break;
             }
             case 28:{
@@ -498,7 +528,14 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 29:{
-                //Round 6 Battle
+                try {
+                PokemonBattle a=new PokemonBattle(user,gender,5);
+                a.setVisible(true);
+                break;
+            } catch (SQLException ex) {
+                Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.dispose();
                 break;
             }
         }
