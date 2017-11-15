@@ -62,7 +62,7 @@ insert into trainers values('Brycen','7','158','258','393','501','245');
 insert into trainers values('Cynthia','25','145','239','243','246','251');
 insert into trainers values('Cilan','1','152','252','387','495','216');
 insert into trainers values('Iris','172','173','174','175','238','25');
-insert into trainers values('Drayden','380','381','249','250','0','0');
+insert into trainers values('Drayden','380','381','249','250','393','393');
 #Pokemon-Login
 create database if not exists pokemon_user;
 use pokemon_user;
