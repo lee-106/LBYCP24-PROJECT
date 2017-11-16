@@ -239,6 +239,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JProgressBar" name="lifeBarProgressBar">
+      <Properties>
+        <Property name="maximum" type="int" value="500"/>
+      </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="lifeBarProgressBarStateChanged"/>
       </Events>
@@ -256,6 +259,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JProgressBar" name="enemyLifeBar">
+      <Properties>
+        <Property name="maximum" type="int" value="500"/>
+      </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="enemyLifeBarStateChanged"/>
       </Events>

@@ -41,13 +41,16 @@ public class PokemonBattle extends javax.swing.JFrame {
 
     public PokemonBattle() throws SQLException {
         initComponents();
-        lifeBarProgressBar.setValue(100);
+        
+        
+        
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((size.width - this.getSize().width) / 2, (size.height - this.getSize().height) / 2);
     }
 
     public PokemonBattle(String user, int gender, int count_enemy) throws SQLException {
         initComponents();
+        
         this.user = user;
         counter_enemy = count_enemy;
         ImageIcon bbry = null;
@@ -57,11 +60,41 @@ public class PokemonBattle extends javax.swing.JFrame {
             bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Male.png"));
         }
         jLabel1.setIcon(bbry);
-        lifeBarProgressBar.setValue(100);
-        enemyLifeBar.setValue(100);
+        
+        
+        
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         initPokemon(user, 0);
         this.setLocation((size.width - this.getSize().width) / 2, (size.height - this.getSize().height) / 2);
+        int life,enemylife;
+        try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
+                PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
+                pst.setString(1, pokemonlist[0] + "");
+                ResultSet rs = pst.executeQuery();
+                rs.next();
+                life = rs.getInt("HP");
+                lifeBarProgressBar.setMaximum(life);
+                this.lifeBarProgressBar.setValue(life);
+                System.out.println(life+"=pokemon hp");
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
+                PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
+                pst.setString(1, enemypokemonList[0] + "");
+                ResultSet rs = pst.executeQuery();
+                rs.next();
+                enemylife = rs.getInt("HP");
+                enemyLifeBar.setMaximum(enemylife);
+                this.enemyLifeBar.setValue(enemylife);
+                System.out.println(enemylife+"=pokemon hp");
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     public void Enemy_attack(){
@@ -241,6 +274,7 @@ public class PokemonBattle extends javax.swing.JFrame {
 
         enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Alder-Sprite.png"))); // NOI18N
 
+        lifeBarProgressBar.setMaximum(500);
         lifeBarProgressBar.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 lifeBarProgressBarStateChanged(evt);
@@ -251,6 +285,7 @@ public class PokemonBattle extends javax.swing.JFrame {
 
         pokemon_enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/4.png"))); // NOI18N
 
+        enemyLifeBar.setMaximum(500);
         enemyLifeBar.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 enemyLifeBarStateChanged(evt);
@@ -269,12 +304,12 @@ public class PokemonBattle extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(enemy))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -635,6 +670,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             for (int i = 1; i <= 6; i++) {
                 pokemonlist[i - 1] = Integer.parseInt(rs.getString("pokemon" + i));
                 System.out.println(pokemonlist[i - 1]);
+                lives[i-1]=rs.getInt("HP");
             }
         } catch (Exception e) {
             System.out.println("Error");
