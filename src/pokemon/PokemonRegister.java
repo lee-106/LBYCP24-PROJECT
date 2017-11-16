@@ -44,7 +44,7 @@ public class PokemonRegister extends javax.swing.JFrame {
 
         txtfield_username = new javax.swing.JTextField();
         txtfield_password = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        register = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -52,10 +52,10 @@ public class PokemonRegister extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton1.setText("REGISTER");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        register.setText("REGISTER");
+        register.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                registerActionPerformed(evt);
             }
         });
 
@@ -82,7 +82,7 @@ public class PokemonRegister extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(register)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2))
                             .addGroup(layout.createSequentialGroup()
@@ -112,7 +112,7 @@ public class PokemonRegister extends javax.swing.JFrame {
                     .addComponent(txtfield_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(register)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
@@ -120,17 +120,20 @@ public class PokemonRegister extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
        try{           
-      if(txtfield_username.getText().length()==0)  
+      if(txtfield_username.getText().length()==0)  {
       JOptionPane.showMessageDialog(null, "Empty fields detected");
-   else if(txtfield_password.getText().length()==0)  
-      JOptionPane.showMessageDialog(null, "Empty fields detected ");
+      }
+   else if(txtfield_password.getText().length()==0)  {
+      JOptionPane.showMessageDialog(null, "Empty fields detected ");}
    else{
        String user1 = txtfield_username.getText();   
        String pwd1= txtfield_password.getText();
         Class.forName("com.mysql.jdbc.Driver");  
+        
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon_user?" + "user=root&password=");
+        
         PreparedStatement pst = conn.prepareStatement("insert into login (username,password) values (?,?)");
 
         pst.setString(1, user1); 
@@ -140,13 +143,14 @@ public class PokemonRegister extends javax.swing.JFrame {
         }        
          PokemonIntro s = new PokemonIntro(txtfield_username.getText(),0,0);
          s.setVisible(true);
+         this.dispose();
    }
    catch(Exception e){
        e.printStackTrace();
        JOptionPane.showMessageDialog(null, "cannot connect db");
 } 
        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_registerActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        System.exit(0);
@@ -207,11 +211,11 @@ public class PokemonRegister extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton register;
     private javax.swing.JPasswordField txtfield_password;
     private javax.swing.JTextField txtfield_username;
     // End of variables declaration//GEN-END:variables
