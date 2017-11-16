@@ -33,11 +33,11 @@ public class PokemonSwitch extends javax.swing.JFrame {
         for(int i=0;i<6;i++)
         {   if(i<6-current_pokemon){
 //            System.out.println(pokemons[i]);
-            pokemonLogos[i].setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/"+pokemons[i+current_pokemon]+".png" )));
+            pokemonLogos[i].setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/"+pokemons[i+current_pokemon]+".png" )));
             lives[i].setValue(livesPercentage[i]);
         }else{
             System.out.println(pokemons[i]);
-            pokemonLogos[i].setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/"+pokemons[i+current_pokemon-6]+".png" )));
+            pokemonLogos[i].setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/"+pokemons[i+current_pokemon-6]+".png" )));
             lives[i].setValue(livesPercentage[i]);
         }
         }
@@ -65,6 +65,9 @@ public class PokemonSwitch extends javax.swing.JFrame {
         life4 = new javax.swing.JProgressBar();
         life5 = new javax.swing.JProgressBar();
         life6 = new javax.swing.JProgressBar();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addMouseListener(new java.awt.event.MouseAdapter() {
@@ -72,6 +75,7 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 formMouseClicked(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pokemon1.setText("1");
         pokemon1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -79,6 +83,7 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 pokemon1MouseClicked(evt);
             }
         });
+        getContentPane().add(pokemon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 23, -1, -1));
 
         pokemon2.setText("2");
         pokemon2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -86,6 +91,7 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 pokemon2MouseClicked(evt);
             }
         });
+        getContentPane().add(pokemon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 55, -1, -1));
 
         pokemon3.setText("3");
         pokemon3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -93,6 +99,7 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 pokemon3MouseClicked(evt);
             }
         });
+        getContentPane().add(pokemon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 87, -1, -1));
 
         pokemon4.setText("4");
         pokemon4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -100,6 +107,7 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 pokemon4MouseClicked(evt);
             }
         });
+        getContentPane().add(pokemon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 119, -1, -1));
 
         pokemon5.setText("5");
         pokemon5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -107,6 +115,7 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 pokemon5MouseClicked(evt);
             }
         });
+        getContentPane().add(pokemon5, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 151, -1, -1));
 
         pokemon6.setText("6");
         pokemon6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -114,61 +123,20 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 pokemon6MouseClicked(evt);
             }
         });
+        getContentPane().add(pokemon6, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 183, -1, -1));
+        getContentPane().add(life1, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 23, -1, -1));
+        getContentPane().add(life2, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 55, -1, -1));
+        getContentPane().add(life3, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 87, -1, -1));
+        getContentPane().add(life4, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 119, 148, -1));
+        getContentPane().add(life5, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 151, 148, -1));
+        getContentPane().add(life6, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 183, 148, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(pokemon1)
-                .addGap(50, 50, 50)
-                .addComponent(life1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(pokemon6)
-                    .addComponent(pokemon5)
-                    .addComponent(pokemon4)
-                    .addComponent(pokemon2)
-                    .addComponent(pokemon3))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(life2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(life3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(life4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(life5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(life6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(293, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pokemon2)
-                            .addComponent(life2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pokemon3)
-                            .addComponent(life3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pokemon4)
-                            .addComponent(life4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pokemon5)
-                            .addComponent(life5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pokemon6)
-                            .addComponent(life6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(pokemon1)
-                    .addComponent(life1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(453, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Battle_Frontier_logo.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 155, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/rsz_7tokox.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 230));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -308,6 +276,9 @@ public class PokemonSwitch extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JProgressBar life1;
     private javax.swing.JProgressBar life2;
     private javax.swing.JProgressBar life3;
