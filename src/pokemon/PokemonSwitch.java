@@ -25,8 +25,9 @@ public class PokemonSwitch extends javax.swing.JFrame {
      */
     PokemonBattle battleGUI = null;
     int current_pokemon; 
+    int[] lives;
     PokemonSwitch(int[] pokemons, int[] livesPercentage, int current_pokemon, PokemonBattle aThis) {
-        
+        lives=livesPercentage;
         this.current_pokemon = current_pokemon;
         battleGUI=aThis;
         initComponents();

@@ -77,7 +77,7 @@ public class PokemonBattle extends javax.swing.JFrame {
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             PreparedStatement pst = conn.prepareStatement("Select * from moves where number = ?");
-            pst.setString(1, enemypokemonList[current_pokemon]+"");
+            pst.setString(1, enemypokemonList[counter_pokemon]+"");
             ResultSet rs= pst.executeQuery();
             rs.next();
             switch(value){
@@ -122,6 +122,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                     break;
                 }
             }
+            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -416,6 +417,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 type = rs.getString("type"+value);
                 System.out.println(type+"");
                 damage = rs.getInt(att);
+                conn.close();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -428,6 +430,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 rs.next();
                 enemytype = rs.getString("Type");
                 System.out.println(enemytype+"");
+                conn.close();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -451,6 +454,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 enemylife.setText("0");
                 return false;
             }
+            conn.close();
         }
         else{
             try {
@@ -462,6 +466,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 rs.next();
                 type = rs.getString("Type");
                 System.out.println(type+"");
+                conn.close();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -485,6 +490,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 lifeBarLabel.setText("0");
                 return false;
             }
+            conn.close();
         }
         return true;
     }
@@ -521,7 +527,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             if(Arrays.asList(nArray).contains(enemy)){
                 bonus=0;
             }
-            
+            conn.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -631,6 +637,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                     else change_enemypokemon();
                 }
             }
+            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -650,6 +657,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             enemyPokemonName.setText(rs.getString("Name"));
             enemylife.setText(rs.getInt("HP")+"");
             enemyLifeBar.setValue(100);
+            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -729,6 +737,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 pokemonlist[i - 1] = Integer.parseInt(rs.getString("pokemon" + i));
                 System.out.println(pokemonlist[i - 1]);
             }
+            conn.close();
         } catch (Exception e) {
             System.out.println("Error");
         }
@@ -744,8 +753,9 @@ public class PokemonBattle extends javax.swing.JFrame {
                 enemypokemonList[i - 1] = Integer.parseInt(rs.getString("pokemon" + i));
                 System.out.println(enemypokemonList[i - 1]);
             }
-            changeEnemyPokemonImage(enemypokemonList[0]);
+            changeEnemyPokemonImage(enemypokemonList[counter_pokemon]);
             System.out.println("image should have changed by now");
+            conn.close();
         } catch (Exception e) {
             System.out.println("Error");
         }
@@ -768,6 +778,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             attack4.setText(rs.getString("attack4"));
             lifeBarLabel.setText((lifeBarProgressBar.getValue()*rs.getInt("HP"))/100+"");
             changeUserPokemonImage(pokemonlist[pokemonNumber]);
+            conn.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -781,7 +792,8 @@ public class PokemonBattle extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             rs.next();
             enemyPokemonName.setText(rs.getString("Name"));
-            enemylife.setText((rs.getInt("HP"))+"");
+            enemylife.setText(enemyLifeBar.getValue()*(rs.getInt("HP"))/100+"");
+            conn.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
         }
