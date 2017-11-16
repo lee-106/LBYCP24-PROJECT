@@ -70,13 +70,13 @@ public class PokemonBattle extends javax.swing.JFrame {
             int value= rand.nextInt(3);
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             PreparedStatement pst = conn.prepareStatement("Select * from moves where number = ?");
-            pst.setString(1, enemypokemonList[current_pokemon]+"");
+            pst.setString(1, enemypokemonList[counter_enemy]+"");
             ResultSet rs= pst.executeQuery();
             rs.next();
             switch(value){
                 case 0:{
                     try {
-                        attack("damage1","enemy");
+                        attack("damage1","enemy",1);
                         announce1.setText(rs.getString("name")+" use "+rs.getString("attack1"));
                     } catch (SQLException ex) {
                         Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,7 +86,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 }
                 case 1:{
                     try {
-                        attack("damage2","enemy");
+                        attack("damage2","enemy",2);
                         announce1.setText(rs.getString("name")+" use "+rs.getString("attack2"));
                     } catch (SQLException ex) {
                         Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
@@ -96,7 +96,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 }
                 case 2:{
                     try {
-                        attack("damage3","enemy");
+                        attack("damage3","enemy",3);
                         announce1.setText(rs.getString("name")+" use "+rs.getString("attack3"));
                     } catch (SQLException ex) {
                         Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
@@ -106,7 +106,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 }
                 case 3:{
                     try {
-                        attack("damage4","enemy");
+                        attack("damage4","enemy",4);
                         announce1.setText(rs.getString("name")+" use "+rs.getString("attack4"));
                     } catch (SQLException ex) {
                         Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
@@ -368,7 +368,7 @@ public class PokemonBattle extends javax.swing.JFrame {
     private void lifeBarProgressBarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_lifeBarProgressBarStateChanged
         lifeBarLabel.setText(lifeBarProgressBar.getValue() + "");
     }//GEN-LAST:event_lifeBarProgressBarStateChanged
-    private void attack(String att,String attacker) throws SQLException {
+    private void attack(String att,String attacker,int i) throws SQLException {
         String type = "";
         String enemytype = "";
         int damage=0;
@@ -381,7 +381,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 pst.setString(1, pokemonlist[0] + "");
                 ResultSet rs = pst.executeQuery();
                 rs.next();
-                type = rs.getString("Type");
+                type = rs.getString("type"+i);
                 System.out.println(type+"");
                 damage = rs.getInt(att);
             } catch (ClassNotFoundException ex) {
@@ -415,7 +415,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 pst.setString(1, pokemonlist[0] + "");
                 ResultSet rs = pst.executeQuery();
                 rs.next();
-                type = rs.getString("Type");
+                type = rs.getString("type"+i);
                 System.out.println(type+"");
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
@@ -489,7 +489,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             ResultSet rs= pst.executeQuery();
             rs.next();
             try {
-                attack("damage1","player");
+                attack("damage1","player",1);
                 announce.setText(rs.getString("name")+" use "+rs.getString("attack1"));
             } catch (SQLException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
@@ -509,7 +509,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             ResultSet rs= pst.executeQuery();
             rs.next();
             try {
-                attack("damage2","player");
+                attack("damage2","player",2);
                 announce.setText(rs.getString("name")+" use "+rs.getString("attack2"));
             } catch (SQLException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
@@ -529,7 +529,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             ResultSet rs= pst.executeQuery();
             rs.next();
             try {
-                attack("damage3","player");
+                attack("damage3","player",3);
                 announce.setText(rs.getString("name")+" use "+rs.getString("attack3"));
             } catch (SQLException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
@@ -549,7 +549,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             ResultSet rs= pst.executeQuery();
             rs.next();
             try {
-                attack("damage4","player");
+                attack("damage4","player",4);
                 announce.setText(rs.getString("name")+" use "+rs.getString("attack4"));
             } catch (SQLException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
