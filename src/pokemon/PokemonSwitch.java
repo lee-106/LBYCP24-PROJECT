@@ -39,11 +39,11 @@ public class PokemonSwitch extends javax.swing.JFrame {
         {   if(i<6-current_pokemon){
 //            System.out.println(pokemons[i]);
             pokemonLogos[i].setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/"+pokemons[i+current_pokemon]+".png" )));
-            lives[i].setValue(livesPercentage[i]);
+            lives[i].setValue(livesPercentage[i+current_pokemon]);
         }else{
             System.out.println(pokemons[i]);
             pokemonLogos[i].setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/"+pokemons[i+current_pokemon-6]+".png" )));
-            lives[i].setValue(livesPercentage[i]);
+            lives[i].setValue(livesPercentage[i+current_pokemon-6]);
         }
         }
         

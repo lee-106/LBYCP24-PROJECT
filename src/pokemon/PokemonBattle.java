@@ -55,7 +55,6 @@ public class PokemonBattle extends javax.swing.JFrame {
         attack3.setVisible(false);
         attack4.setVisible(false);
         nextBtn.setVisible(false);
-        lifeBarProgressBar.setValue(100);
         enemyLifeBar.setValue(100);
         this.user = user;
         counter_enemy =count_enemy;
@@ -370,6 +369,7 @@ public class PokemonBattle extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void switchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchBtnActionPerformed
+        lives[current_pokemon]=lifeBarProgressBar.getValue();
         PokemonSwitch switcher = new PokemonSwitch(pokemonlist, lives, current_pokemon, this);
         switcher.setVisible(true);
     }//GEN-LAST:event_switchBtnActionPerformed
@@ -472,7 +472,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             }
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
-            pst.setString(1, enemypokemonList[counter_pokemon] + "");
+            pst.setString(1, pokemonlist[current_pokemon] + "");
             ResultSet rs = pst.executeQuery();
             rs.next();
             enemytype = rs.getString("type"+value);
@@ -484,7 +484,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             System.out.println("damage= "+damage);
             System.out.println("bonus= "+bonus);
             System.out.println("player life= "+out);
-            lifeBarProgressBar.setValue((out*100/rs.getInt("HP")));
+            lifeBarProgressBar.setValue(Integer.parseInt((out*100)/rs.getInt("HP")+""));
             if(out>0) lifeBarLabel.setText(out+"");
             else{
                 lifeBarLabel.setText("0");
@@ -605,12 +605,16 @@ public class PokemonBattle extends javax.swing.JFrame {
                     announce.setText(rs.getString("name")+" uses "+rs.getString("attack"+count));
                }
                else{
-                   announce2.setText("The Player's"+rs.getString("name")+" has been defeated");
+                   announce2.setText("The Player's "+rs.getString("name")+" has been defeated");
                     lose++;
                     if(lose==6){
                         nextBtn.setVisible(true);
                         nextBtn.setText("Exit");
-                   }
+                    }
+                    else{
+                       switchBtn.setVisible(true);
+                       attackBtn.setVisible(false);
+                    }
                }
             }
             else{
@@ -618,12 +622,16 @@ public class PokemonBattle extends javax.swing.JFrame {
                 if(attack("damage"+count,"player")==true){
                     announce.setText(rs.getString("name")+" uses "+rs.getString("attack"+count));
                     if(Enemy_attack(value)==false){
-                        announce2.setText("The Player's"+rs.getString("name")+" has been defeated");
+                        announce2.setText("The Player's "+rs.getString("name")+" has been defeated");
                         lose++;
                         if(lose==6){
                         nextBtn.setVisible(true);
                         nextBtn.setText("Exit");
-                   }
+                        }
+                        else{
+                            switchBtn.setVisible(true);
+                            attackBtn.setVisible(false);
+                        }
                     }
                     announce2.setText("Player pokemon first attacks");
                 }
@@ -776,7 +784,8 @@ public class PokemonBattle extends javax.swing.JFrame {
             attack2.setText(rs.getString("attack2"));
             attack3.setText(rs.getString("attack3"));
             attack4.setText(rs.getString("attack4"));
-            lifeBarLabel.setText((lifeBarProgressBar.getValue()*rs.getInt("HP"))/100+"");
+            lifeBarLabel.setText((lives[pokemonNumber]*rs.getInt("HP"))/100+"");
+            lifeBarProgressBar.setValue(lives[pokemonNumber]);
             changeUserPokemonImage(pokemonlist[pokemonNumber]);
             conn.close();
         } catch (ClassNotFoundException ex) {
@@ -801,6 +810,7 @@ public class PokemonBattle extends javax.swing.JFrame {
 
     void setPokemon(int current_pokemon) throws SQLException {
         initPokemon(user, current_pokemon);
+        attackBtn.setVisible(true);
     }
 
 }
