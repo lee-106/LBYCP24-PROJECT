@@ -5,6 +5,8 @@
  */
 package pokemon;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,6 +30,8 @@ public class PokemonSwitch extends javax.swing.JFrame {
         this.current_pokemon = current_pokemon;
         battleGUI=aThis;
         initComponents();
+        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation((size.width - this.getSize().width) / 2, (size.height - this.getSize().height) / 2);
         JLabel[] pokemonLogos = {pokemon1,pokemon2,pokemon3,pokemon4,pokemon5,pokemon6};
         JProgressBar[] lives = {life1,life2,life3,life4,life5,life6};
         for(int i=0;i<6;i++)
