@@ -43,17 +43,20 @@ public class PokemonBattle extends javax.swing.JFrame {
 
     public PokemonBattle() throws SQLException {
         initComponents();
+        System.out.println(UIManager.getLookAndFeel());
+        System.out.println(UIManager.getSystemLookAndFeelClassName());
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((size.width - this.getSize().width) / 2, (size.height - this.getSize().height) / 2);
     }
 
     public PokemonBattle(String user, int gender, int count_enemy) throws SQLException, ClassNotFoundException {
-        initComponents();
+        initComponents();  
         attack1.setVisible(false);
         attack2.setVisible(false);
         attack3.setVisible(false);
         attack4.setVisible(false);
         nextBtn.setVisible(false);
+        proceedBtn.setVisible(false);
         this.gender=gender;
         this.user = user;
         counter_enemy = count_enemy;
@@ -113,6 +116,10 @@ public class PokemonBattle extends javax.swing.JFrame {
         attack3 = new javax.swing.JButton();
         attack4 = new javax.swing.JButton();
         nextBtn = new javax.swing.JButton();
+        announce1 = new javax.swing.JLabel();
+        announce2 = new javax.swing.JLabel();
+        announce = new javax.swing.JLabel();
+        proceedBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         playerPokemonImage = new javax.swing.JLabel();
         enemy = new javax.swing.JLabel();
@@ -123,9 +130,6 @@ public class PokemonBattle extends javax.swing.JFrame {
         enemyLifeBarLabel = new javax.swing.JLabel();
         pokemonName = new javax.swing.JLabel();
         enemyPokemonName = new javax.swing.JLabel();
-        announce = new javax.swing.JLabel();
-        announce1 = new javax.swing.JLabel();
-        announce2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -133,7 +137,8 @@ public class PokemonBattle extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setOpaque(false);
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 153), 5, true));
+        jPanel1.setLayout(null);
 
         switchBtn.setText("Switch");
         switchBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +146,8 @@ public class PokemonBattle extends javax.swing.JFrame {
                 switchBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(switchBtn);
+        switchBtn.setBounds(270, 40, 151, 25);
 
         attackBtn.setText("Attack");
         attackBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -148,6 +155,8 @@ public class PokemonBattle extends javax.swing.JFrame {
                 attackBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(attackBtn);
+        attackBtn.setBounds(60, 40, 147, 25);
 
         attack1.setText("Attack1");
         attack1.addActionListener(new java.awt.event.ActionListener() {
@@ -155,6 +164,8 @@ public class PokemonBattle extends javax.swing.JFrame {
                 attack1ActionPerformed(evt);
             }
         });
+        jPanel1.add(attack1);
+        attack1.setBounds(60, 20, 147, 25);
 
         attack2.setText("Attack2");
         attack2.addActionListener(new java.awt.event.ActionListener() {
@@ -162,6 +173,8 @@ public class PokemonBattle extends javax.swing.JFrame {
                 attack2ActionPerformed(evt);
             }
         });
+        jPanel1.add(attack2);
+        attack2.setBounds(60, 70, 147, 25);
 
         attack3.setText("Attack3");
         attack3.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +182,8 @@ public class PokemonBattle extends javax.swing.JFrame {
                 attack3ActionPerformed(evt);
             }
         });
+        jPanel1.add(attack3);
+        attack3.setBounds(270, 20, 151, 25);
 
         attack4.setText("Attack4");
         attack4.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +191,8 @@ public class PokemonBattle extends javax.swing.JFrame {
                 attack4ActionPerformed(evt);
             }
         });
+        jPanel1.add(attack4);
+        attack4.setBounds(270, 70, 151, 25);
 
         nextBtn.setText(" ");
         nextBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -183,46 +200,25 @@ public class PokemonBattle extends javax.swing.JFrame {
                 nextBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(nextBtn);
+        nextBtn.setBounds(340, 10, 130, 25);
+        jPanel1.add(announce1);
+        announce1.setBounds(10, 80, 444, 20);
+        jPanel1.add(announce2);
+        announce2.setBounds(10, 20, 444, 17);
+        jPanel1.add(announce);
+        announce.setBounds(10, 50, 444, 17);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(attack1, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                    .addComponent(attack2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(attackBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(attack4, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                    .addComponent(attack3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(switchBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(25, 25, 25)
-                .addComponent(nextBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(attackBtn)
-                    .addComponent(switchBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nextBtn))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(attack1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(attack3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(attack2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(attack4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        proceedBtn.setText(">");
+        proceedBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proceedBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(proceedBtn);
+        proceedBtn.setBounds(430, 10, 41, 25);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 333, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 480, 120));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Male.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 133, -1, -1));
@@ -261,9 +257,6 @@ public class PokemonBattle extends javax.swing.JFrame {
 
         enemyPokemonName.setText("Name");
         getContentPane().add(enemyPokemonName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
-        getContentPane().add(announce, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 287, 444, 17));
-        getContentPane().add(announce1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 310, 444, 17));
-        getContentPane().add(announce2, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 264, 444, 17));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/battle base.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, 60));
@@ -338,7 +331,12 @@ public class PokemonBattle extends javax.swing.JFrame {
             } else if((bonus<1)&&(bonus>0)){
                 notif = ". It was not very effective";
             }
-            announce.setText(temp+notif+". It dealt "+(int) (damage*bonus)+" damage");
+            announce.setVisible(true);
+            announce2.setVisible(true);
+            announce.setText(temp+notif+". Dealt "+(int) (damage*bonus)+" damage");
+            attackBtn.setVisible(false);
+            switchBtn.setVisible(false);
+            proceedBtn.setVisible(true);
             System.out.println("damage= " + damage);
             System.out.println("bonus= " + bonus);
             System.out.println("enemy life= " + enemyLives[enemyPokemonCounter]);
@@ -389,7 +387,12 @@ public class PokemonBattle extends javax.swing.JFrame {
             }
             System.out.println("player life= " + playerLives[currentPokemon]);
             playerLifeBarProgressBar.setValue((playerLives[currentPokemon] * 100 / playerMaxLives[currentPokemon]));
-            announce1.setText(rs.getString("name") + " uses " + rs.getString("attack"+value)+notif+". It dealt "+(int)(damage*bonus)+" damage");
+            announce1.setVisible(true);
+            announce2.setVisible(true);
+            announce1.setText(rs.getString("name") + " uses " + rs.getString("attack"+value)+notif+". Dealt "+(int)(damage*bonus)+" damage");
+            attackBtn.setVisible(false);
+            switchBtn.setVisible(false);
+            proceedBtn.setVisible(true);
             if (playerLives[currentPokemon] > 0) {
                 playerLifeBarLabel.setText(playerLives[currentPokemon] + "");
             } else {
@@ -458,6 +461,15 @@ public class PokemonBattle extends javax.swing.JFrame {
         int value = rand.nextInt(4);
         announce.setText("");
     }//GEN-LAST:event_switchBtnActionPerformed
+
+    private void proceedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proceedBtnActionPerformed
+        attackBtn.setVisible(true);
+        switchBtn.setVisible(true);
+        announce.setVisible(false);
+        announce1.setVisible(false);
+        announce2.setVisible(false);
+        proceedBtn.setVisible(false);
+    }//GEN-LAST:event_proceedBtnActionPerformed
     private double findBonus(String type, String enemy) throws SQLException {
         double bonus = 1;
         try {
@@ -494,6 +506,7 @@ public class PokemonBattle extends javax.swing.JFrame {
         return bonus;
     }
     public void beforeAttack(int count) {
+        announce2.setVisible(true);
         switchBtn.setVisible(true);
         attackBtn.setVisible(true);
         attack1.setVisible(false);
@@ -515,9 +528,11 @@ public class PokemonBattle extends javax.swing.JFrame {
             if (rs2.getInt("damage" + (value + 1)) < rs1.getInt("damage" + count)) {
                 if (enemyAttack(value) == true) {
                     if (attack("damage" + count, "player") == false) {
-                        announce2.setText("The Enemy's  " + rs2.getString("name") + " has been defeated");
+                        announce2.setText("The Enemy's  " + rs2.getString("name") + " has been defeated.");
                         win++;
                         if (win == 6) {
+                            announce2.setText("You won. All of the enemy's pokemon was defeated.");
+                            proceedBtn.setVisible(false);
                             attackBtn.setVisible(false);
                             switchBtn.setVisible(false);
                             nextBtn.setVisible(true);
@@ -529,9 +544,11 @@ public class PokemonBattle extends javax.swing.JFrame {
                         announce2.setText("Enemy pokemon attacks first");
                     }
                 } else {
-                    announce2.setText("The Player's" + rs1.getString("name") + " has been defeated");
+                    announce2.setText("The Player's " + rs1.getString("name") + " has been defeated.");
                     lose++;
                     if (lose == 6) {
+                        announce2.setText("You lost. All of your pokemon was defeated.");
+                        proceedBtn.setVisible(false);
                         attackBtn.setVisible(false);
                         switchBtn.setVisible(false);
                         nextBtn.setVisible(true);
@@ -546,9 +563,11 @@ public class PokemonBattle extends javax.swing.JFrame {
             } else {
                 if (attack("damage" + count, "player") == true) {
                     if (enemyAttack(value) == false) {
-                        announce2.setText("The Player's " + rs1.getString("name") + " has been defeated");
+                        announce2.setText("The Player's " + rs1.getString("name") + " has been defeated.");
                         lose++;
                         if (lose == 6) {
+                            announce2.setText("You lost. All of your pokemon was defeated.");
+                            proceedBtn.setVisible(false);
                             attackBtn.setVisible(false);
                             switchBtn.setVisible(false);
                             nextBtn.setVisible(true);
@@ -562,9 +581,11 @@ public class PokemonBattle extends javax.swing.JFrame {
                     }
                     announce2.setText("Player pokemon attacks first");
                 } else {
-                    announce2.setText("The Enemy's " + rs2.getString("name") + " has been defeated");
+                    announce2.setText("The Enemy's " + rs2.getString("name") + " has been defeated.");
                     win++;
                     if (win == 6) {
+                        announce2.setText("You won. All of the enemy's pokemon was defeated.");
+                        proceedBtn.setVisible(false);
                         attackBtn.setVisible(false);
                         switchBtn.setVisible(false);
                         nextBtn.setVisible(true);
@@ -592,6 +613,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             pst.setString(1, enemyPokemonList[enemyPokemonCounter] + "");
             ResultSet rs = pst.executeQuery();
             rs.next();
+            announce2.setText(announce2.getText()+" "+rs.getString("name")+" was called out.");
             enemyPokemonName.setText(rs.getString("Name"));
             enemyLifeBarLabel.setText(rs.getInt("HP") + "");
             enemyLifeBarProgressBar.setValue(100);
@@ -662,6 +684,7 @@ public class PokemonBattle extends javax.swing.JFrame {
     private javax.swing.JProgressBar playerLifeBarProgressBar;
     private javax.swing.JLabel playerPokemonImage;
     private javax.swing.JLabel pokemonName;
+    private javax.swing.JButton proceedBtn;
     private javax.swing.JButton switchBtn;
     // End of variables declaration//GEN-END:variables
 
