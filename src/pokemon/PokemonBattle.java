@@ -54,7 +54,7 @@ public class PokemonBattle extends javax.swing.JFrame {
         attack3.setVisible(false);
         attack4.setVisible(false);
         nextBtn.setVisible(false);
-        
+        this.gender=gender;
         this.user = user;
         counter_enemy = count_enemy;
         ImageIcon bbry = null;
