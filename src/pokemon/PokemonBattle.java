@@ -234,12 +234,12 @@ public class PokemonBattle extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(attack4, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                             .addComponent(attack3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(attackBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(switchBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(nextBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -369,11 +369,6 @@ public class PokemonBattle extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void switchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchBtnActionPerformed
-        PokemonSwitch switcher = new PokemonSwitch(pokemonlist, playerLives, currentPokemon,this);
-        switcher.setVisible(true);
-    }//GEN-LAST:event_switchBtnActionPerformed
-
     private void changeUserPokemonImage(int number) {
         ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Back/" + number + ".png"));
         playerPokemonImage.setIcon(bbry);
@@ -388,15 +383,6 @@ public class PokemonBattle extends javax.swing.JFrame {
         ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/" + number + ".png"));
         enemyPokemonImage.setIcon(bbry);
     }
-    private void attackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackBtnActionPerformed
-        switchBtn.setVisible(false);
-        attackBtn.setVisible(false);
-        attack1.setVisible(true);
-        attack2.setVisible(true);
-        attack3.setVisible(true);
-        attack4.setVisible(true);
-    }//GEN-LAST:event_attackBtnActionPerformed
-
     private void playerLifeBarProgressBarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_playerLifeBarProgressBarStateChanged
 
     }//GEN-LAST:event_playerLifeBarProgressBarStateChanged
@@ -442,10 +428,10 @@ public class PokemonBattle extends javax.swing.JFrame {
             pst.setString(1, enemyPokemonList[enemyPokemonCounter] + "");
             ResultSet rs = pst.executeQuery();
             rs.next();
-            enemytype = rs.getString("type" + value);
+            enemytype = rs.getString("Type");
             System.out.println(enemytype + "");
             damage = rs.getInt(attackDamage);
-            bonus = findBonus(enemytype, type);
+            bonus = findBonus(type, enemytype);
             int life = enemyLives[enemyPokemonCounter];
             enemyLives[enemyPokemonCounter] = (int) (life - (damage * bonus));
             System.out.println("damage= " + damage);
@@ -503,6 +489,57 @@ public class PokemonBattle extends javax.swing.JFrame {
     private void enemyLifeBarProgressBarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_enemyLifeBarProgressBarStateChanged
 
     }//GEN-LAST:event_enemyLifeBarProgressBarStateChanged
+
+    private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
+        PokemonIntro a = null;
+        attackBtn.setVisible(false);
+        switchBtn.setVisible(false);
+        if (nextBtn.getText().equals("Next")) {
+            try {
+                a = new PokemonIntro(user, (19 + (counter_enemy) * 2), gender);
+            } catch (SQLException ex) {
+                Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (nextBtn.getText().equals("Exit")) {
+            try {
+                a = new PokemonIntro(user, (17 + (counter_enemy) * 2), gender);
+            } catch (SQLException ex) {
+                Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_nextBtnActionPerformed
+
+    private void attack4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack4ActionPerformed
+        beforeAttack(4);
+    }//GEN-LAST:event_attack4ActionPerformed
+
+    private void attack3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack3ActionPerformed
+        beforeAttack(3);
+    }//GEN-LAST:event_attack3ActionPerformed
+
+    private void attack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack2ActionPerformed
+        beforeAttack(2);
+    }//GEN-LAST:event_attack2ActionPerformed
+
+    private void attack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack1ActionPerformed
+        beforeAttack(1);
+    }//GEN-LAST:event_attack1ActionPerformed
+
+    private void attackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackBtnActionPerformed
+        switchBtn.setVisible(false);
+        attackBtn.setVisible(false);
+        attack1.setVisible(true);
+        attack2.setVisible(true);
+        attack3.setVisible(true);
+        attack4.setVisible(true);
+    }//GEN-LAST:event_attackBtnActionPerformed
+
+    private void switchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchBtnActionPerformed
+        PokemonSwitch switcher = new PokemonSwitch(pokemonlist, playerLives, currentPokemon,this);
+        switcher.setVisible(true);
+    }//GEN-LAST:event_switchBtnActionPerformed
     private double findBonus(String type, String enemy) throws SQLException {
         double bonus = 1;
         try {
@@ -538,43 +575,6 @@ public class PokemonBattle extends javax.swing.JFrame {
         }
         return bonus;
     }
-    private void attack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack1ActionPerformed
-        beforeAttack(1);
-    }//GEN-LAST:event_attack1ActionPerformed
-
-    private void attack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack2ActionPerformed
-        beforeAttack(2);
-    }//GEN-LAST:event_attack2ActionPerformed
-
-    private void attack3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack3ActionPerformed
-        beforeAttack(3);
-    }//GEN-LAST:event_attack3ActionPerformed
-
-    private void attack4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack4ActionPerformed
-        beforeAttack(4);
-    }//GEN-LAST:event_attack4ActionPerformed
-
-    private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
-        PokemonIntro a = null;
-        attackBtn.setVisible(false);
-        switchBtn.setVisible(false);
-        if (nextBtn.getText().equals("Next")) {
-            try {
-                a = new PokemonIntro(user, (19 + (counter_enemy) * 2), gender);
-            } catch (SQLException ex) {
-                Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (nextBtn.getText().equals("Exit")) {
-            try {
-                a = new PokemonIntro(user, (17 + (counter_enemy) * 2), gender);
-            } catch (SQLException ex) {
-                Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        a.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_nextBtnActionPerformed
-
     public void beforeAttack(int count) {
         switchBtn.setVisible(true);
         attackBtn.setVisible(true);
