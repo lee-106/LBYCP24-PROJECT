@@ -81,49 +81,9 @@ public class PokemonBattle extends javax.swing.JFrame {
             pst.setString(1, enemyPokemonList[enemyPokemonCounter] + "");
             ResultSet rs = pst.executeQuery();
             rs.next();
-            switch (value) {
-                case 0: {
-                    try {
-                        announce1.setText(rs.getString("name") + " use " + rs.getString("attack1"));
-                        return attack("damage1", "enemy");
-                    } catch (SQLException ex) {
-                        Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
-                        System.out.println("error");
-                    }
-                    break;
-                }
-                case 1: {
-                    try {
-                        announce1.setText(rs.getString("name") + " use " + rs.getString("attack2"));
-                        return attack("damage2", "enemy");
-                    } catch (SQLException ex) {
-                        Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
-                        System.out.println("error");
-                    }
-                    break;
-                }
-                case 2: {
-                    try {
-                        announce1.setText(rs.getString("name") + " use " + rs.getString("attack3"));
-                        return attack("damage3", "enemy");
-                    } catch (SQLException ex) {
-                        Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
-                        System.out.println("error");
-                    }
-                    break;
-                }
-                case 3: {
-                    try {
-                        announce1.setText(rs.getString("name") + " use " + rs.getString("attack4"));
-                        return attack("damage4", "enemy");
-                    } catch (SQLException ex) {
-                        Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
-                        System.out.println("error");
-                    }
-                    break;
-                }
-            }
+            announce1.setText(rs.getString("name") + " use " + rs.getString("attack1")+". Deals "+rs.getInt("damage"+(value+1))+" damage");
             conn.close();
+            return attack("damage"+(value+1), "enemy");
         } catch (SQLException ex) {
             Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -238,9 +198,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(attackBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(switchBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(nextBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(nextBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -265,7 +223,7 @@ public class PokemonBattle extends javax.swing.JFrame {
 
         playerPokemonImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Back/25.png"))); // NOI18N
 
-        enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Alder-Sprite.png"))); // NOI18N
+        enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Alder.png"))); // NOI18N
 
         playerLifeBarProgressBar.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -600,7 +558,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                     } else {
                         announce2.setText("Enemy pokemon attacks first");
                     }
-                    announce.setText(rs1.getString("name") + " uses " + rs1.getString("attack" + count));
+                    announce.setText(rs1.getString("name") + " uses " + rs1.getString("attack" + count)+". Deals "+rs1.getInt("damage"+count)+" damage");
                 } else {
                     announce2.setText("The Player's" + rs1.getString("name") + " has been defeated");
                     lose++;
@@ -617,9 +575,8 @@ public class PokemonBattle extends javax.swing.JFrame {
                     }
                 }
             } else {
-                announce.setText(rs1.getString("name") + " uses " + rs1.getString("attack" + count));
                 if (attack("damage" + count, "player") == true) {
-                    announce.setText(rs1.getString("name") + " uses " + rs1.getString("attack" + count));
+                    announce.setText(rs1.getString("name") + " uses " + rs1.getString("attack" + count)+". Deals "+rs1.getInt("damage"+count)+" damage");
                     if (enemyAttack(value) == false) {
                         announce2.setText("The Player's " + rs1.getString("name") + " has been defeated");
                         lose++;
