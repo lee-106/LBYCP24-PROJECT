@@ -37,6 +37,7 @@ public class PokemonIntro extends javax.swing.JFrame {
         jButton5.setVisible(false);
         jButton6.setVisible(false);
         jButton7.setVisible(false);
+        jButton8.setVisible(false);
         jLabel6.setVisible(false);
         jLabel7.setVisible(false);
         jLabel10.setVisible(false);
@@ -85,6 +86,7 @@ public class PokemonIntro extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
 
@@ -162,14 +164,14 @@ public class PokemonIntro extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Female");
+        jButton3.setText("Girl");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Male");
+        jButton2.setText("Boy");
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,6 +194,13 @@ public class PokemonIntro extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setText("Exit");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -201,20 +210,21 @@ public class PokemonIntro extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton7)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton8))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton5)
                         .addGap(18, 18, 18)
                         .addComponent(jButton6)
                         .addGap(109, 109, 109)
                         .addComponent(jButton2)
-                        .addGap(18, 18, 18)
+                        .addGap(44, 44, 44)
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4)
-                        .addGap(132, 132, 132))))
+                        .addComponent(jButton4)))
+                .addGap(132, 132, 132))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,12 +239,14 @@ public class PokemonIntro extends javax.swing.JFrame {
                         .addComponent(jButton6)
                         .addComponent(jButton2)
                         .addComponent(jButton3)))
-                .addGap(18, 18, 18)
-                .addComponent(jButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton8)
+                    .addComponent(jButton7))
                 .addContainerGap())
         );
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel3.setText("Hello there! Welcome to the world of Pokémon!  ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -367,7 +379,7 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 10:{
-                jLabel3.setText("Pokemon Battle Frontier is a turn-based combat which focuses on strategy to win.");
+                jLabel3.setText("Pokemon Battle Frontier is a turn-based game which focuses on strategy to win.");
                 break;
             }
             case 11:{
@@ -379,7 +391,7 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 13:{
-                jLabel3.setText("2. How often a Pokemon uses it's skill is limited to the number of PP.");
+                jLabel3.setText("2. How other types are resistant to certain types of attack.");
                 break;
             }
             case 14:{
@@ -611,7 +623,7 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 29:{
-                try {
+            try {
                 PokemonBattle a=new PokemonBattle(user,gender,5);
                 a.setVisible(true);
                 this.dispose();
@@ -621,7 +633,13 @@ public class PokemonIntro extends javax.swing.JFrame {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
             }
-            this.dispose();
+            }
+            case 30:{
+                jLabel1.setVisible(true);
+                jLabel3.setVisible(true);
+                jLabel3.setText("Congratulations for completing Battle Frontier!");
+                jButton1.setVisible(false);
+                jButton8.setVisible(true);
                 break;
             }
         }
@@ -651,6 +669,10 @@ public class PokemonIntro extends javax.swing.JFrame {
         this.dispose();
         s.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton8ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -692,6 +714,7 @@ public class PokemonIntro extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

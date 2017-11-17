@@ -114,7 +114,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Bulbasaur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/bulbasaur.png"))); // NOI18N
+        Bulbasaur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/1.png"))); // NOI18N
         Bulbasaur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BulbasaurActionPerformed(evt);
@@ -122,7 +122,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Bulbasaur, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 40, 40));
 
-        Squirtle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/squirtle.png"))); // NOI18N
+        Squirtle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/7.png"))); // NOI18N
         Squirtle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SquirtleActionPerformed(evt);
@@ -130,7 +130,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Squirtle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 40, 40));
 
-        Charmander.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/charmander.png"))); // NOI18N
+        Charmander.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/4.png"))); // NOI18N
         Charmander.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CharmanderActionPerformed(evt);
@@ -138,7 +138,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Charmander, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 40, 40));
 
-        Pikachu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/pikachu.png"))); // NOI18N
+        Pikachu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/25.png"))); // NOI18N
         Pikachu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PikachuActionPerformed(evt);
@@ -146,7 +146,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Pikachu, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 40, 40));
 
-        Zapdos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/zapdos.png"))); // NOI18N
+        Zapdos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/145.png"))); // NOI18N
         Zapdos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ZapdosActionPerformed(evt);
@@ -154,7 +154,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Zapdos, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 40, 40));
 
-        Articuno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/articuno.png"))); // NOI18N
+        Articuno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/144.png"))); // NOI18N
         Articuno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ArticunoActionPerformed(evt);
@@ -162,7 +162,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Articuno, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 40, 40));
 
-        Pichu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/pichu.png"))); // NOI18N
+        Pichu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/172.png"))); // NOI18N
         Pichu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PichuActionPerformed(evt);
@@ -170,7 +170,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Pichu, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 40, 40));
 
-        Moltres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/moltres.png"))); // NOI18N
+        Moltres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/146.png"))); // NOI18N
         Moltres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MoltresActionPerformed(evt);
@@ -178,7 +178,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Moltres, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 40, 40));
 
-        Cyndaquil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/cyndaquil.png"))); // NOI18N
+        Cyndaquil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/155.png"))); // NOI18N
         Cyndaquil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CyndaquilActionPerformed(evt);
@@ -186,7 +186,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Cyndaquil, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 40, 40));
 
-        Chikorita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/chikorita.png"))); // NOI18N
+        Chikorita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/152.png"))); // NOI18N
         Chikorita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ChikoritaActionPerformed(evt);
@@ -194,7 +194,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Chikorita, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 40, 40));
 
-        Totodile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/totodile.png"))); // NOI18N
+        Totodile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/158.png"))); // NOI18N
         Totodile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TotodileActionPerformed(evt);
@@ -202,7 +202,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Totodile, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 40, 40));
 
-        Clefa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/cleffa.png"))); // NOI18N
+        Clefa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/173.png"))); // NOI18N
         Clefa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ClefaActionPerformed(evt);
@@ -210,7 +210,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Clefa, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 40, 40));
 
-        Elekid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/elekid.png"))); // NOI18N
+        Elekid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/239.png"))); // NOI18N
         Elekid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ElekidActionPerformed(evt);
@@ -218,7 +218,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Elekid, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 40, 40));
 
-        Igglybuff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/igglybuff.png"))); // NOI18N
+        Igglybuff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/174.png"))); // NOI18N
         Igglybuff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IgglybuffActionPerformed(evt);
@@ -226,7 +226,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Igglybuff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 40, 40));
 
-        Teddyursa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/teddiursa.png"))); // NOI18N
+        Teddyursa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/216.png"))); // NOI18N
         Teddyursa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TeddyursaActionPerformed(evt);
@@ -234,7 +234,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Teddyursa, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 40, 40));
 
-        Togepi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/togepi.png"))); // NOI18N
+        Togepi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/175.png"))); // NOI18N
         Togepi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TogepiActionPerformed(evt);
@@ -242,7 +242,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Togepi, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 40, 40));
 
-        Smoochum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/smoochum.png"))); // NOI18N
+        Smoochum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/238.png"))); // NOI18N
         Smoochum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SmoochumActionPerformed(evt);
@@ -250,7 +250,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Smoochum, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 40, 40));
 
-        Magby.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/magby.png"))); // NOI18N
+        Magby.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/240.png"))); // NOI18N
         Magby.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MagbyActionPerformed(evt);
@@ -258,7 +258,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Magby, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 40, 40));
 
-        Lugia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/lugia.png"))); // NOI18N
+        Lugia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/249.png"))); // NOI18N
         Lugia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LugiaActionPerformed(evt);
@@ -266,7 +266,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Lugia, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 40, 40));
 
-        Latias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/latias.png"))); // NOI18N
+        Latias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/380.png"))); // NOI18N
         Latias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LatiasActionPerformed(evt);
@@ -274,7 +274,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Latias, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 40, 40));
 
-        Celebi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/celebi.png"))); // NOI18N
+        Celebi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/251.png"))); // NOI18N
         Celebi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CelebiActionPerformed(evt);
@@ -282,7 +282,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Celebi, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 40, 40));
 
-        Torchic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/torchic.png"))); // NOI18N
+        Torchic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/255.png"))); // NOI18N
         Torchic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TorchicActionPerformed(evt);
@@ -290,7 +290,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Torchic, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 40, 40));
 
-        Treeko.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/treecko.png"))); // NOI18N
+        Treeko.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/252.png"))); // NOI18N
         Treeko.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TreekoActionPerformed(evt);
@@ -298,7 +298,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Treeko, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 40, 40));
 
-        Mudkip.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/mudkip.png"))); // NOI18N
+        Mudkip.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/258.png"))); // NOI18N
         Mudkip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MudkipActionPerformed(evt);
@@ -306,7 +306,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Mudkip, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 40, 40));
 
-        Latios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/latios.png"))); // NOI18N
+        Latios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/381.png"))); // NOI18N
         Latios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LatiosActionPerformed(evt);
@@ -314,7 +314,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Latios, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 40, 40));
 
-        Tepig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/tepig.png"))); // NOI18N
+        Tepig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/498.png"))); // NOI18N
         Tepig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TepigActionPerformed(evt);
@@ -322,7 +322,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Tepig, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 40, 40));
 
-        Turtwig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/turtwig.png"))); // NOI18N
+        Turtwig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/387.png"))); // NOI18N
         Turtwig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TurtwigActionPerformed(evt);
@@ -330,7 +330,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Turtwig, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 40, 40));
 
-        Piplup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/piplup.png"))); // NOI18N
+        Piplup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/393.png"))); // NOI18N
         Piplup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PiplupActionPerformed(evt);
@@ -338,7 +338,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Piplup, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 40, 40));
 
-        Raiku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/raikou.png"))); // NOI18N
+        Raiku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/243.png"))); // NOI18N
         Raiku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RaikuActionPerformed(evt);
@@ -346,7 +346,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Raiku, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 40, 40));
 
-        Chimchar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/chimchar.png"))); // NOI18N
+        Chimchar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/390.png"))); // NOI18N
         Chimchar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ChimcharActionPerformed(evt);
@@ -354,7 +354,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Chimchar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 40, 40));
 
-        Snivy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/snivy.png"))); // NOI18N
+        Snivy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/495.png"))); // NOI18N
         Snivy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SnivyActionPerformed(evt);
@@ -362,7 +362,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Snivy, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 40, 40));
 
-        Oshawott.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/oshawott.png"))); // NOI18N
+        Oshawott.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/501.png"))); // NOI18N
         Oshawott.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OshawottActionPerformed(evt);
@@ -370,7 +370,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Oshawott, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 40, 40));
 
-        Suicune.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/suicune.png"))); // NOI18N
+        Suicune.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/245.png"))); // NOI18N
         Suicune.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SuicuneActionPerformed(evt);
@@ -378,7 +378,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Suicune, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 40, 40));
 
-        Entei.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/entei.png"))); // NOI18N
+        Entei.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/244.png"))); // NOI18N
         Entei.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EnteiActionPerformed(evt);
@@ -386,7 +386,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Entei, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 40, 40));
 
-        Larvitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/larvitar.png"))); // NOI18N
+        Larvitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/246.png"))); // NOI18N
         Larvitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LarvitarActionPerformed(evt);
@@ -394,7 +394,7 @@ public class PokemonSelection extends javax.swing.JFrame {
         });
         getContentPane().add(Larvitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 40, 40));
 
-        Hooh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/ho-oh.png"))); // NOI18N
+        Hooh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/250.png"))); // NOI18N
         Hooh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HoohActionPerformed(evt);

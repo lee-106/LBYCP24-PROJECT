@@ -408,20 +408,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
             }
-//            //getting the pokemon type of the enemy pokemon
-//            try {
-//                Class.forName("com.mysql.jdbc.Driver");
-//                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
-//                PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
-//                pst.setString(1, enemypokemonList[counter_enemy] + "");
-//                ResultSet rs = pst.executeQuery();
-//                rs.next();
-//                enemytype = rs.getString("Type");
-//                System.out.println(enemytype + "");
-//                conn.close();
-//            } catch (ClassNotFoundException ex) {
-//                Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+            //getting the pokemon type of the enemy pokemon
 
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
@@ -430,7 +417,6 @@ public class PokemonBattle extends javax.swing.JFrame {
             rs.next();
             enemytype = rs.getString("Type");
             System.out.println(enemytype + "");
-            damage = rs.getInt(attackDamage);
             bonus = findBonus(type, enemytype);
             int life = enemyLives[enemyPokemonCounter];
             enemyLives[enemyPokemonCounter] = (int) (life - (damage * bonus));
