@@ -379,7 +379,15 @@ public class PokemonBattle extends javax.swing.JFrame {
             bonus = findBonus(type, enemytype);
             int life = enemyLives[enemyPokemonCounter];
             enemyLives[enemyPokemonCounter] = (int) (life - (damage * bonus));
-            announce.setText(temp+". Deals "+(int) (damage*bonus)+" damage");
+            String notif = "";
+            if(bonus==2){
+                notif = ". It was super effective";
+            } else if(bonus==0){
+                notif = ". It had no effect";
+            } else if((bonus<1)&&(bonus>0)){
+                notif = ". It was not very effective";
+            }
+            announce.setText(temp+notif+". It dealt "+(int) (damage*bonus)+" damage");
             System.out.println("damage= " + damage);
             System.out.println("bonus= " + bonus);
             System.out.println("enemy life= " + enemyLives[enemyPokemonCounter]);
@@ -420,9 +428,17 @@ public class PokemonBattle extends javax.swing.JFrame {
             playerLives[currentPokemon] = (int) (life - (damage * bonus));
             System.out.println("damage= " + damage);
             System.out.println("bonus= " + bonus);
+            String notif = "";
+            if(bonus==2){
+                notif = ". It was super effective";
+            } else if(bonus==0){
+                notif = ". It had no effect";
+            } else if((bonus<1)&&(bonus>0)){
+                notif = ". It was not very effective";
+            }
             System.out.println("player life= " + playerLives[currentPokemon]);
             playerLifeBarProgressBar.setValue((playerLives[currentPokemon] * 100 / playerMaxLives[currentPokemon]));
-            announce1.setText(rs.getString("name") + " uses " + rs.getString("attack"+value)+". Deals "+(int)(damage*bonus)+" damage");
+            announce1.setText(rs.getString("name") + " uses " + rs.getString("attack"+value)+notif+". It dealt "+(int)(damage*bonus)+" damage");
             if (playerLives[currentPokemon] > 0) {
                 playerLifeBarLabel.setText(playerLives[currentPokemon] + "");
             } else {
