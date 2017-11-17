@@ -145,6 +145,7 @@ public class PokemonLogIn extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(null, "Incorrect Credentials");
         }
+        this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 private boolean validate_login(String username,String password) {
    try
