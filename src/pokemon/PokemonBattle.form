@@ -39,24 +39,24 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="enemyPokemonName" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="enemyLifeBar" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lifeBarProgressBar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="enemyLifeBarProgressBar" min="-2" max="-2" attributes="0"/>
+                                      <Component id="playerLifeBarProgressBar" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="pokemonName" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lifeBarLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="playerLifeBarLabel" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="enemylife" min="-2" max="-2" attributes="0"/>
+                                      <Component id="enemyLifeBarLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pokemon_enemy" min="-2" max="-2" attributes="0"/>
+                                      <Component id="enemyPokemonImage" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="pokemonImage" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="playerPokemonImage" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -80,7 +80,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="enemy" min="-2" max="-2" attributes="0"/>
-                          <Component id="pokemon_enemy" min="-2" max="-2" attributes="0"/>
+                          <Component id="enemyPokemonImage" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -88,8 +88,8 @@
                       <Component id="enemyPokemonName" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="enemylife" min="-2" max="-2" attributes="0"/>
-                          <Component id="enemyLifeBar" min="-2" max="-2" attributes="0"/>
+                          <Component id="enemyLifeBarLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="enemyLifeBarProgressBar" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -99,11 +99,11 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lifeBarProgressBar" min="-2" max="-2" attributes="0"/>
-                          <Component id="lifeBarLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="playerLifeBarProgressBar" min="-2" max="-2" attributes="0"/>
+                          <Component id="playerLifeBarLabel" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="pokemonImage" min="-2" max="-2" attributes="0"/>
+                      <Component id="playerPokemonImage" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -129,14 +129,14 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="attack1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="attack2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="attack1" pref="150" max="32767" attributes="0"/>
+                              <Component id="attack2" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="attack3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="attack4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="attack4" pref="150" max="32767" attributes="0"/>
+                              <Component id="attack3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -241,7 +241,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="pokemonImage">
+    <Component class="javax.swing.JLabel" name="playerPokemonImage">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Back/25.png"/>
@@ -255,29 +255,29 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="lifeBarProgressBar">
+    <Component class="javax.swing.JProgressBar" name="playerLifeBarProgressBar">
       <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="lifeBarProgressBarStateChanged"/>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="playerLifeBarProgressBarStateChanged"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lifeBarLabel">
+    <Component class="javax.swing.JLabel" name="playerLifeBarLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="pokemon_enemy">
+    <Component class="javax.swing.JLabel" name="enemyPokemonImage">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Pokemon-Java/Pokemon_Front/4.png"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="enemyLifeBar">
+    <Component class="javax.swing.JProgressBar" name="enemyLifeBarProgressBar">
       <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="enemyLifeBarStateChanged"/>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="enemyLifeBarProgressBarStateChanged"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="enemylife">
+    <Component class="javax.swing.JLabel" name="enemyLifeBarLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="enemylife"/>
       </Properties>

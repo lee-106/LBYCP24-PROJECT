@@ -36,9 +36,9 @@ public class PokemonBattle extends javax.swing.JFrame {
     public int current_pokemon = 0;//array index, zero based 0-5 only, first pokemon = 0, second =1 and so on.
     String[] trainers = {"Alder", "Brycen", "Cynthia", "Cilan", "Iris", "Drayden"};
     int counter_enemy = 0;//enemy trainer
-    int counter_pokemon=0;//enemy pokemon
-    int lose=0;//count of pokemon lost
-    int win=0;//count of pokemon defeated
+    int counter_pokemon = 0;//enemy pokemon
+    int lose = 0;//count of pokemon lost
+    int win = 0;//count of pokemon defeated
     int gender;
     String user;
 
@@ -47,18 +47,20 @@ public class PokemonBattle extends javax.swing.JFrame {
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((size.width - this.getSize().width) / 2, (size.height - this.getSize().height) / 2);
     }
-    
+
     public PokemonBattle(String user, int gender, int count_enemy) throws SQLException {
+        
+        
         initComponents();
         attack1.setVisible(false);
         attack2.setVisible(false);
         attack3.setVisible(false);
         attack4.setVisible(false);
         nextBtn.setVisible(false);
-        lifeBarProgressBar.setValue(100);
-        enemyLifeBar.setValue(100);
+        playerLifeBarProgressBar.setValue(100);
+        enemyLifeBarProgressBar.setValue(100);
         this.user = user;
-        counter_enemy =count_enemy;
+        counter_enemy = count_enemy;
         ImageIcon bbry = null;
         if (gender == 0) {
             bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Female.png"));
@@ -66,55 +68,56 @@ public class PokemonBattle extends javax.swing.JFrame {
             bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Male.png"));
         }
         jLabel1.setIcon(bbry);
-        lifeBarProgressBar.setValue(100);
-        enemyLifeBar.setValue(100);
+        playerLifeBarProgressBar.setValue(100);
+        enemyLifeBarProgressBar.setValue(100);
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         initPokemon(user, 0);
         this.setLocation((size.width - this.getSize().width) / 2, (size.height - this.getSize().height) / 2);
+        initLife();
     }
 
-    public boolean Enemy_attack(int value){
+    public boolean Enemy_attack(int value) {
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             PreparedStatement pst = conn.prepareStatement("Select * from moves where number = ?");
-            pst.setString(1, enemypokemonList[counter_pokemon]+"");
-            ResultSet rs= pst.executeQuery();
+            pst.setString(1, enemypokemonList[counter_pokemon] + "");
+            ResultSet rs = pst.executeQuery();
             rs.next();
-            switch(value){
-                case 0:{
+            switch (value) {
+                case 0: {
                     try {
-                        announce1.setText(rs.getString("name")+" use "+rs.getString("attack1"));
-                        return attack("damage1","enemy");
+                        announce1.setText(rs.getString("name") + " use " + rs.getString("attack1"));
+                        return attack("damage1", "enemy");
                     } catch (SQLException ex) {
                         Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
                         System.out.println("error");
                     }
                     break;
                 }
-                case 1:{
+                case 1: {
                     try {
-                        announce1.setText(rs.getString("name")+" use "+rs.getString("attack2"));
-                        return attack("damage2","enemy");
+                        announce1.setText(rs.getString("name") + " use " + rs.getString("attack2"));
+                        return attack("damage2", "enemy");
                     } catch (SQLException ex) {
                         Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
                         System.out.println("error");
                     }
                     break;
                 }
-                case 2:{
+                case 2: {
                     try {
-                        announce1.setText(rs.getString("name")+" use "+rs.getString("attack3"));
-                        return attack("damage3","enemy");
+                        announce1.setText(rs.getString("name") + " use " + rs.getString("attack3"));
+                        return attack("damage3", "enemy");
                     } catch (SQLException ex) {
                         Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
                         System.out.println("error");
                     }
                     break;
                 }
-                case 3:{
+                case 3: {
                     try {
-                        announce1.setText(rs.getString("name")+" use "+rs.getString("attack4"));
-                        return attack("damage4","enemy");
+                        announce1.setText(rs.getString("name") + " use " + rs.getString("attack4"));
+                        return attack("damage4", "enemy");
                     } catch (SQLException ex) {
                         Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
                         System.out.println("error");
@@ -128,6 +131,7 @@ public class PokemonBattle extends javax.swing.JFrame {
         }
         return true;
     }
+
     /*
     NOTE!
     This is an example on how you change the png file:
@@ -153,13 +157,13 @@ public class PokemonBattle extends javax.swing.JFrame {
         attack4 = new javax.swing.JButton();
         nextBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        pokemonImage = new javax.swing.JLabel();
+        playerPokemonImage = new javax.swing.JLabel();
         enemy = new javax.swing.JLabel();
-        lifeBarProgressBar = new javax.swing.JProgressBar();
-        lifeBarLabel = new javax.swing.JLabel();
-        pokemon_enemy = new javax.swing.JLabel();
-        enemyLifeBar = new javax.swing.JProgressBar();
-        enemylife = new javax.swing.JLabel();
+        playerLifeBarProgressBar = new javax.swing.JProgressBar();
+        playerLifeBarLabel = new javax.swing.JLabel();
+        enemyPokemonImage = new javax.swing.JLabel();
+        enemyLifeBarProgressBar = new javax.swing.JProgressBar();
+        enemyLifeBarLabel = new javax.swing.JLabel();
         pokemonName = new javax.swing.JLabel();
         enemyPokemonName = new javax.swing.JLabel();
         announce = new javax.swing.JLabel();
@@ -225,13 +229,13 @@ public class PokemonBattle extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(attack1)
-                            .addComponent(attack2))
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(attack3)
-                            .addComponent(attack4))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(attack1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(attack2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(attack4, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(attack3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(attackBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -261,27 +265,27 @@ public class PokemonBattle extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Male.png"))); // NOI18N
 
-        pokemonImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Back/25.png"))); // NOI18N
+        playerPokemonImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Back/25.png"))); // NOI18N
 
         enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Alder-Sprite.png"))); // NOI18N
 
-        lifeBarProgressBar.addChangeListener(new javax.swing.event.ChangeListener() {
+        playerLifeBarProgressBar.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                lifeBarProgressBarStateChanged(evt);
+                playerLifeBarProgressBarStateChanged(evt);
             }
         });
 
-        lifeBarLabel.setText("jLabel2");
+        playerLifeBarLabel.setText("jLabel2");
 
-        pokemon_enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/4.png"))); // NOI18N
+        enemyPokemonImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/4.png"))); // NOI18N
 
-        enemyLifeBar.addChangeListener(new javax.swing.event.ChangeListener() {
+        enemyLifeBarProgressBar.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                enemyLifeBarStateChanged(evt);
+                enemyLifeBarProgressBarStateChanged(evt);
             }
         });
 
-        enemylife.setText("enemylife");
+        enemyLifeBarLabel.setText("enemylife");
 
         pokemonName.setText("Name");
 
@@ -306,20 +310,18 @@ public class PokemonBattle extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(enemyPokemonName)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(enemyLifeBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lifeBarProgressBar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(enemyLifeBarProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(playerLifeBarProgressBar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(pokemonName, javax.swing.GroupLayout.Alignment.LEADING)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lifeBarLabel)
+                                    .addComponent(playerLifeBarLabel)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(enemylife)
+                                        .addComponent(enemyLifeBarLabel)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(pokemon_enemy)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(pokemonImage)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                        .addComponent(enemyPokemonImage))))
+                            .addComponent(playerPokemonImage))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
@@ -337,24 +339,24 @@ public class PokemonBattle extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(enemy)
-                            .addComponent(pokemon_enemy)))
+                            .addComponent(enemyPokemonImage)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(enemyPokemonName)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(enemylife)
-                            .addComponent(enemyLifeBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(enemyLifeBarLabel)
+                            .addComponent(enemyLifeBarProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(8, 8, 8)
                 .addComponent(pokemonName)
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lifeBarProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lifeBarLabel))
+                            .addComponent(playerLifeBarProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(playerLifeBarLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pokemonImage))
+                        .addComponent(playerPokemonImage))
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(announce2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -376,7 +378,7 @@ public class PokemonBattle extends javax.swing.JFrame {
 
     private void changeUserPokemonImage(int number) {
         ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Back/" + number + ".png"));
-        pokemonImage.setIcon(bbry);
+        playerPokemonImage.setIcon(bbry);
     }
 
     private void changeEnemyImage(String Name) {
@@ -386,7 +388,7 @@ public class PokemonBattle extends javax.swing.JFrame {
 
     private void changeEnemyPokemonImage(int number) {
         ImageIcon bbry = new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Front/" + number + ".png"));
-        pokemon_enemy.setIcon(bbry);
+        enemyPokemonImage.setIcon(bbry);
     }
     private void attackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackBtnActionPerformed
         switchBtn.setVisible(false);
@@ -397,16 +399,16 @@ public class PokemonBattle extends javax.swing.JFrame {
         attack4.setVisible(true);
     }//GEN-LAST:event_attackBtnActionPerformed
 
-    private void lifeBarProgressBarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_lifeBarProgressBarStateChanged
-       
-    }//GEN-LAST:event_lifeBarProgressBarStateChanged
-    private boolean attack(String att,String attacker) throws SQLException {
+    private void playerLifeBarProgressBarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_playerLifeBarProgressBarStateChanged
+
+    }//GEN-LAST:event_playerLifeBarProgressBarStateChanged
+    private boolean attack(String att, String attacker) throws SQLException {
         String type = "";
         String enemytype = "";
-        int damage=0;
-        int value=Integer.parseInt(att.charAt(6)+"");
-        double bonus=1;
-        if(attacker.equals("player")){
+        int damage = 0;
+        int value = Integer.parseInt(att.charAt(6) + "");
+        double bonus = 1;
+        if (attacker.equals("player")) {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
@@ -414,8 +416,8 @@ public class PokemonBattle extends javax.swing.JFrame {
                 pst.setString(1, pokemonlist[0] + "");
                 ResultSet rs = pst.executeQuery();
                 rs.next();
-                type = rs.getString("type"+value);
-                System.out.println(type+"");
+                type = rs.getString("type" + value);
+                System.out.println(type + "");
                 damage = rs.getInt(att);
                 conn.close();
             } catch (ClassNotFoundException ex) {
@@ -429,7 +431,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 ResultSet rs = pst.executeQuery();
                 rs.next();
                 enemytype = rs.getString("Type");
-                System.out.println(enemytype+"");
+                System.out.println(enemytype + "");
                 conn.close();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
@@ -439,24 +441,24 @@ public class PokemonBattle extends javax.swing.JFrame {
             pst.setString(1, enemypokemonList[counter_pokemon] + "");
             ResultSet rs = pst.executeQuery();
             rs.next();
-            enemytype = rs.getString("type"+value);
-            System.out.println(enemytype+"");
+            enemytype = rs.getString("type" + value);
+            System.out.println(enemytype + "");
             damage = rs.getInt(att);
-            bonus=findBonus(enemytype,type);
-            int life = Integer.parseInt(enemylife.getText());
-            int out = (int) (life-(damage*bonus));
-            System.out.println("damage= "+damage);
-            System.out.println("bonus= "+bonus);
-            System.out.println("enemy life= "+out);
-            enemyLifeBar.setValue(out*100/rs.getInt("HP"));
-            if(out>0) enemylife.setText(out+"");
-            else{
-                enemylife.setText("0");
+            bonus = findBonus(enemytype, type);
+            int life = Integer.parseInt(enemyLifeBarLabel.getText());
+            int out = (int) (life - (damage * bonus));
+            System.out.println("damage= " + damage);
+            System.out.println("bonus= " + bonus);
+            System.out.println("enemy life= " + out);
+            enemyLifeBarProgressBar.setValue(out * 100 / rs.getInt("HP"));
+            if (out > 0) {
+                enemyLifeBarLabel.setText(out + "");
+            } else {
+                enemyLifeBarLabel.setText("0");
                 return false;
             }
             conn.close();
-        }
-        else{
+        } else {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
@@ -465,7 +467,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 ResultSet rs = pst.executeQuery();
                 rs.next();
                 type = rs.getString("Type");
-                System.out.println(type+"");
+                System.out.println(type + "");
                 conn.close();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
@@ -475,32 +477,33 @@ public class PokemonBattle extends javax.swing.JFrame {
             pst.setString(1, enemypokemonList[counter_pokemon] + "");
             ResultSet rs = pst.executeQuery();
             rs.next();
-            enemytype = rs.getString("type"+value);
-            System.out.println(enemytype+"");
+            enemytype = rs.getString("type" + value);
+            System.out.println(enemytype + "");
             damage = rs.getInt(att);
-            bonus=findBonus(enemytype,type);
-            int life = Integer.parseInt(lifeBarLabel.getText());
-            int out = (int) (life - (damage*bonus));
-            System.out.println("damage= "+damage);
-            System.out.println("bonus= "+bonus);
-            System.out.println("player life= "+out);
-            lifeBarProgressBar.setValue((out*100/rs.getInt("HP")));
-            if(out>0) lifeBarLabel.setText(out+"");
-            else{
-                lifeBarLabel.setText("0");
+            bonus = findBonus(enemytype, type);
+            int life = Integer.parseInt(playerLifeBarLabel.getText());
+            int out = (int) (life - (damage * bonus));
+            System.out.println("damage= " + damage);
+            System.out.println("bonus= " + bonus);
+            System.out.println("player life= " + out);
+            playerLifeBarProgressBar.setValue((out * 100 / rs.getInt("HP")));
+            if (out > 0) {
+                playerLifeBarLabel.setText(out + "");
+            } else {
+                playerLifeBarLabel.setText("0");
                 return false;
             }
             conn.close();
         }
         return true;
     }
-    
-    private void enemyLifeBarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_enemyLifeBarStateChanged
-        
-    }//GEN-LAST:event_enemyLifeBarStateChanged
-    private double findBonus(String type, String enemy) throws SQLException{
-        double bonus=1;
-         try {
+
+    private void enemyLifeBarProgressBarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_enemyLifeBarProgressBarStateChanged
+
+    }//GEN-LAST:event_enemyLifeBarProgressBarStateChanged
+    private double findBonus(String type, String enemy) throws SQLException {
+        double bonus = 1;
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             PreparedStatement pst = conn.prepareStatement("Select * from weakness where pokemon_type = ?");
@@ -509,29 +512,29 @@ public class PokemonBattle extends javax.swing.JFrame {
             rs.next();
             String strong = rs.getString("strong_against");
             String[] sArray = strong.split(" ");
-            System.out.println(""+strong);
-            System.out.println(""+sArray[0]);
-            if(Arrays.asList(sArray).contains(enemy)){
+            System.out.println("" + strong);
+            System.out.println("" + sArray[0]);
+            if (Arrays.asList(sArray).contains(enemy)) {
                 System.out.println("strong");
-                bonus=2.0;
+                bonus = 2.0;
             }
             String weak = rs.getString("weak_against");
             String[] wArray = weak.split(" ");
-            System.out.println(""+wArray[0]);
-            if(Arrays.asList(wArray).contains(enemy)){
-                bonus=bonus/2;
+            System.out.println("" + wArray[0]);
+            if (Arrays.asList(wArray).contains(enemy)) {
+                bonus = bonus / 2;
             }
             String noeffect = rs.getString("noeffect_against");
             String[] nArray = noeffect.split(" ");
-            System.out.println(""+nArray);
-            if(Arrays.asList(nArray).contains(enemy)){
-                bonus=0;
+            System.out.println("" + nArray);
+            if (Arrays.asList(nArray).contains(enemy)) {
+                bonus = 0;
             }
             conn.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
         }
-         return bonus;
+        return bonus;
     }
     private void attack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack1ActionPerformed
         before_attack(1);
@@ -552,100 +555,100 @@ public class PokemonBattle extends javax.swing.JFrame {
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
         PokemonIntro a = null;
         attackBtn.setVisible(false);
-         switchBtn.setVisible(false);
-        if(nextBtn.getText().equals("Next")){
+        switchBtn.setVisible(false);
+        if (nextBtn.getText().equals("Next")) {
             try {
-                a = new PokemonIntro(user,(19+(counter_enemy)*2),gender);
+                a = new PokemonIntro(user, (19 + (counter_enemy) * 2), gender);
+            } catch (SQLException ex) {
+                Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (nextBtn.getText().equals("Exit")) {
+            try {
+                a = new PokemonIntro(user, (17 + (counter_enemy) * 2), gender);
             } catch (SQLException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        else if(nextBtn.getText().equals("Exit")){
-            try {
-                a = new PokemonIntro(user,(17+(counter_enemy)*2),gender);
-            } catch (SQLException ex) {
-                Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-            a.setVisible(true);
-            this.dispose();
+        a.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_nextBtnActionPerformed
 
-     public void before_attack(int count){
+    public void before_attack(int count) {
         switchBtn.setVisible(true);
         attackBtn.setVisible(true);
         attack1.setVisible(false);
         attack2.setVisible(false);
         attack3.setVisible(false);
         attack4.setVisible(false);
-        try {                                        
+        try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
-            PreparedStatement pst = conn.prepareStatement("Select * from moves where number = ?");
-            pst.setString(1, pokemonlist[current_pokemon]+"");
-            ResultSet rs= pst.executeQuery();
-            rs.next();
-            PreparedStatement pst2 = conn.prepareStatement("Select * from moves where number = ?");
-            pst2.setString(1, enemypokemonList[counter_pokemon]+"");
-            ResultSet rs1= pst2.executeQuery();
+            PreparedStatement pst1 = conn.prepareStatement("Select * from moves where number = ?");
+            pst1.setString(1, pokemonlist[current_pokemon] + "");
+            ResultSet rs1 = pst1.executeQuery();
             rs1.next();
-            Random rand= new Random();                              
-            int value= rand.nextInt(4);
-            if(rs1.getInt("damage"+(value+1))<rs.getInt("damage"+count)){
-               if(Enemy_attack(value)==true){
-                    if(attack("damage"+count,"player")==false){
-                        announce2.setText("The Enemy's  "+rs1.getString("name")+" has been defeated");
+            PreparedStatement pst2 = conn.prepareStatement("Select * from moves where number = ?");
+            pst2.setString(1, enemypokemonList[counter_pokemon] + "");
+            ResultSet rs2 = pst2.executeQuery();
+            rs2.next();
+            Random rand = new Random();
+            int value = rand.nextInt(4);
+            if (rs2.getInt("damage" + (value + 1)) < rs1.getInt("damage" + count)) {
+                if (Enemy_attack(value) == true) {
+                    if (attack("damage" + count, "player") == false) {
+                        announce2.setText("The Enemy's  " + rs2.getString("name") + " has been defeated");
                         win++;
-                        if(win==6){
+                        if (win == 6) {
                             nextBtn.setVisible(true);
                             nextBtn.setText("Next");
+                        } else {
+                            change_enemypokemon();
                         }
-                        else change_enemypokemon();
+                    } else {
+                        announce2.setText("Enemy pokemon first attacks");
                     }
-                    else announce2.setText("Enemy pokemon first attacks");
-                    announce.setText(rs.getString("name")+" uses "+rs.getString("attack"+count));
-               }
-               else{
-                   announce2.setText("The Player's"+rs.getString("name")+" has been defeated");
+                    announce.setText(rs1.getString("name") + " uses " + rs1.getString("attack" + count));
+                } else {
+                    announce2.setText("The Player's" + rs1.getString("name") + " has been defeated");
                     lose++;
-                    if(lose==6){
+                    if (lose == 6) {
                         nextBtn.setVisible(true);
                         nextBtn.setText("Exit");
-                   }
-               }
-            }
-            else{
-                announce.setText(rs.getString("name")+" uses "+rs.getString("attack"+count));
-                if(attack("damage"+count,"player")==true){
-                    announce.setText(rs.getString("name")+" uses "+rs.getString("attack"+count));
-                    if(Enemy_attack(value)==false){
-                        announce2.setText("The Player's"+rs.getString("name")+" has been defeated");
+                    }
+                }
+            } else {
+                announce.setText(rs1.getString("name") + " uses " + rs1.getString("attack" + count));
+                if (attack("damage" + count, "player") == true) {
+                    announce.setText(rs1.getString("name") + " uses " + rs1.getString("attack" + count));
+                    if (Enemy_attack(value) == false) {
+                        announce2.setText("The Player's" + rs1.getString("name") + " has been defeated");
                         lose++;
-                        if(lose==6){
-                        nextBtn.setVisible(true);
-                        nextBtn.setText("Exit");
-                   }
+                        if (lose == 6) {
+                            nextBtn.setVisible(true);
+                            nextBtn.setText("Exit");
+                        }
                     }
                     announce2.setText("Player pokemon first attacks");
-                }
-                else{
-                    announce2.setText("The Enemy's "+rs1.getString("name")+" has been defeated");
+                } else {
+                    announce2.setText("The Enemy's " + rs2.getString("name") + " has been defeated");
                     win++;
-                    if(win==6){
+                    if (win == 6) {
                         nextBtn.setVisible(true);
                         nextBtn.setText("Next");
+                    } else {
+                        change_enemypokemon();
                     }
-                    else change_enemypokemon();
                 }
             }
             conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
+    }
+
     /**
      * @param args the command line arguments
      */
-     public void change_enemypokemon(){
+    public void change_enemypokemon() {
         counter_pokemon++;
         try {
             changeEnemyPokemonImage(enemypokemonList[counter_pokemon]);
@@ -655,13 +658,14 @@ public class PokemonBattle extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             rs.next();
             enemyPokemonName.setText(rs.getString("Name"));
-            enemylife.setText(rs.getInt("HP")+"");
-            enemyLifeBar.setValue(100);
+            enemyLifeBarLabel.setText(rs.getInt("HP") + "");
+            enemyLifeBarProgressBar.setValue(100);
             conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -709,17 +713,17 @@ public class PokemonBattle extends javax.swing.JFrame {
     private javax.swing.JButton attack4;
     private javax.swing.JButton attackBtn;
     private javax.swing.JLabel enemy;
-    private javax.swing.JProgressBar enemyLifeBar;
+    private javax.swing.JLabel enemyLifeBarLabel;
+    private javax.swing.JProgressBar enemyLifeBarProgressBar;
+    private javax.swing.JLabel enemyPokemonImage;
     private javax.swing.JLabel enemyPokemonName;
-    private javax.swing.JLabel enemylife;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lifeBarLabel;
-    private javax.swing.JProgressBar lifeBarProgressBar;
     private javax.swing.JButton nextBtn;
-    private javax.swing.JLabel pokemonImage;
+    private javax.swing.JLabel playerLifeBarLabel;
+    private javax.swing.JProgressBar playerLifeBarProgressBar;
+    private javax.swing.JLabel playerPokemonImage;
     private javax.swing.JLabel pokemonName;
-    private javax.swing.JLabel pokemon_enemy;
     private javax.swing.JButton switchBtn;
     // End of variables declaration//GEN-END:variables
 
@@ -741,7 +745,7 @@ public class PokemonBattle extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println("Error");
         }
-        System.out.println("enemy marker");
+//        System.out.println("enemy marker");
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
@@ -754,7 +758,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 System.out.println(enemypokemonList[i - 1]);
             }
             changeEnemyPokemonImage(enemypokemonList[counter_pokemon]);
-            System.out.println("image should have changed by now");
+//            System.out.println("image should have changed by now");
             conn.close();
         } catch (Exception e) {
             System.out.println("Error");
@@ -776,7 +780,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             attack2.setText(rs.getString("attack2"));
             attack3.setText(rs.getString("attack3"));
             attack4.setText(rs.getString("attack4"));
-            lifeBarLabel.setText((lifeBarProgressBar.getValue()*rs.getInt("HP"))/100+"");
+            playerLifeBarLabel.setText((playerLifeBarProgressBar.getValue() * rs.getInt("HP")) / 100 + "");
             changeUserPokemonImage(pokemonlist[pokemonNumber]);
             conn.close();
         } catch (ClassNotFoundException ex) {
@@ -792,7 +796,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             rs.next();
             enemyPokemonName.setText(rs.getString("Name"));
-            enemylife.setText(enemyLifeBar.getValue()*(rs.getInt("HP"))/100+"");
+            enemyLifeBarLabel.setText(enemyLifeBarProgressBar.getValue() * (rs.getInt("HP")) / 100 + "");
             conn.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
@@ -801,6 +805,10 @@ public class PokemonBattle extends javax.swing.JFrame {
 
     void setPokemon(int current_pokemon) throws SQLException {
         initPokemon(user, current_pokemon);
+    }
+
+    private void initLife() {
+        
     }
 
 }
