@@ -538,7 +538,11 @@ public class PokemonBattle extends javax.swing.JFrame {
 
     private void switchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchBtnActionPerformed
         PokemonSwitch switcher = new PokemonSwitch(pokemonlist, playerLives, currentPokemon,this);
+        
         switcher.setVisible(true);
+        Random rand = new Random();
+        int value = rand.nextInt(4);
+        enemyAttack(value);
     }//GEN-LAST:event_switchBtnActionPerformed
     private double findBonus(String type, String enemy) throws SQLException {
         double bonus = 1;
