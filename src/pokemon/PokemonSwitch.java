@@ -28,8 +28,9 @@ public class PokemonSwitch extends javax.swing.JFrame {
     PokemonBattle battleGUI = null;
     int current_pokemon;
     int[] lives;
-
-    PokemonSwitch(int[] pokemons, int[] livesInt, int current_pokemon, PokemonBattle aThis) {
+    int enemyattacks=0;//0=enemy attacks after switch,  1=enemy doesn't atack after switch
+    
+    PokemonSwitch(int[] pokemons, int[] livesInt, int current_pokemon, PokemonBattle aThis, int enemyattacks) {
         lives = livesInt;
         this.current_pokemon = current_pokemon;
         battleGUI = aThis;
@@ -38,6 +39,7 @@ public class PokemonSwitch extends javax.swing.JFrame {
         this.setLocation((size.width - this.getSize().width) / 2, (size.height - this.getSize().height) / 2);
         JLabel[] pokemonLogos = {pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6};
         JProgressBar[] lives = {life1, life2, life3, life4, life5, life6};
+        this.enemyattacks=enemyattacks;
         for (int i = 0; i < 6; i++) {
 //            System.out.println(pokemons[i]);
             pokemonLogos[i].setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/" + pokemons[i] + ".png")));
@@ -154,8 +156,8 @@ public class PokemonSwitch extends javax.swing.JFrame {
             if (lives[0] <= 0) {
                 JOptionPane.showMessageDialog(null, "You cannot select this pokemon, select another one");
             } else {
-                battleGUI.setPokemon(0);
                 battleGUI.currentPokemon = 0;
+                battleGUI.setPokemon(enemyattacks,0);
                 this.dispose();
             }
 
@@ -177,8 +179,8 @@ public class PokemonSwitch extends javax.swing.JFrame {
             if (lives[1] <= 0) {
                 JOptionPane.showMessageDialog(null, "You cannot select this pokemon, select another one");
             } else {
-                battleGUI.setPokemon(1);
                 battleGUI.currentPokemon = 1;
+                battleGUI.setPokemon(enemyattacks,1);
                 this.dispose();
             }
 
@@ -195,8 +197,8 @@ public class PokemonSwitch extends javax.swing.JFrame {
             if (lives[2] <= 0) {
                 JOptionPane.showMessageDialog(null, "You cannot select this pokemon, select another one");
             } else {
-                battleGUI.setPokemon(2);
                 battleGUI.currentPokemon = 2;
+                battleGUI.setPokemon(enemyattacks,2);
                 this.dispose();
             }
         } catch (SQLException ex) {
@@ -211,8 +213,8 @@ public class PokemonSwitch extends javax.swing.JFrame {
             if (lives[3] <= 0) {
                 JOptionPane.showMessageDialog(null, "You cannot select this pokemon, select another one");
             } else {
-                battleGUI.setPokemon(3);
                 battleGUI.currentPokemon = 3;
+                battleGUI.setPokemon(enemyattacks,3);
                 this.dispose();
             }
         } catch (SQLException ex) {
@@ -227,8 +229,8 @@ public class PokemonSwitch extends javax.swing.JFrame {
             if (lives[4] <= 0) {
                 JOptionPane.showMessageDialog(null, "You cannot select this pokemon, select another one");
             } else {
-                battleGUI.setPokemon(4);
                 battleGUI.currentPokemon = 4;
+                battleGUI.setPokemon(enemyattacks,4);
                 this.dispose();
             }
         } catch (SQLException ex) {
@@ -244,9 +246,9 @@ public class PokemonSwitch extends javax.swing.JFrame {
             if(lives[5]<=0){
                 JOptionPane.showMessageDialog(null, "You cannot select this pokemon, select another one");
             }else{
-            battleGUI.setPokemon(5);
-            battleGUI.currentPokemon = 5;
-            this.dispose();
+                battleGUI.currentPokemon = 5;
+                battleGUI.setPokemon(enemyattacks,5);
+                this.dispose();
             }
         } catch (SQLException ex) {
             Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);

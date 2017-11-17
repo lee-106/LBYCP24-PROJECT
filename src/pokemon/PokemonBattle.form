@@ -144,10 +144,7 @@
                               <Component id="switchBtn" alignment="1" min="-2" pref="99" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="nextBtn" min="-2" pref="99" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="nextBtn" alignment="1" min="-2" pref="99" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
