@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 
 /**
@@ -23,30 +24,27 @@ public class PokemonSwitch extends javax.swing.JFrame {
     /**
      * Creates new form PokemonSwitch
      */
+    
     PokemonBattle battleGUI = null;
-    int current_pokemon; 
+    int current_pokemon;
     int[] lives;
-    PokemonSwitch(int[] pokemons, int[] livesPercentage, int current_pokemon, PokemonBattle aThis) {
-        lives=livesPercentage;
+
+    PokemonSwitch(int[] pokemons, int[] livesInt, int current_pokemon, PokemonBattle aThis) {
+        lives = livesInt;
         this.current_pokemon = current_pokemon;
-        battleGUI=aThis;
+        battleGUI = aThis;
         initComponents();
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((size.width - this.getSize().width) / 2, (size.height - this.getSize().height) / 2);
-        JLabel[] pokemonLogos = {pokemon1,pokemon2,pokemon3,pokemon4,pokemon5,pokemon6};
-        JProgressBar[] lives = {life1,life2,life3,life4,life5,life6};
-        for(int i=0;i<6;i++)
-        {   if(i<6-current_pokemon){
+        JLabel[] pokemonLogos = {pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6};
+        JProgressBar[] lives = {life1, life2, life3, life4, life5, life6};
+        for (int i = 0; i < 6; i++) {
 //            System.out.println(pokemons[i]);
-            pokemonLogos[i].setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/"+pokemons[i+current_pokemon]+".png" )));
-            lives[i].setValue(livesPercentage[i]);
-        }else{
-            System.out.println(pokemons[i]);
-            pokemonLogos[i].setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/"+pokemons[i+current_pokemon-6]+".png" )));
-            lives[i].setValue(livesPercentage[i]);
+            pokemonLogos[i].setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_PC/" + pokemons[i] + ".png")));
+            lives[i].setValue(livesInt[i] * 100 / battleGUI.playerMaxLives[i]);
+
         }
-        }
-        
+
     }
 
     /**
@@ -58,6 +56,7 @@ public class PokemonSwitch extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        noticeLabel = new javax.swing.JLabel();
         pokemon1 = new javax.swing.JLabel();
         pokemon2 = new javax.swing.JLabel();
         pokemon3 = new javax.swing.JLabel();
@@ -82,13 +81,16 @@ public class PokemonSwitch extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        noticeLabel.setText("Select the pokemon you want to use");
+        getContentPane().add(noticeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+
         pokemon1.setText("1");
         pokemon1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pokemon1MouseClicked(evt);
             }
         });
-        getContentPane().add(pokemon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 23, -1, -1));
+        getContentPane().add(pokemon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         pokemon2.setText("2");
         pokemon2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -96,7 +98,7 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 pokemon2MouseClicked(evt);
             }
         });
-        getContentPane().add(pokemon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 55, -1, -1));
+        getContentPane().add(pokemon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
         pokemon3.setText("3");
         pokemon3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -104,7 +106,7 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 pokemon3MouseClicked(evt);
             }
         });
-        getContentPane().add(pokemon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 87, -1, -1));
+        getContentPane().add(pokemon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         pokemon4.setText("4");
         pokemon4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -112,7 +114,7 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 pokemon4MouseClicked(evt);
             }
         });
-        getContentPane().add(pokemon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 119, -1, -1));
+        getContentPane().add(pokemon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         pokemon5.setText("5");
         pokemon5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -120,7 +122,7 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 pokemon5MouseClicked(evt);
             }
         });
-        getContentPane().add(pokemon5, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 151, -1, -1));
+        getContentPane().add(pokemon5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         pokemon6.setText("6");
         pokemon6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -128,13 +130,13 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 pokemon6MouseClicked(evt);
             }
         });
-        getContentPane().add(pokemon6, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 183, -1, -1));
-        getContentPane().add(life1, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 23, -1, -1));
-        getContentPane().add(life2, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 55, -1, -1));
-        getContentPane().add(life3, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 87, -1, -1));
-        getContentPane().add(life4, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 119, 148, -1));
-        getContentPane().add(life5, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 151, 148, -1));
-        getContentPane().add(life6, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 183, 148, -1));
+        getContentPane().add(pokemon6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        getContentPane().add(life1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
+        getContentPane().add(life2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+        getContentPane().add(life3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
+        getContentPane().add(life4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 148, -1));
+        getContentPane().add(life5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 148, -1));
+        getContentPane().add(life6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 148, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Battle_Frontier_logo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
@@ -149,12 +151,19 @@ public class PokemonSwitch extends javax.swing.JFrame {
     private void pokemon1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokemon1MouseClicked
         try {
             // TODO add your handling code here:
-            battleGUI.setPokemon(current_pokemon);
+            if (lives[0] <= 0) {
+                JOptionPane.showMessageDialog(null, "You cannot select this pokemon, select another one");
+            } else {
+                battleGUI.setPokemon(0);
+                battleGUI.currentPokemon = 0;
+                this.dispose();
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.dispose();
-        battleGUI.current_pokemon = current_pokemon;
+
+
     }//GEN-LAST:event_pokemon1MouseClicked
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
@@ -165,88 +174,84 @@ public class PokemonSwitch extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            if(current_pokemon+1<6){
-                battleGUI.setPokemon(current_pokemon+1);
-                battleGUI.current_pokemon = current_pokemon+1;
-            }else{
-                battleGUI.setPokemon(current_pokemon+1-6);
-                battleGUI.current_pokemon = current_pokemon+1-6;
+            if (lives[1] <= 0) {
+                JOptionPane.showMessageDialog(null, "You cannot select this pokemon, select another one");
+            } else {
+                battleGUI.setPokemon(1);
+                battleGUI.currentPokemon = 1;
+                this.dispose();
             }
+
         } catch (SQLException ex) {
             Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.dispose();
+
     }//GEN-LAST:event_pokemon2MouseClicked
 
     private void pokemon3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokemon3MouseClicked
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            if(current_pokemon+1<6){
-                battleGUI.setPokemon(current_pokemon+2);
-                
-                battleGUI.current_pokemon = current_pokemon+2;
-            }else{
-                battleGUI.setPokemon(current_pokemon+2-6);
-                
-                battleGUI.current_pokemon = current_pokemon+2-6;
+            if (lives[2] <= 0) {
+                JOptionPane.showMessageDialog(null, "You cannot select this pokemon, select another one");
+            } else {
+                battleGUI.setPokemon(2);
+                battleGUI.currentPokemon = 2;
+                this.dispose();
             }
         } catch (SQLException ex) {
             Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.dispose();
+
     }//GEN-LAST:event_pokemon3MouseClicked
 
     private void pokemon4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokemon4MouseClicked
         // TODO add your handling code here:
         try {
-            // TODO add your handling code here:
-            if(current_pokemon+1<6){
-                battleGUI.setPokemon(current_pokemon+3);
-                battleGUI.current_pokemon = current_pokemon+3;
-            }else{
-                battleGUI.setPokemon(current_pokemon+3-6);
-                battleGUI.current_pokemon = current_pokemon+3-6;
+            if (lives[3] <= 0) {
+                JOptionPane.showMessageDialog(null, "You cannot select this pokemon, select another one");
+            } else {
+                battleGUI.setPokemon(3);
+                battleGUI.currentPokemon = 3;
+                this.dispose();
             }
         } catch (SQLException ex) {
             Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.dispose();
+
     }//GEN-LAST:event_pokemon4MouseClicked
 
     private void pokemon5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokemon5MouseClicked
         // TODO add your handling code here:
         try {
-            // TODO add your handling code here:
-            if(current_pokemon+1<6){
-                battleGUI.setPokemon(current_pokemon+4);
-                battleGUI.current_pokemon = current_pokemon+4;
-            }else{
-                battleGUI.setPokemon(current_pokemon+4-6);
-                battleGUI.current_pokemon = current_pokemon+4-6;
+            if (lives[4] <= 0) {
+                JOptionPane.showMessageDialog(null, "You cannot select this pokemon, select another one");
+            } else {
+                battleGUI.setPokemon(4);
+                battleGUI.currentPokemon = 4;
+                this.dispose();
             }
         } catch (SQLException ex) {
             Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.dispose();
+
     }//GEN-LAST:event_pokemon5MouseClicked
 
     private void pokemon6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokemon6MouseClicked
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            if(current_pokemon+1<6){
-                battleGUI.setPokemon(current_pokemon+5);
-                battleGUI.current_pokemon = current_pokemon+5;
+            if(lives[5]<=0){
+                JOptionPane.showMessageDialog(null, "You cannot select this pokemon, select another one");
             }else{
-                battleGUI.setPokemon(current_pokemon+5-6);
-                battleGUI.current_pokemon = current_pokemon+5-6;
-                
+            battleGUI.setPokemon(5);
+            battleGUI.currentPokemon = 5;
+            this.dispose();
             }
         } catch (SQLException ex) {
             Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.dispose();
+        
     }//GEN-LAST:event_pokemon6MouseClicked
 
     /**
@@ -277,9 +282,10 @@ public class PokemonSwitch extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        
     }
-
+    public void setNotice(String text){
+        noticeLabel.setText(text);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -290,6 +296,7 @@ public class PokemonSwitch extends javax.swing.JFrame {
     private javax.swing.JProgressBar life4;
     private javax.swing.JProgressBar life5;
     private javax.swing.JProgressBar life6;
+    private javax.swing.JLabel noticeLabel;
     private javax.swing.JLabel pokemon1;
     private javax.swing.JLabel pokemon2;
     private javax.swing.JLabel pokemon3;

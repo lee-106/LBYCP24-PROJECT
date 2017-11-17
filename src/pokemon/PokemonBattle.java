@@ -7,8 +7,6 @@ package pokemon;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.io.File;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,7 +16,6 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
@@ -31,12 +28,14 @@ public class PokemonBattle extends javax.swing.JFrame {
      * Creates new form PokemonBattle
      */
     int[] pokemonlist = {1, 4, 7, 25, 144, 145};
-    int[] enemypokemonList = {1, 4, 7, 25, 144, 145};
-    int[] lives = {100, 100, 100, 100, 100, 100};
-    public int current_pokemon = 0;//array index, zero based 0-5 only, first pokemon = 0, second =1 and so on.
+    int[] enemyPokemonList = {1, 4, 7, 25, 144, 145};
+    int[] playerLives = {100, 100, 100, 100, 100, 100};
+    public int[] playerMaxLives = {100, 100, 100, 100, 100, 100};
+    int[] enemyLives = {100, 100, 100, 100, 100, 100};
+    public int currentPokemon = 0;//array index, zero based 0-5 only, first pokemon = 0, second =1 and so on.
     String[] trainers = {"Alder", "Brycen", "Cynthia", "Cilan", "Iris", "Drayden"};
     int counter_enemy = 0;//enemy trainer
-    int counter_pokemon = 0;//enemy pokemon
+    int enemyPokemonCounter = 0;//enemy pokemon
     int lose = 0;//count of pokemon lost
     int win = 0;//count of pokemon defeated
     int gender;
@@ -48,17 +47,14 @@ public class PokemonBattle extends javax.swing.JFrame {
         this.setLocation((size.width - this.getSize().width) / 2, (size.height - this.getSize().height) / 2);
     }
 
-    public PokemonBattle(String user, int gender, int count_enemy) throws SQLException {
-        
-        
+    public PokemonBattle(String user, int gender, int count_enemy) throws SQLException, ClassNotFoundException {
         initComponents();
         attack1.setVisible(false);
         attack2.setVisible(false);
         attack3.setVisible(false);
         attack4.setVisible(false);
         nextBtn.setVisible(false);
-        playerLifeBarProgressBar.setValue(100);
-        enemyLifeBarProgressBar.setValue(100);
+        
         this.user = user;
         counter_enemy = count_enemy;
         ImageIcon bbry = null;
@@ -71,16 +67,18 @@ public class PokemonBattle extends javax.swing.JFrame {
         playerLifeBarProgressBar.setValue(100);
         enemyLifeBarProgressBar.setValue(100);
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
-        initPokemon(user, 0);
+
         this.setLocation((size.width - this.getSize().width) / 2, (size.height - this.getSize().height) / 2);
-        initLife();
+        initPokemonLists();
+        initLives();
+        initPokemon(user, 0);
     }
 
-    public boolean Enemy_attack(int value) {
+    public boolean enemyAttack(int value) {
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             PreparedStatement pst = conn.prepareStatement("Select * from moves where number = ?");
-            pst.setString(1, enemypokemonList[counter_pokemon] + "");
+            pst.setString(1, enemyPokemonList[enemyPokemonCounter] + "");
             ResultSet rs = pst.executeQuery();
             rs.next();
             switch (value) {
@@ -372,7 +370,7 @@ public class PokemonBattle extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void switchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchBtnActionPerformed
-        PokemonSwitch switcher = new PokemonSwitch(pokemonlist, lives, current_pokemon, this);
+        PokemonSwitch switcher = new PokemonSwitch(pokemonlist, playerLives, currentPokemon,this);
         switcher.setVisible(true);
     }//GEN-LAST:event_switchBtnActionPerformed
 
@@ -402,57 +400,61 @@ public class PokemonBattle extends javax.swing.JFrame {
     private void playerLifeBarProgressBarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_playerLifeBarProgressBarStateChanged
 
     }//GEN-LAST:event_playerLifeBarProgressBarStateChanged
-    private boolean attack(String att, String attacker) throws SQLException {
+    private boolean attack(String attackDamage, String attacker) throws SQLException {
         String type = "";
         String enemytype = "";
         int damage = 0;
-        int value = Integer.parseInt(att.charAt(6) + "");
+        int value = Integer.parseInt(attackDamage.charAt(6) + "");
         double bonus = 1;
         if (attacker.equals("player")) {
+            //getting the attack damage and type of the player pokemon
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
                 PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
-                pst.setString(1, pokemonlist[0] + "");
+                pst.setString(1, pokemonlist[currentPokemon] + "");
                 ResultSet rs = pst.executeQuery();
                 rs.next();
                 type = rs.getString("type" + value);
                 System.out.println(type + "");
-                damage = rs.getInt(att);
+                damage = rs.getInt(attackDamage);
                 conn.close();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
-                PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
-                pst.setString(1, enemypokemonList[counter_enemy] + "");
-                ResultSet rs = pst.executeQuery();
-                rs.next();
-                enemytype = rs.getString("Type");
-                System.out.println(enemytype + "");
-                conn.close();
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            //getting the pokemon type of the enemy pokemon
+//            try {
+//                Class.forName("com.mysql.jdbc.Driver");
+//                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
+//                PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
+//                pst.setString(1, enemypokemonList[counter_enemy] + "");
+//                ResultSet rs = pst.executeQuery();
+//                rs.next();
+//                enemytype = rs.getString("Type");
+//                System.out.println(enemytype + "");
+//                conn.close();
+//            } catch (ClassNotFoundException ex) {
+//                Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
-            pst.setString(1, enemypokemonList[counter_pokemon] + "");
+            pst.setString(1, enemyPokemonList[enemyPokemonCounter] + "");
             ResultSet rs = pst.executeQuery();
             rs.next();
             enemytype = rs.getString("type" + value);
             System.out.println(enemytype + "");
-            damage = rs.getInt(att);
+            damage = rs.getInt(attackDamage);
             bonus = findBonus(enemytype, type);
-            int life = Integer.parseInt(enemyLifeBarLabel.getText());
-            int out = (int) (life - (damage * bonus));
+            int life = enemyLives[enemyPokemonCounter];
+            enemyLives[enemyPokemonCounter] = (int) (life - (damage * bonus));
             System.out.println("damage= " + damage);
             System.out.println("bonus= " + bonus);
-            System.out.println("enemy life= " + out);
-            enemyLifeBarProgressBar.setValue(out * 100 / rs.getInt("HP"));
-            if (out > 0) {
-                enemyLifeBarLabel.setText(out + "");
+            System.out.println("enemy life= " + enemyLives[enemyPokemonCounter]);
+            enemyLifeBarProgressBar.setValue(enemyLives[enemyPokemonCounter] * 100 / rs.getInt("HP"));
+
+            if (enemyLives[enemyPokemonCounter] > 0) {
+                enemyLifeBarLabel.setText(enemyLives[enemyPokemonCounter] + "");
             } else {
                 enemyLifeBarLabel.setText("0");
                 return false;
@@ -474,21 +476,21 @@ public class PokemonBattle extends javax.swing.JFrame {
             }
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
-            pst.setString(1, enemypokemonList[counter_pokemon] + "");
+            pst.setString(1, enemyPokemonList[enemyPokemonCounter] + "");
             ResultSet rs = pst.executeQuery();
             rs.next();
             enemytype = rs.getString("type" + value);
             System.out.println(enemytype + "");
-            damage = rs.getInt(att);
+            damage = rs.getInt(attackDamage);
             bonus = findBonus(enemytype, type);
-            int life = Integer.parseInt(playerLifeBarLabel.getText());
-            int out = (int) (life - (damage * bonus));
+            int life = playerLives[currentPokemon];
+            playerLives[currentPokemon] = (int) (life - (damage * bonus));
             System.out.println("damage= " + damage);
             System.out.println("bonus= " + bonus);
-            System.out.println("player life= " + out);
-            playerLifeBarProgressBar.setValue((out * 100 / rs.getInt("HP")));
-            if (out > 0) {
-                playerLifeBarLabel.setText(out + "");
+            System.out.println("player life= " + playerLives[currentPokemon]);
+            playerLifeBarProgressBar.setValue((playerLives[currentPokemon] * 100 / playerMaxLives[currentPokemon]));
+            if (playerLives[currentPokemon] > 0) {
+                playerLifeBarLabel.setText(playerLives[currentPokemon] + "");
             } else {
                 playerLifeBarLabel.setText("0");
                 return false;
@@ -537,19 +539,19 @@ public class PokemonBattle extends javax.swing.JFrame {
         return bonus;
     }
     private void attack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack1ActionPerformed
-        before_attack(1);
+        beforeAttack(1);
     }//GEN-LAST:event_attack1ActionPerformed
 
     private void attack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack2ActionPerformed
-        before_attack(2);
+        beforeAttack(2);
     }//GEN-LAST:event_attack2ActionPerformed
 
     private void attack3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack3ActionPerformed
-        before_attack(3);
+        beforeAttack(3);
     }//GEN-LAST:event_attack3ActionPerformed
 
     private void attack4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack4ActionPerformed
-        before_attack(4);
+        beforeAttack(4);
     }//GEN-LAST:event_attack4ActionPerformed
 
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
@@ -573,7 +575,7 @@ public class PokemonBattle extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_nextBtnActionPerformed
 
-    public void before_attack(int count) {
+    public void beforeAttack(int count) {
         switchBtn.setVisible(true);
         attackBtn.setVisible(true);
         attack1.setVisible(false);
@@ -583,17 +585,17 @@ public class PokemonBattle extends javax.swing.JFrame {
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             PreparedStatement pst1 = conn.prepareStatement("Select * from moves where number = ?");
-            pst1.setString(1, pokemonlist[current_pokemon] + "");
+            pst1.setString(1, pokemonlist[currentPokemon] + "");
             ResultSet rs1 = pst1.executeQuery();
             rs1.next();
             PreparedStatement pst2 = conn.prepareStatement("Select * from moves where number = ?");
-            pst2.setString(1, enemypokemonList[counter_pokemon] + "");
+            pst2.setString(1, enemyPokemonList[enemyPokemonCounter] + "");
             ResultSet rs2 = pst2.executeQuery();
             rs2.next();
             Random rand = new Random();
             int value = rand.nextInt(4);
             if (rs2.getInt("damage" + (value + 1)) < rs1.getInt("damage" + count)) {
-                if (Enemy_attack(value) == true) {
+                if (enemyAttack(value) == true) {
                     if (attack("damage" + count, "player") == false) {
                         announce2.setText("The Enemy's  " + rs2.getString("name") + " has been defeated");
                         win++;
@@ -601,7 +603,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                             nextBtn.setVisible(true);
                             nextBtn.setText("Next");
                         } else {
-                            change_enemypokemon();
+                            changeEnemyPokemon();
                         }
                     } else {
                         announce2.setText("Enemy pokemon first attacks");
@@ -610,6 +612,9 @@ public class PokemonBattle extends javax.swing.JFrame {
                 } else {
                     announce2.setText("The Player's" + rs1.getString("name") + " has been defeated");
                     lose++;
+                    PokemonSwitch switcher = new PokemonSwitch(pokemonlist, playerLives, currentPokemon,this);
+                    switcher.setVisible(true);
+                    switcher.setNotice("Your pokemon fainted, select another pokemon");
                     if (lose == 6) {
                         nextBtn.setVisible(true);
                         nextBtn.setText("Exit");
@@ -619,7 +624,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 announce.setText(rs1.getString("name") + " uses " + rs1.getString("attack" + count));
                 if (attack("damage" + count, "player") == true) {
                     announce.setText(rs1.getString("name") + " uses " + rs1.getString("attack" + count));
-                    if (Enemy_attack(value) == false) {
+                    if (enemyAttack(value) == false) {
                         announce2.setText("The Player's" + rs1.getString("name") + " has been defeated");
                         lose++;
                         if (lose == 6) {
@@ -635,7 +640,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                         nextBtn.setVisible(true);
                         nextBtn.setText("Next");
                     } else {
-                        change_enemypokemon();
+                        changeEnemyPokemon();
                     }
                 }
             }
@@ -648,13 +653,13 @@ public class PokemonBattle extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public void change_enemypokemon() {
-        counter_pokemon++;
+    public void changeEnemyPokemon() {
+        enemyPokemonCounter++;
         try {
-            changeEnemyPokemonImage(enemypokemonList[counter_pokemon]);
+            changeEnemyPokemonImage(enemyPokemonList[enemyPokemonCounter]);
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
-            pst.setString(1, enemypokemonList[counter_pokemon] + "");
+            pst.setString(1, enemyPokemonList[enemyPokemonCounter] + "");
             ResultSet rs = pst.executeQuery();
             rs.next();
             enemyPokemonName.setText(rs.getString("Name"));
@@ -729,7 +734,78 @@ public class PokemonBattle extends javax.swing.JFrame {
 
     private void initPokemon(String user, int pokemon_order) throws SQLException {
         changeEnemyImage(trainers[counter_enemy]);
-        System.out.println("marker");
+//        System.out.println("marker");
+
+        try {
+            //select from user database to get the pokemon list
+            //select the first pokemon, then display it.
+
+            int pokemonNumber = pokemon_order;
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
+
+            PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
+            pst.setString(1, pokemonlist[pokemonNumber] + "");
+            ResultSet rs = pst.executeQuery();
+            rs.next();
+            pokemonName.setText(rs.getString("Name"));
+            attack1.setText(rs.getString("attack1"));
+            attack2.setText(rs.getString("attack2"));
+            attack3.setText(rs.getString("attack3"));
+            attack4.setText(rs.getString("attack4"));
+            playerLifeBarLabel.setText(playerLives[pokemonNumber]+"");
+            changeUserPokemonImage(pokemonlist[pokemonNumber]);
+            changeEnemyPokemonImage(enemyPokemonList[enemyPokemonCounter]);
+            conn.close();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            int pokemonNum = counter_enemy;
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
+
+            PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
+            pst.setString(1, enemyPokemonList[pokemonNum] + "");
+            ResultSet rs = pst.executeQuery();
+            rs.next();
+            enemyPokemonName.setText(rs.getString("Name"));
+            enemyLifeBarLabel.setText(enemyLifeBarProgressBar.getValue() * (rs.getInt("HP")) / 100 + "");
+            conn.close();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    void setPokemon(int current_pokemon) throws SQLException {
+        initPokemon(user, current_pokemon);
+        playerLifeBarProgressBar.setValue(playerLives[current_pokemon]*100/playerMaxLives[current_pokemon]);
+    }
+
+    private void initLives() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
+//getting the life of the pokemons of the player
+        PreparedStatement pst1 = conn.prepareStatement("Select * from moves where Number = ?");
+        for (int i = 0; i < 6; i++) {
+            pst1.setString(1, pokemonlist[i] + "");
+            ResultSet rs = pst1.executeQuery();
+            rs.next();
+            playerLives[i] = Integer.parseInt(rs.getString("HP"));
+            playerMaxLives[i] = Integer.parseInt(rs.getString("HP"));
+        }
+//getting the life of the pokemons of the enemy   
+        PreparedStatement pst2 = conn.prepareStatement("Select * from moves where Number = ?");
+        for (int i = 0; i < 6; i++) {
+            pst2.setString(1, enemyPokemonList[i] + "");
+            ResultSet rs = pst2.executeQuery();
+            rs.next();
+            enemyLives[i] = Integer.parseInt(rs.getString("HP"));
+        }
+        conn.close();
+    }
+
+    private void initPokemonLists() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon_user?" + "user=root&password=");
@@ -754,61 +830,15 @@ public class PokemonBattle extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             rs.next();
             for (int i = 1; i <= 6; i++) {
-                enemypokemonList[i - 1] = Integer.parseInt(rs.getString("pokemon" + i));
-                System.out.println(enemypokemonList[i - 1]);
+                enemyPokemonList[i - 1] = Integer.parseInt(rs.getString("pokemon" + i));
+                System.out.println(enemyPokemonList[i - 1]);
             }
-            changeEnemyPokemonImage(enemypokemonList[counter_pokemon]);
+
 //            System.out.println("image should have changed by now");
             conn.close();
         } catch (Exception e) {
             System.out.println("Error");
         }
-        try {
-            //select from user database to get the pokemon list
-            //select the first pokemon, then display it.
-
-            int pokemonNumber = pokemon_order;
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
-
-            PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
-            pst.setString(1, pokemonlist[pokemonNumber] + "");
-            ResultSet rs = pst.executeQuery();
-            rs.next();
-            pokemonName.setText(rs.getString("Name"));
-            attack1.setText(rs.getString("attack1"));
-            attack2.setText(rs.getString("attack2"));
-            attack3.setText(rs.getString("attack3"));
-            attack4.setText(rs.getString("attack4"));
-            playerLifeBarLabel.setText((playerLifeBarProgressBar.getValue() * rs.getInt("HP")) / 100 + "");
-            changeUserPokemonImage(pokemonlist[pokemonNumber]);
-            conn.close();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            int pokemonNum = counter_enemy;
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
-
-            PreparedStatement pst = conn.prepareStatement("Select * from moves where Number = ?");
-            pst.setString(1, enemypokemonList[pokemonNum] + "");
-            ResultSet rs = pst.executeQuery();
-            rs.next();
-            enemyPokemonName.setText(rs.getString("Name"));
-            enemyLifeBarLabel.setText(enemyLifeBarProgressBar.getValue() * (rs.getInt("HP")) / 100 + "");
-            conn.close();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    void setPokemon(int current_pokemon) throws SQLException {
-        initPokemon(user, current_pokemon);
-    }
-
-    private void initLife() {
-        
     }
 
 }

@@ -434,6 +434,8 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             } catch (SQLException ex) {
                 Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
             }
             this.dispose();
             }
@@ -467,6 +469,8 @@ public class PokemonIntro extends javax.swing.JFrame {
                 this.dispose();
                 break;
             } catch (SQLException ex) {
+                Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
             }
             this.dispose();
@@ -504,6 +508,8 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             } catch (SQLException ex) {
                 Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
             }
             this.dispose();
                 break;
@@ -538,6 +544,8 @@ public class PokemonIntro extends javax.swing.JFrame {
                 this.dispose();
                 break;
             } catch (SQLException ex) {
+                Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
             }
             this.dispose();
@@ -574,6 +582,8 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             } catch (SQLException ex) {
                 Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
             }
             this.dispose();
                 break;
@@ -607,6 +617,8 @@ public class PokemonIntro extends javax.swing.JFrame {
                 this.dispose();
                 break;
             } catch (SQLException ex) {
+                Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PokemonIntro.class.getName()).log(Level.SEVERE, null, ex);
             }
             this.dispose();
