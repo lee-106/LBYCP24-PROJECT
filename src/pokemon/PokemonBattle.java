@@ -81,7 +81,6 @@ public class PokemonBattle extends javax.swing.JFrame {
             pst.setString(1, enemyPokemonList[enemyPokemonCounter] + "");
             ResultSet rs = pst.executeQuery();
             rs.next();
-            announce1.setText(rs.getString("name") + " use " + rs.getString("attack1")+". Deals "+rs.getInt("damage"+(value+1))+" damage");
             conn.close();
             return attack("damage"+(value+1), "enemy");
         } catch (SQLException ex) {
@@ -352,6 +351,7 @@ public class PokemonBattle extends javax.swing.JFrame {
         double bonus = 1;
         if (attacker.equals("player")) {
             //getting the attack damage and type of the player pokemon
+            String temp="";
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
@@ -362,6 +362,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 type = rs.getString("type" + value);
                 System.out.println(type + "");
                 damage = rs.getInt(attackDamage);
+                temp=(rs.getString("name") + " uses " + rs.getString("attack" + value));
                 conn.close();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
@@ -378,6 +379,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             bonus = findBonus(type, enemytype);
             int life = enemyLives[enemyPokemonCounter];
             enemyLives[enemyPokemonCounter] = (int) (life - (damage * bonus));
+            announce.setText(temp+". Deals "+(int) (damage*bonus)+" damage");
             System.out.println("damage= " + damage);
             System.out.println("bonus= " + bonus);
             System.out.println("enemy life= " + enemyLives[enemyPokemonCounter]);
@@ -420,6 +422,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             System.out.println("bonus= " + bonus);
             System.out.println("player life= " + playerLives[currentPokemon]);
             playerLifeBarProgressBar.setValue((playerLives[currentPokemon] * 100 / playerMaxLives[currentPokemon]));
+            announce1.setText(rs.getString("name") + " uses " + rs.getString("attack"+value)+". Deals "+(int)(damage*bonus)+" damage");
             if (playerLives[currentPokemon] > 0) {
                 playerLifeBarLabel.setText(playerLives[currentPokemon] + "");
             } else {
@@ -558,7 +561,6 @@ public class PokemonBattle extends javax.swing.JFrame {
                     } else {
                         announce2.setText("Enemy pokemon attacks first");
                     }
-                    announce.setText(rs1.getString("name") + " uses " + rs1.getString("attack" + count)+". Deals "+rs1.getInt("damage"+count)+" damage");
                 } else {
                     announce2.setText("The Player's" + rs1.getString("name") + " has been defeated");
                     lose++;
@@ -576,7 +578,6 @@ public class PokemonBattle extends javax.swing.JFrame {
                 }
             } else {
                 if (attack("damage" + count, "player") == true) {
-                    announce.setText(rs1.getString("name") + " uses " + rs1.getString("attack" + count)+". Deals "+rs1.getInt("damage"+count)+" damage");
                     if (enemyAttack(value) == false) {
                         announce2.setText("The Player's " + rs1.getString("name") + " has been defeated");
                         lose++;
