@@ -18,6 +18,8 @@ public class PokemonPC extends javax.swing.JFrame {
      */
     public PokemonPC() {
         initComponents();
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Pokemon-Java/Pokeball.PNG")));
+        
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
     }

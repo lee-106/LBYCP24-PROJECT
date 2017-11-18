@@ -28,6 +28,8 @@ public class PokemonRegister extends javax.swing.JFrame {
     public PokemonRegister() throws SQLException {
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?" + "user=root&password=");
         data=conn.createStatement();
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Pokemon-Java/Pokeball.PNG")));
+        
         initComponents();
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);

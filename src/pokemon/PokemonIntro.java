@@ -30,8 +30,11 @@ public class PokemonIntro extends javax.swing.JFrame {
      * Creates new form PokemonIntro
      */
     public PokemonIntro(String user,int progress,int gender) throws SQLException {
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?" + "user=root&password=");
         initComponents();
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Pokemon-Java/Pokeball.PNG")));
+        
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?" + "user=root&password=");
+        
         jButton2.setVisible(false);
         jButton3.setVisible(false);
         jButton5.setVisible(false);

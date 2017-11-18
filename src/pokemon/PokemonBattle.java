@@ -51,6 +51,7 @@ public class PokemonBattle extends javax.swing.JFrame {
 
     public PokemonBattle(String user, int gender, int count_enemy) throws SQLException, ClassNotFoundException {
         initComponents();  
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Pokemon-Java/Pokeball.PNG")));
         attack1.setVisible(false);
         attack2.setVisible(false);
         attack3.setVisible(false);

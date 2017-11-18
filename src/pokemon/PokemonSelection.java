@@ -29,6 +29,8 @@ public class PokemonSelection extends javax.swing.JFrame {
      */
     public PokemonSelection(String user,int gender) {
         initComponents();
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Pokemon-Java/Pokeball.PNG")));
+        
         this.user = user;
         this.gender=gender;
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();

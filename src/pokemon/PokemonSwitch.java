@@ -35,6 +35,8 @@ public class PokemonSwitch extends javax.swing.JFrame {
         this.current_pokemon = current_pokemon;
         battleGUI = aThis;
         initComponents();
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Pokemon-Java/Pokeball.PNG")));
+        
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((size.width - this.getSize().width) / 2, (size.height - this.getSize().height) / 2);
         JLabel[] pokemonLogos = {pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6};

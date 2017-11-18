@@ -28,7 +28,10 @@ public class PokemonLogIn extends javax.swing.JFrame {
      * Creates new form LogIn
      */
     public PokemonLogIn() throws FileNotFoundException, SQLException {
+        
         initComponents();
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Pokemon-Java/Pokeball.PNG")));
+        
         update_database();
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((size.width-this.getSize().width)/2,(size.height-this.getSize().height)/2);
