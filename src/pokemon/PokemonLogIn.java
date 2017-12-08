@@ -131,7 +131,6 @@ public class PokemonLogIn extends javax.swing.JFrame {
         if(validate_login(jTextField1.getText(),jPasswordField1.getText())){
             String user=jTextField1.getText();
             try {
-                JOptionPane.showMessageDialog(null, "Correct Credentials");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon_user?" + "user=root&password=");
                 PreparedStatement pst = conn.prepareStatement("Select * from login where username=?");
                 pst.setString(1,user+ "");

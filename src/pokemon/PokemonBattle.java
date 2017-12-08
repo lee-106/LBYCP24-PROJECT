@@ -5,8 +5,11 @@
  */
 package pokemon;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,6 +19,9 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 import javax.swing.*;
 
 /**
@@ -40,6 +46,7 @@ public class PokemonBattle extends javax.swing.JFrame {
     int win = 0;//count of pokemon defeated
     int gender;
     String user;
+    Color buttonClr = Color.orange;
 
     public PokemonBattle() throws SQLException {
         initComponents();
@@ -50,15 +57,16 @@ public class PokemonBattle extends javax.swing.JFrame {
     }
 
     public PokemonBattle(String user, int gender, int count_enemy) throws SQLException, ClassNotFoundException {
-        initComponents();  
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Pokemon-Java/Pokeball.PNG")));
-        attack1.setVisible(false);
-        attack2.setVisible(false);
-        attack3.setVisible(false);
-        attack4.setVisible(false);
+        initComponents();
         nextBtn.setVisible(false);
-        proceedBtn.setVisible(false);
-        this.gender=gender;
+        switchBtn.setBackground(buttonClr);
+        attack1.setBackground(buttonClr);
+        attack2.setBackground(buttonClr);
+        attack3.setBackground(buttonClr);
+        attack4.setBackground(buttonClr);
+        nextBtn.setBackground(buttonClr);
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Pokemon-Java/Pokeball.PNG")));
+        this.gender = gender;
         this.user = user;
         counter_enemy = count_enemy;
         ImageIcon bbry = null;
@@ -76,9 +84,12 @@ public class PokemonBattle extends javax.swing.JFrame {
         initPokemonLists();
         initLives();
         initPokemon(user, 0);
+        announce2.setText("Pokemon Trainer "+trainers[counter_enemy]+" has challenged you into a Pokemon Battle");
+        announce.setText(trainers[counter_enemy]+" chose "+enemyPokemonName.getText());
+        announce1.setText("You chose "+pokemonName.getText());
     }
 
-    public boolean enemyAttack(int value) {
+    public boolean enemyAttack(int value) throws InterruptedException {
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             PreparedStatement pst = conn.prepareStatement("Select * from moves where number = ?");
@@ -86,7 +97,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             rs.next();
             conn.close();
-            return attack("damage"+(value+1), "enemy");
+            return attack("damage" + (value + 1), "enemy");
         } catch (SQLException ex) {
             Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -109,9 +120,10 @@ public class PokemonBattle extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
         jPanel1 = new javax.swing.JPanel();
         switchBtn = new javax.swing.JButton();
-        attackBtn = new javax.swing.JButton();
         attack1 = new javax.swing.JButton();
         attack2 = new javax.swing.JButton();
         attack3 = new javax.swing.JButton();
@@ -120,7 +132,6 @@ public class PokemonBattle extends javax.swing.JFrame {
         announce1 = new javax.swing.JLabel();
         announce2 = new javax.swing.JLabel();
         announce = new javax.swing.JLabel();
-        proceedBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         playerPokemonImage = new javax.swing.JLabel();
         enemy = new javax.swing.JLabel();
@@ -135,6 +146,8 @@ public class PokemonBattle extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
+        jInternalFrame1.setVisible(true);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -148,16 +161,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             }
         });
         jPanel1.add(switchBtn);
-        switchBtn.setBounds(270, 40, 151, 25);
-
-        attackBtn.setText("Attack");
-        attackBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                attackBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(attackBtn);
-        attackBtn.setBounds(60, 40, 147, 25);
+        switchBtn.setBounds(360, 90, 80, 60);
 
         attack1.setText("Attack1");
         attack1.addActionListener(new java.awt.event.ActionListener() {
@@ -166,7 +170,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             }
         });
         jPanel1.add(attack1);
-        attack1.setBounds(60, 20, 147, 25);
+        attack1.setBounds(40, 90, 147, 25);
 
         attack2.setText("Attack2");
         attack2.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +179,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             }
         });
         jPanel1.add(attack2);
-        attack2.setBounds(60, 70, 147, 25);
+        attack2.setBounds(40, 120, 147, 25);
 
         attack3.setText("Attack3");
         attack3.addActionListener(new java.awt.event.ActionListener() {
@@ -184,7 +188,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             }
         });
         jPanel1.add(attack3);
-        attack3.setBounds(270, 20, 151, 25);
+        attack3.setBounds(190, 90, 151, 25);
 
         attack4.setText("Attack4");
         attack4.addActionListener(new java.awt.event.ActionListener() {
@@ -193,33 +197,25 @@ public class PokemonBattle extends javax.swing.JFrame {
             }
         });
         jPanel1.add(attack4);
-        attack4.setBounds(270, 70, 151, 25);
+        attack4.setBounds(190, 120, 151, 25);
 
-        nextBtn.setText(" ");
+        nextBtn.setFont(new java.awt.Font("Antigone-Cd", 0, 18)); // NOI18N
+        nextBtn.setText("Next");
         nextBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextBtnActionPerformed(evt);
             }
         });
         jPanel1.add(nextBtn);
-        nextBtn.setBounds(340, 10, 130, 25);
+        nextBtn.setBounds(20, 100, 440, 50);
         jPanel1.add(announce1);
-        announce1.setBounds(10, 80, 444, 20);
+        announce1.setBounds(20, 60, 444, 20);
         jPanel1.add(announce2);
-        announce2.setBounds(10, 20, 444, 17);
+        announce2.setBounds(20, 20, 444, 17);
         jPanel1.add(announce);
-        announce.setBounds(10, 50, 444, 17);
+        announce.setBounds(20, 40, 444, 17);
 
-        proceedBtn.setText(">");
-        proceedBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                proceedBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(proceedBtn);
-        proceedBtn.setBounds(430, 10, 41, 25);
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 480, 120));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 480, 170));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Male.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 133, -1, -1));
@@ -288,7 +284,8 @@ public class PokemonBattle extends javax.swing.JFrame {
     private void playerLifeBarProgressBarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_playerLifeBarProgressBarStateChanged
 
     }//GEN-LAST:event_playerLifeBarProgressBarStateChanged
-    private boolean attack(String attackDamage, String attacker) throws SQLException {
+    private boolean attack(String attackDamage, String attacker) throws SQLException, InterruptedException {
+        
         String type = "";
         String enemytype = "";
         int damage = 0;
@@ -296,7 +293,7 @@ public class PokemonBattle extends javax.swing.JFrame {
         double bonus = 1;
         if (attacker.equals("player")) {
             //getting the attack damage and type of the player pokemon
-            String temp="";
+            String temp = "";
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
@@ -307,7 +304,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 type = rs.getString("type" + value);
                 System.out.println(type + "");
                 damage = rs.getInt(attackDamage);
-                temp=(rs.getString("name") + " uses " + rs.getString("attack" + value));
+                temp = (rs.getString("name") + " uses " + rs.getString("attack" + value));
                 conn.close();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
@@ -325,19 +322,15 @@ public class PokemonBattle extends javax.swing.JFrame {
             int life = enemyLives[enemyPokemonCounter];
             enemyLives[enemyPokemonCounter] = (int) (life - (damage * bonus));
             String notif = "";
-            if(bonus==2){
+            if (bonus == 2) {
                 notif = ". It was super effective";
-            } else if(bonus==0){
+            } else if (bonus == 0) {
                 notif = ". It had no effect";
-            } else if((bonus<1)&&(bonus>0)){
+            } else if ((bonus < 1) && (bonus > 0)) {
                 notif = ". It was not very effective";
             }
             announce.setVisible(true);
-            announce2.setVisible(true);
-            announce.setText(temp+notif+". Dealt "+(int) (damage*bonus)+" damage");
-            attackBtn.setVisible(false);
-            switchBtn.setVisible(false);
-            proceedBtn.setVisible(true);
+            announce.setText(temp + notif + ". Dealt " + (int) (damage * bonus) + " damage");
             System.out.println("damage= " + damage);
             System.out.println("bonus= " + bonus);
             System.out.println("enemy life= " + enemyLives[enemyPokemonCounter]);
@@ -349,7 +342,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                 enemyLifeBarLabel.setText("0");
                 return false;
             }
-            
+
             conn.close();
         } else {
             try {
@@ -379,21 +372,18 @@ public class PokemonBattle extends javax.swing.JFrame {
             System.out.println("damage= " + damage);
             System.out.println("bonus= " + bonus);
             String notif = "";
-            if(bonus==2){
+            if (bonus == 2) {
                 notif = ". It was super effective";
-            } else if(bonus==0){
+            } else if (bonus == 0) {
                 notif = ". It had no effect";
-            } else if((bonus<1)&&(bonus>0)){
+            } else if ((bonus < 1) && (bonus > 0)) {
                 notif = ". It was not very effective";
             }
             System.out.println("player life= " + playerLives[currentPokemon]);
             playerLifeBarProgressBar.setValue((playerLives[currentPokemon] * 100 / playerMaxLives[currentPokemon]));
             announce1.setVisible(true);
             announce2.setVisible(true);
-            announce1.setText(rs.getString("name") + " uses " + rs.getString("attack"+value)+notif+". Dealt "+(int)(damage*bonus)+" damage");
-            attackBtn.setVisible(false);
-            switchBtn.setVisible(false);
-            proceedBtn.setVisible(true);
+            announce1.setText(rs.getString("name") + " uses " + rs.getString("attack" + value) + notif + ". Dealt " + (int) (damage * bonus) + " damage");
             if (playerLives[currentPokemon] > 0) {
                 playerLifeBarLabel.setText(playerLives[currentPokemon] + "");
             } else {
@@ -411,7 +401,6 @@ public class PokemonBattle extends javax.swing.JFrame {
 
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
         PokemonIntro a = null;
-        attackBtn.setVisible(false);
         switchBtn.setVisible(false);
         if (nextBtn.getText().equals("Next")) {
             try {
@@ -431,46 +420,44 @@ public class PokemonBattle extends javax.swing.JFrame {
     }//GEN-LAST:event_nextBtnActionPerformed
 
     private void attack4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack4ActionPerformed
-        beforeAttack(4);
+        try {
+            beforeAttack(4);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_attack4ActionPerformed
 
     private void attack3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack3ActionPerformed
-        beforeAttack(3);
+        try {
+            beforeAttack(3);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_attack3ActionPerformed
 
     private void attack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack2ActionPerformed
-        beforeAttack(2);
+        try {
+            beforeAttack(2);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_attack2ActionPerformed
 
     private void attack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attack1ActionPerformed
-        beforeAttack(1);
+        try {
+            beforeAttack(1);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PokemonBattle.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_attack1ActionPerformed
 
-    private void attackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackBtnActionPerformed
-        switchBtn.setVisible(false);
-        attackBtn.setVisible(false);
-        attack1.setVisible(true);
-        attack2.setVisible(true);
-        attack3.setVisible(true);
-        attack4.setVisible(true);
-    }//GEN-LAST:event_attackBtnActionPerformed
-
     private void switchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchBtnActionPerformed
-        PokemonSwitch switcher = new PokemonSwitch(pokemonlist, playerLives, currentPokemon,this,1);
+        PokemonSwitch switcher = new PokemonSwitch(pokemonlist, playerLives, currentPokemon, this, 1);
         switcher.setVisible(true);
         Random rand = new Random();
         int value = rand.nextInt(4);
         announce.setText("");
     }//GEN-LAST:event_switchBtnActionPerformed
-
-    private void proceedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proceedBtnActionPerformed
-        attackBtn.setVisible(true);
-        switchBtn.setVisible(true);
-        announce.setVisible(false);
-        announce1.setVisible(false);
-        announce2.setVisible(false);
-        proceedBtn.setVisible(false);
-    }//GEN-LAST:event_proceedBtnActionPerformed
     private double findBonus(String type, String enemy) throws SQLException {
         double bonus = 1;
         try {
@@ -506,14 +493,13 @@ public class PokemonBattle extends javax.swing.JFrame {
         }
         return bonus;
     }
-    public void beforeAttack(int count) {
+
+    public void beforeAttack(int count) throws InterruptedException {
         announce2.setVisible(true);
         switchBtn.setVisible(true);
-        attackBtn.setVisible(true);
-        attack1.setVisible(false);
-        attack2.setVisible(false);
-        attack3.setVisible(false);
-        attack4.setVisible(false);
+        announce.setText("");
+        announce1.setText("");
+        announce2.setText("");
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon?" + "user=root&password=");
             PreparedStatement pst1 = conn.prepareStatement("Select * from moves where number = ?");
@@ -532,33 +518,111 @@ public class PokemonBattle extends javax.swing.JFrame {
                         announce2.setText("The Enemy's  " + rs2.getString("name") + " has been defeated.");
                         win++;
                         if (win == 6) {
-                            announce2.setText("You won. All of the enemy's pokemon was defeated.");
-                            proceedBtn.setVisible(false);
-                            attackBtn.setVisible(false);
-                            switchBtn.setVisible(false);
-                            nextBtn.setVisible(true);
-                            nextBtn.setText("Next");
+                            Timer t=new Timer();
+                            Timer t2=new Timer();
+                            TimerTask tt= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    count++;
+                                    enemyPokemonImage.setLocation(enemyPokemonImage.getLocation().x, enemyPokemonImage.getLocation().y+5);
+                                    if(count>20)t.cancel();
+                                }
+                            };
+                            t.schedule(tt, 1200,100);
+                            TimerTask tt2= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    announce2.setText("You won. All of the enemy's pokemon was defeated.");
+                                    switchBtn.setVisible(false);
+                                    nextBtn.setVisible(true);
+                                    attack1.setVisible(false);
+                                    attack2.setVisible(false);
+                                    attack3.setVisible(false);
+                                    attack4.setVisible(false);
+                                    enemyPokemonImage.setVisible(false);
+                                    nextBtn.setText("Next");
+                                    t2.cancel();
+                                }
+                            };
+                            t2.schedule(tt2, 3200,50);
                         } else {
-                            changeEnemyPokemon();
+                            Timer t=new Timer();
+                            Timer t2=new Timer();
+                            TimerTask tt= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    count++;
+                                    enemyPokemonImage.setLocation(enemyPokemonImage.getLocation().x, enemyPokemonImage.getLocation().y+5);
+                                    if(count>20)t.cancel();
+                                }
+                            };
+                            t.schedule(tt, 1200,100);
+                            TimerTask tt2= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    changeEnemyPokemon();
+                                    t2.cancel();
+                                }
+                            };
+                            t2.schedule(tt2, 3200,50);
                         }
                     } else {
                         announce2.setText("Enemy pokemon attacks first");
+                        atkAnimation(0);
                     }
                 } else {
                     announce2.setText("The Player's " + rs1.getString("name") + " has been defeated.");
                     lose++;
                     if (lose == 6) {
-                        announce2.setText("You lost. All of your pokemon was defeated.");
-                        proceedBtn.setVisible(false);
-                        attackBtn.setVisible(false);
-                        switchBtn.setVisible(false);
-                        nextBtn.setVisible(true);
-                        nextBtn.setText("Exit");
-                    }
-                    else{
-                        PokemonSwitch switcher = new PokemonSwitch(pokemonlist, playerLives, currentPokemon,this,0);
-                        switcher.setVisible(true);
-                        switcher.setNotice("Your pokemon fainted, select another pokemon");
+                        Timer t= new Timer();
+                        Timer t2=new Timer();
+                            TimerTask tt= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    count++;
+                                    playerPokemonImage.setLocation(playerPokemonImage.getLocation().x, playerPokemonImage.getLocation().y+5);
+                                    if(count>20)t.cancel();
+                                }
+                            };
+                            t.schedule(tt, 1200,100);
+                            TimerTask tt2= new TimerTask(){
+                                int count=0;
+                                public void run(){       
+                                    announce2.setText("You lost. All of your pokemon was defeated.");
+                                    switchBtn.setVisible(false);
+                                    nextBtn.setVisible(true);
+                                    attack1.setVisible(false);
+                                    attack2.setVisible(false);
+                                    attack3.setVisible(false);
+                                    attack4.setVisible(false);
+                                    playerPokemonImage.setVisible(false);
+                                    nextBtn.setText("Exit");
+                                    t2.cancel();
+                                }
+                            };
+                            t2.schedule(tt2, 3200,50);
+                    } else {
+                        Timer t= new Timer();
+                        Timer t2=new Timer();
+                            TimerTask tt= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    count++;
+                                    playerPokemonImage.setLocation(playerPokemonImage.getLocation().x, playerPokemonImage.getLocation().y+5);
+                                    if(count>20)t.cancel();
+                                }
+                            };
+                            t.schedule(tt, 1200,100);
+                            TimerTask tt2= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    PokemonSwitch switcher = new PokemonSwitch(pokemonlist, playerLives, currentPokemon, PokemonBattle.this, 0);
+                                    switcher.setVisible(true);
+                                    switcher.setNotice("Your pokemon fainted, select another pokemon");
+                                    t2.cancel();
+                                }
+                            };
+                            t2.schedule(tt2, 3200,50);
                     }
                 }
             } else {
@@ -566,33 +630,110 @@ public class PokemonBattle extends javax.swing.JFrame {
                     if (enemyAttack(value) == false) {
                         announce2.setText("The Player's " + rs1.getString("name") + " has been defeated.");
                         lose++;
-                        if (lose == 6) {
-                            announce2.setText("You lost. All of your pokemon was defeated.");
-                            proceedBtn.setVisible(false);
-                            attackBtn.setVisible(false);
-                            switchBtn.setVisible(false);
-                            nextBtn.setVisible(true);
-                            nextBtn.setText("Exit");
-                        }
-                        else{
-                            PokemonSwitch switcher = new PokemonSwitch(pokemonlist, playerLives, currentPokemon,this,0);
-                            switcher.setVisible(true);
-                            switcher.setNotice("Your pokemon fainted, select another pokemon");
+                        if (lose == 6) {Timer t=new Timer();
+                            Timer t2=new Timer();
+                            TimerTask tt= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    count++;
+                                    playerPokemonImage.setLocation(playerPokemonImage.getLocation().x, playerPokemonImage.getLocation().y+5);
+                                    if(count>20)t.cancel();
+                                }
+                            };
+                            t.schedule(tt, 1400,100);
+                            TimerTask tt2= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    announce2.setText("You lost. All of your pokemon was defeated.");
+                                    switchBtn.setVisible(false);
+                                    nextBtn.setVisible(true);
+                                    attack1.setVisible(false);
+                                    attack2.setVisible(false);
+                                    attack3.setVisible(false);
+                                    attack4.setVisible(false);
+                                    nextBtn.setText("Exit");
+                                    t2.cancel();
+                                }
+                            };
+                            t2.schedule(tt2, 2700,50);
+                        } else {
+                            Timer t=new Timer();
+                            Timer t2=new Timer();
+                            TimerTask tt= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    count++;
+                                    playerPokemonImage.setLocation(playerPokemonImage.getLocation().x, playerPokemonImage.getLocation().y+5);
+                                    if(count>20)t.cancel();
+                                }
+                            };
+                            t.schedule(tt, 1400,100);
+                            TimerTask tt2= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    PokemonSwitch switcher = new PokemonSwitch(pokemonlist, playerLives, currentPokemon, PokemonBattle.this, 0);
+                                    switcher.setVisible(true);
+                                    switcher.setNotice("Your pokemon fainted, select another pokemon");
+                                    t2.cancel();
+                                }
+                                    
+                            };
+                            t2.schedule(tt2, 2700,50);
                         }
                     }
+                    atkAnimation(1);
                     announce2.setText("Player pokemon attacks first");
                 } else {
                     announce2.setText("The Enemy's " + rs2.getString("name") + " has been defeated.");
                     win++;
                     if (win == 6) {
-                        announce2.setText("You won. All of the enemy's pokemon was defeated.");
-                        proceedBtn.setVisible(false);
-                        attackBtn.setVisible(false);
-                        switchBtn.setVisible(false);
-                        nextBtn.setVisible(true);
-                        nextBtn.setText("Next");
+                        Timer t=new Timer();
+                            Timer t2=new Timer();
+                            TimerTask tt= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    count++;
+                                    enemyPokemonImage.setLocation(enemyPokemonImage.getLocation().x, enemyPokemonImage.getLocation().y+5);
+                                    if(count>20)t.cancel();
+                                }
+                            };
+                            t.schedule(tt, 1200,100);
+                            TimerTask tt2= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    announce2.setText("You won. All of the enemy's pokemon was defeated.");
+                                    switchBtn.setVisible(false);
+                                    nextBtn.setVisible(true);
+                                    attack1.setVisible(false);
+                                    attack2.setVisible(false);
+                                    attack3.setVisible(false);
+                                    attack4.setVisible(false);
+                                    enemyPokemonImage.setVisible(false);
+                                    nextBtn.setText("Next");
+                                    t2.cancel();
+                                }
+                            };
+                            t2.schedule(tt2, 3200,50);
                     } else {
-                        changeEnemyPokemon();
+                        Timer t=new Timer();
+                            Timer t2=new Timer();
+                            TimerTask tt= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    count++;
+                                    enemyPokemonImage.setLocation(enemyPokemonImage.getLocation().x, enemyPokemonImage.getLocation().y+5);
+                                    if(count>20)t.cancel();
+                                }
+                            };
+                            t.schedule(tt, 1200,100);
+                            TimerTask tt2= new TimerTask(){
+                                int count=0;
+                                public void run(){
+                                    changeEnemyPokemon();
+                                    t2.cancel();
+                                }
+                            };
+                            t2.schedule(tt2, 3200,50);
                     }
                 }
             }
@@ -614,7 +755,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             pst.setString(1, enemyPokemonList[enemyPokemonCounter] + "");
             ResultSet rs = pst.executeQuery();
             rs.next();
-            announce2.setText(announce2.getText()+" "+rs.getString("name")+" was called out.");
+            announce2.setText(announce2.getText() + " " + rs.getString("name") + " was called out.");
             enemyPokemonName.setText(rs.getString("Name"));
             enemyLifeBarLabel.setText(rs.getInt("HP") + "");
             enemyLifeBarProgressBar.setValue(100);
@@ -669,23 +810,23 @@ public class PokemonBattle extends javax.swing.JFrame {
     private javax.swing.JButton attack2;
     private javax.swing.JButton attack3;
     private javax.swing.JButton attack4;
-    private javax.swing.JButton attackBtn;
     private javax.swing.JLabel enemy;
     private javax.swing.JLabel enemyLifeBarLabel;
     private javax.swing.JProgressBar enemyLifeBarProgressBar;
     private javax.swing.JLabel enemyPokemonImage;
     private javax.swing.JLabel enemyPokemonName;
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton nextBtn;
     private javax.swing.JLabel playerLifeBarLabel;
     private javax.swing.JProgressBar playerLifeBarProgressBar;
     private javax.swing.JLabel playerPokemonImage;
     private javax.swing.JLabel pokemonName;
-    private javax.swing.JButton proceedBtn;
     private javax.swing.JButton switchBtn;
     // End of variables declaration//GEN-END:variables
 
@@ -710,7 +851,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             attack2.setText(rs.getString("attack2"));
             attack3.setText(rs.getString("attack3"));
             attack4.setText(rs.getString("attack4"));
-            playerLifeBarLabel.setText(playerLives[pokemonNumber]+"");
+            playerLifeBarLabel.setText(playerLives[pokemonNumber] + "");
             changeUserPokemonImage(pokemonlist[pokemonNumber]);
             changeEnemyPokemonImage(enemyPokemonList[enemyPokemonCounter]);
             conn.close();
@@ -733,14 +874,17 @@ public class PokemonBattle extends javax.swing.JFrame {
         }
     }
 
-    void setPokemon(int enemyattacks,int current_pokemon) throws SQLException {
+    void setPokemon(int enemyattacks, int current_pokemon) throws SQLException, InterruptedException {
         initPokemon(user, current_pokemon);
-        announce2.setText("Player switched to the Pokemon "+ pokemonName.getText());
-        playerLifeBarProgressBar.setValue(playerLives[current_pokemon]*100/playerMaxLives[current_pokemon]);
+        announce2.setText("Player switched to the Pokemon " + pokemonName.getText());
+        playerLifeBarProgressBar.setValue(playerLives[current_pokemon] * 100 / playerMaxLives[current_pokemon]);
         playerLifeBarLabel.setText(playerLives[currentPokemon] + "");
         Random rand = new Random();
-        int value= rand.nextInt(4);
-        if(enemyattacks==1) enemyAttack(value);
+        int value = rand.nextInt(4);
+        if (enemyattacks == 1) {
+            atkAnimation(2);
+            enemyAttack(value);
+        }
     }
 
     private void initLives() throws ClassNotFoundException, SQLException {
@@ -801,5 +945,44 @@ public class PokemonBattle extends javax.swing.JFrame {
             System.out.println("Error");
         }
     }
-
+    public void atkAnimation(int type ) throws InterruptedException{
+        Timer t = new Timer();
+        Timer t2= new Timer();
+        TimerTask tt= new TimerTask(){
+            int count=0;
+            public void run(){
+                count++;
+                if(count<=5)enemyPokemonImage.setLocation(enemyPokemonImage.getLocation().x-3, enemyPokemonImage.getLocation().y);
+                if(count>5)enemyPokemonImage.setLocation(enemyPokemonImage.getLocation().x+3, enemyPokemonImage.getLocation().y);
+                if(count>11)t.cancel();
+                if(count%2==0)playerPokemonImage.setLocation(playerPokemonImage.getLocation().x-5, playerPokemonImage.getLocation().y);
+                if(count%2!=0)playerPokemonImage.setLocation(playerPokemonImage.getLocation().x+5, playerPokemonImage.getLocation().y);
+            }
+        };
+        TimerTask tt2= new TimerTask(){
+            int count=0;
+            public void run(){
+                count++;
+                if(count<=5)playerPokemonImage.setLocation(playerPokemonImage.getLocation().x+3, playerPokemonImage.getLocation().y);
+                if(count>5)playerPokemonImage.setLocation(playerPokemonImage.getLocation().x-3, playerPokemonImage.getLocation().y);
+                if(count>11)t2.cancel();
+                if(count%2==0)enemyPokemonImage.setLocation(enemyPokemonImage.getLocation().x-5, enemyPokemonImage.getLocation().y);
+                if(count%2!=0)enemyPokemonImage.setLocation(enemyPokemonImage.getLocation().x+5, enemyPokemonImage.getLocation().y);
+            }
+        };
+        if(type==0){
+            t.scheduleAtFixedRate(tt, 0, 60);
+            t2.scheduleAtFixedRate(tt2, 1000, 60);
+        }
+        else if(type==1){
+            t2.scheduleAtFixedRate(tt2, 0, 60);
+            t.scheduleAtFixedRate(tt, 1000, 60);
+        }
+        else if(type==2){
+            t.scheduleAtFixedRate(tt, 0, 60);
+        }
+    }
 }
+
+
+
