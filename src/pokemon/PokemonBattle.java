@@ -5,6 +5,7 @@
  */
 package pokemon;
 
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -38,6 +39,7 @@ public class PokemonBattle extends javax.swing.JFrame {
     int[] playerLives = {100, 100, 100, 100, 100, 100};
     public int[] playerMaxLives = {100, 100, 100, 100, 100, 100};
     int[] enemyLives = {100, 100, 100, 100, 100, 100};
+    
     public int currentPokemon = 0;//array index, zero based 0-5 only, first pokemon = 0, second =1 and so on.
     String[] trainers = {"Alder", "Brycen", "Cynthia", "Cilan", "Iris", "Drayden"};
     int counter_enemy = 0;//enemy trainer
@@ -47,9 +49,10 @@ public class PokemonBattle extends javax.swing.JFrame {
     int gender;
     String user;
     Color buttonClr = Color.orange;
+    JButton[] allBtn=new JButton[5];
 
     public PokemonBattle() throws SQLException {
-        initComponents();
+        initComponents();   
         System.out.println(UIManager.getLookAndFeel());
         System.out.println(UIManager.getSystemLookAndFeelClassName());
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
@@ -58,6 +61,11 @@ public class PokemonBattle extends javax.swing.JFrame {
 
     public PokemonBattle(String user, int gender, int count_enemy) throws SQLException, ClassNotFoundException {
         initComponents();
+        allBtn[0]=attack1;
+        allBtn[1]=attack2;
+        allBtn[2]=attack3;
+        allBtn[3]=attack4;
+        allBtn[4] =switchBtn;
         nextBtn.setVisible(false);
         switchBtn.setBackground(buttonClr);
         attack1.setBackground(buttonClr);
@@ -512,6 +520,7 @@ public class PokemonBattle extends javax.swing.JFrame {
             rs2.next();
             Random rand = new Random();
             int value = rand.nextInt(4);
+            disableKeys();
             if (rs2.getInt("damage" + (value + 1)) < rs1.getInt("damage" + count)) {
                 if (enemyAttack(value) == true) {
                     if (attack("damage" + count, "player") == false) {
@@ -553,7 +562,10 @@ public class PokemonBattle extends javax.swing.JFrame {
                                 public void run(){
                                     count++;
                                     enemyPokemonImage.setLocation(enemyPokemonImage.getLocation().x, enemyPokemonImage.getLocation().y+5);
-                                    if(count>20)t.cancel();
+                                    if(count>20){
+                                        enableKeys();
+                                        t.cancel();
+                                    }
                                 }
                             };
                             t.schedule(tt, 1200,100);
@@ -561,6 +573,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                                 int count=0;
                                 public void run(){
                                     changeEnemyPokemon();
+                                    enableKeys();
                                     t2.cancel();
                                 }
                             };
@@ -609,7 +622,10 @@ public class PokemonBattle extends javax.swing.JFrame {
                                 public void run(){
                                     count++;
                                     playerPokemonImage.setLocation(playerPokemonImage.getLocation().x, playerPokemonImage.getLocation().y+5);
-                                    if(count>20)t.cancel();
+                                    if(count>20){
+                                        enableKeys();
+                                        t.cancel();
+                                    }
                                 }
                             };
                             t.schedule(tt, 1200,100);
@@ -619,6 +635,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                                     PokemonSwitch switcher = new PokemonSwitch(pokemonlist, playerLives, currentPokemon, PokemonBattle.this, 0);
                                     switcher.setVisible(true);
                                     switcher.setNotice("Your pokemon fainted, select another pokemon");
+                                    enableKeys();
                                     t2.cancel();
                                 }
                             };
@@ -664,7 +681,10 @@ public class PokemonBattle extends javax.swing.JFrame {
                                 public void run(){
                                     count++;
                                     playerPokemonImage.setLocation(playerPokemonImage.getLocation().x, playerPokemonImage.getLocation().y+5);
-                                    if(count>20)t.cancel();
+                                    if(count>20){
+                                        enableKeys();
+                                        t.cancel();
+                                    }
                                 }
                             };
                             t.schedule(tt, 1400,100);
@@ -674,6 +694,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                                     PokemonSwitch switcher = new PokemonSwitch(pokemonlist, playerLives, currentPokemon, PokemonBattle.this, 0);
                                     switcher.setVisible(true);
                                     switcher.setNotice("Your pokemon fainted, select another pokemon");
+                                    enableKeys();
                                     t2.cancel();
                                 }
                                     
@@ -722,7 +743,10 @@ public class PokemonBattle extends javax.swing.JFrame {
                                 public void run(){
                                     count++;
                                     enemyPokemonImage.setLocation(enemyPokemonImage.getLocation().x, enemyPokemonImage.getLocation().y+5);
-                                    if(count>20)t.cancel();
+                                    if(count>20){
+                                        enableKeys();
+                                        t.cancel();
+                                    }
                                 }
                             };
                             t.schedule(tt, 1200,100);
@@ -730,6 +754,7 @@ public class PokemonBattle extends javax.swing.JFrame {
                                 int count=0;
                                 public void run(){
                                     changeEnemyPokemon();
+                                    enableKeys();
                                     t2.cancel();
                                 }
                             };
@@ -948,13 +973,14 @@ public class PokemonBattle extends javax.swing.JFrame {
     public void atkAnimation(int type ) throws InterruptedException{
         Timer t = new Timer();
         Timer t2= new Timer();
+        Timer t3= new Timer();
         TimerTask tt= new TimerTask(){
             int count=0;
             public void run(){
                 count++;
                 if(count<=5)enemyPokemonImage.setLocation(enemyPokemonImage.getLocation().x-3, enemyPokemonImage.getLocation().y);
                 if(count>5)enemyPokemonImage.setLocation(enemyPokemonImage.getLocation().x+3, enemyPokemonImage.getLocation().y);
-                if(count>11)t.cancel();
+                if(count>11) t.cancel();
                 if(count%2==0)playerPokemonImage.setLocation(playerPokemonImage.getLocation().x-5, playerPokemonImage.getLocation().y);
                 if(count%2!=0)playerPokemonImage.setLocation(playerPokemonImage.getLocation().x+5, playerPokemonImage.getLocation().y);
             }
@@ -970,16 +996,41 @@ public class PokemonBattle extends javax.swing.JFrame {
                 if(count%2!=0)enemyPokemonImage.setLocation(enemyPokemonImage.getLocation().x+5, enemyPokemonImage.getLocation().y);
             }
         };
+        TimerTask tt3= new TimerTask(){
+            int count=0;
+            public void run(){
+                count++;
+                if(count>11){
+                    enableKeys();
+                    t3.cancel();
+                }
+            }
+        };
         if(type==0){
             t.scheduleAtFixedRate(tt, 0, 60);
+            t3.scheduleAtFixedRate(tt3, 1300, 60);
             t2.scheduleAtFixedRate(tt2, 1000, 60);
         }
         else if(type==1){
             t2.scheduleAtFixedRate(tt2, 0, 60);
+            t3.scheduleAtFixedRate(tt3, 1300, 60);
             t.scheduleAtFixedRate(tt, 1000, 60);
         }
         else if(type==2){
             t.scheduleAtFixedRate(tt, 0, 60);
+            t3.scheduleAtFixedRate(tt3, 1000, 60);
+        }
+    }
+
+    private void disableKeys() {
+        for(int i=0;i<allBtn.length;i++){
+            allBtn[i].setEnabled(false);
+        }
+    }
+    
+    private void enableKeys() {
+        for(int i=0;i<allBtn.length;i++){
+            allBtn[i].setEnabled(true);
         }
     }
 }

@@ -8,6 +8,7 @@ package pokemon;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -15,6 +16,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -50,6 +52,8 @@ public class PokemonIntro extends javax.swing.JFrame {
         this.user=user;
         this.counter=progress;
         this.gender=gender;
+        ImageIcon loadIcon = new ImageIcon("src//Pokemon-Java//source1.gif");
+        jLabel15.setIcon(loadIcon);
         System.out.println(gender);
         jButton1.doClick();
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
@@ -81,6 +85,7 @@ public class PokemonIntro extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -100,47 +105,59 @@ public class PokemonIntro extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("V.S.");
         jLayeredPane6.add(jLabel10);
-        jLabel10.setBounds(240, 170, 230, 110);
+        jLabel10.setBounds(290, 170, 230, 110);
 
         jLabel11.setFont(new java.awt.Font("Yearbook Solid", 3, 80)); // NOI18N
         jLabel11.setText("V.S.");
         jLayeredPane6.add(jLabel11);
-        jLabel11.setBounds(260, 170, 160, 110);
+        jLabel11.setBounds(310, 170, 160, 110);
         jLayeredPane6.add(jLabel9);
-        jLabel9.setBounds(390, 280, 140, 210);
+        jLabel9.setBounds(440, 280, 140, 210);
         jLayeredPane6.add(jLabel8);
-        jLabel8.setBounds(110, 290, 150, 190);
+        jLabel8.setBounds(160, 290, 150, 190);
         jLayeredPane6.add(jLabel2);
-        jLabel2.setBounds(360, 70, 155, 161);
+        jLabel2.setBounds(410, 70, 155, 161);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pokemon-Java/Bianca.png"))); // NOI18N
         jLabel1.setFocusable(false);
         jLayeredPane6.add(jLabel1);
-        jLabel1.setBounds(250, 20, 177, 450);
+        jLabel1.setBounds(290, 50, 177, 450);
         jLayeredPane6.add(jLabel4);
-        jLabel4.setBounds(80, 30, 190, 410);
+        jLabel4.setBounds(130, 30, 190, 410);
 
         jLabel5.setIconTextGap(20);
         jLayeredPane6.add(jLabel5);
-        jLabel5.setBounds(380, 40, 250, 390);
+        jLabel5.setBounds(430, 40, 250, 390);
 
+        jLabel6.setBackground(new java.awt.Color(153, 153, 153));
         jLabel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 0), 8, true));
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLayeredPane6.add(jLabel6);
-        jLabel6.setBounds(40, 30, 270, 410);
+        jLabel6.setBounds(90, 30, 270, 410);
 
+        jLabel7.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 0), 8, true));
         jLabel7.setIconTextGap(20);
         jLayeredPane6.add(jLabel7);
-        jLabel7.setBounds(370, 30, 270, 410);
+        jLabel7.setBounds(420, 30, 270, 410);
 
         jLabel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 20, true));
         jLayeredPane6.add(jLabel12);
-        jLabel12.setBounds(30, 20, 290, 430);
+        jLabel12.setBounds(80, 20, 290, 430);
 
         jLabel13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 20, true));
         jLayeredPane6.add(jLabel13);
-        jLabel13.setBounds(360, 20, 290, 430);
+        jLabel13.setBounds(410, 20, 290, 430);
+        jLayeredPane6.add(jLabel15);
+        jLabel15.setBounds(0, -20, 990, 510);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
+
+        jButton5.setBackground(new java.awt.Color(204, 0, 51));
+        jButton5.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Yes");
         jButton5.setBorderPainted(false);
         jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -149,7 +166,12 @@ public class PokemonIntro extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton5);
+        jButton5.setBounds(50, 40, 60, 25);
 
+        jButton6.setBackground(new java.awt.Color(204, 0, 51));
+        jButton6.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("No");
         jButton6.setHideActionText(true);
         jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -158,7 +180,12 @@ public class PokemonIntro extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton6);
+        jButton6.setBounds(150, 40, 60, 25);
 
+        jButton1.setBackground(new java.awt.Color(204, 0, 0));
+        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Next");
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -166,14 +193,24 @@ public class PokemonIntro extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton1);
+        jButton1.setBounds(540, 40, 70, 25);
 
+        jButton3.setBackground(new java.awt.Color(204, 0, 51));
+        jButton3.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Girl");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton3);
+        jButton3.setBounds(150, 40, 60, 25);
 
+        jButton2.setBackground(new java.awt.Color(204, 0, 51));
+        jButton2.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Boy");
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +218,12 @@ public class PokemonIntro extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton2);
+        jButton2.setBounds(50, 40, 60, 25);
 
+        jButton4.setBackground(new java.awt.Color(204, 0, 0));
+        jButton4.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Save");
         jButton4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -189,96 +231,60 @@ public class PokemonIntro extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton4);
+        jButton4.setBounds(450, 40, 70, 25);
 
+        jButton7.setBackground(new java.awt.Color(204, 0, 0));
+        jButton7.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Open PC");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton7);
+        jButton7.setBounds(320, 40, 100, 25);
 
+        jButton8.setBackground(new java.awt.Color(204, 0, 0));
+        jButton8.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Exit");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton8))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton5)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton6)
-                        .addGap(109, 109, 109)
-                        .addComponent(jButton2)
-                        .addGap(44, 44, 44)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4)))
-                .addGap(132, 132, 132))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton5)
-                        .addComponent(jButton6)
-                        .addComponent(jButton2)
-                        .addComponent(jButton3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton8)
-                    .addComponent(jButton7))
-                .addContainerGap())
-        );
+        jPanel2.add(jButton8);
+        jButton8.setBounds(630, 40, 70, 25);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel3.setText("Hello there! Welcome to the world of Pokémon!  ");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(50, 0, 654, 40);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLayeredPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 1009, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLayeredPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 816, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLayeredPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
+                .addComponent(jLayeredPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 11, 720, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 11, 760, -1));
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
 
         pack();
@@ -328,7 +334,7 @@ public class PokemonIntro extends javax.swing.JFrame {
                 break;
             }
             case 3:{
-                jLabel3.setText("For some people, Pokémon are pets.Others use them for fights.");
+                jLabel3.setText("For some people, Pokémon are pets. Others use them for fights.");
                 break;
             }
             case 4:{
@@ -425,6 +431,7 @@ public class PokemonIntro extends javax.swing.JFrame {
                 jLabel11.setVisible(true);
                 jLabel12.setVisible(true);
                 jLabel13.setVisible(true);
+                jButton7.setVisible(true);
                 if(gender==0){
                     jLabel4.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Rosa-Full.png")));
                     jLabel8.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Rosa-OW.png")));
@@ -437,6 +444,7 @@ public class PokemonIntro extends javax.swing.JFrame {
                 jLabel5.setVisible(true);
                 jLabel5.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Alder-Full.png")));
                 jLabel1.setVisible(false);
+                jLabel15.setVisible(false);
                 jLabel5.setLocation(jLabel5.getLocation().x,jLabel5.getLocation().y+10);
                 jLabel3.setText("Round 1: Alder");
                 break;
@@ -456,12 +464,14 @@ public class PokemonIntro extends javax.swing.JFrame {
             }
             case 20:{
                 jLabel1.setVisible(false);
+                jLabel15.setVisible(false);
                 jLabel6.setVisible(true);
                 jLabel7.setVisible(true);
                 jLabel10.setVisible(true);
                 jLabel11.setVisible(true);
                 jLabel12.setVisible(true);
                 jLabel13.setVisible(true);
+                jButton7.setVisible(true);
                 if(gender==0){
                     jLabel4.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Rosa-Full.png")));
                     jLabel8.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Rosa-OW.png")));
@@ -493,12 +503,14 @@ public class PokemonIntro extends javax.swing.JFrame {
             }
             case 22:{
                 jLabel1.setVisible(false);
+                jLabel15.setVisible(false);
                 jLabel6.setVisible(true);
                 jLabel7.setVisible(true);
                 jLabel10.setVisible(true);
                 jLabel11.setVisible(true);
                 jLabel12.setVisible(true);
                 jLabel13.setVisible(true);
+                jButton7.setVisible(true);
                 if(gender==0){
                     jLabel4.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Rosa-Full.png")));
                     jLabel8.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Rosa-OW.png")));
@@ -531,12 +543,14 @@ public class PokemonIntro extends javax.swing.JFrame {
             }
             case 24:{
                 jLabel1.setVisible(false);
+                jLabel15.setVisible(false);
                 jLabel6.setVisible(true);
                 jLabel7.setVisible(true);
                 jLabel10.setVisible(true);
                 jLabel11.setVisible(true);
                 jLabel12.setVisible(true);
                 jLabel13.setVisible(true);
+                jButton7.setVisible(true);
                 if(gender==0){
                     jLabel4.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Rosa-Full.png")));
                     jLabel8.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Rosa-OW.png")));
@@ -568,12 +582,14 @@ public class PokemonIntro extends javax.swing.JFrame {
             }
             case 26:{
                 jLabel1.setVisible(false);
+                jLabel15.setVisible(false);
                 jLabel6.setVisible(true);
                 jLabel7.setVisible(true);
                 jLabel10.setVisible(true);
                 jLabel11.setVisible(true);
                 jLabel12.setVisible(true);
                 jLabel13.setVisible(true);
+                jButton7.setVisible(true);
                 if(gender==0){
                     jLabel4.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Rosa-Full.png")));
                     jLabel8.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Rosa-OW.png")));
@@ -603,13 +619,16 @@ public class PokemonIntro extends javax.swing.JFrame {
             this.dispose();
                 break;
             }
-            case 28:{jLabel1.setVisible(false);
+            case 28:{
+                jLabel1.setVisible(false);
+                jLabel15.setVisible(false);
                 jLabel6.setVisible(true);
                 jLabel7.setVisible(true);
                 jLabel10.setVisible(true);
                 jLabel11.setVisible(true);
                 jLabel12.setVisible(true);
                 jLabel13.setVisible(true);
+                jButton7.setVisible(true);
                 if(gender==0){
                     jLabel4.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Rosa-Full.png")));
                     jLabel8.setIcon(new ImageIcon(getClass().getResource("/Pokemon-Java/Pokemon_Trainers/Rosa-OW.png")));
@@ -639,6 +658,7 @@ public class PokemonIntro extends javax.swing.JFrame {
             }
             case 30:{
                 jLabel1.setVisible(true);
+                jLabel15.setVisible(true);
                 jLabel3.setVisible(true);
                 jLabel3.setText("Congratulations for completing Battle Frontier!");
                 jButton1.setVisible(false);
@@ -724,6 +744,7 @@ public class PokemonIntro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

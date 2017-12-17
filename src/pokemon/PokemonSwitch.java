@@ -165,6 +165,8 @@ public class PokemonSwitch extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
             Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
@@ -182,13 +184,17 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "You cannot select this pokemon, select another one");
             } else {
                 battleGUI.currentPokemon = 1;
-                battleGUI.setPokemon(enemyattacks,1);
+                try {
+                    battleGUI.setPokemon(enemyattacks,1);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 this.dispose();
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
 
     }//GEN-LAST:event_pokemon2MouseClicked
 
@@ -204,6 +210,8 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 this.dispose();
             }
         } catch (SQLException ex) {
+            Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
             Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -221,6 +229,8 @@ public class PokemonSwitch extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_pokemon4MouseClicked
@@ -232,7 +242,11 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "You cannot select this pokemon, select another one");
             } else {
                 battleGUI.currentPokemon = 4;
-                battleGUI.setPokemon(enemyattacks,4);
+                try {
+                    battleGUI.setPokemon(enemyattacks,4);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 this.dispose();
             }
         } catch (SQLException ex) {
@@ -253,6 +267,8 @@ public class PokemonSwitch extends javax.swing.JFrame {
                 this.dispose();
             }
         } catch (SQLException ex) {
+            Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
             Logger.getLogger(PokemonSwitch.class.getName()).log(Level.SEVERE, null, ex);
         }
         
