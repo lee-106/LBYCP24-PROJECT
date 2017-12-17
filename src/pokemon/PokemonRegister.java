@@ -54,6 +54,7 @@ public class PokemonRegister extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        register.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
         register.setText("REGISTER");
         register.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +62,7 @@ public class PokemonRegister extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
         jButton2.setText("CANCEL");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

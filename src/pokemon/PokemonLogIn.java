@@ -67,6 +67,7 @@ public class PokemonLogIn extends javax.swing.JFrame {
         jLabel2.setText("password:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 221, -1, -1));
 
+        jButton2.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
         jButton2.setText("REGISTER");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +76,7 @@ public class PokemonLogIn extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 279, 116, -1));
 
+        jButton3.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
         jButton3.setText("CANCEL");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +97,7 @@ public class PokemonLogIn extends javax.swing.JFrame {
         jLabel8.setText("username:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 175, -1, -1));
 
+        jButton4.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
         jButton4.setText("LOG IN");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
